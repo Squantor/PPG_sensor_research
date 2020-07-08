@@ -26,23 +26,26 @@ SOFTWARE.
 Simple uart example
 */
 
-#include <PPG_sensor_V000.hpp>
+#include <board.hpp>
 #include <mcu_ll.h>
 #include <stream_uart.hpp>
 #include <strings.hpp>
 #include <print.h>
+#include <time_delay.hpp>
+#include <time_interval.hpp>
 
 int main()
 {
     uint8_t character;
     boardInit();
     dsPuts(&streamUart, strHello);
+    timeInterval samplingFrequency(SEC2TICKS(0.5));
+    bool ledState = true;
     while (1) {
-        while((UartGetStatus(UART_DEBUG) & UART_STAT_RXRDY) == 0) 
-            ;
-        character = UartReadByte(UART_DEBUG);
-        while((UartGetStatus(UART_DEBUG) & UART_STAT_TXRDY) == 0) 
-            ;
-        UartSendByte(UART_DEBUG, character);
+        if(samplingFrequency.elapsed())
+        {
+            boardPpgLedState(ledState);
+            ledState = !ledState;
+        }
     }
 }

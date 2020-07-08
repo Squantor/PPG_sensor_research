@@ -34,11 +34,16 @@ TARGET = MCU
 BOARD = PPG_sensor_V000
 
 # project sources
-FILES +=  $(PROJECT)/src/strings.cpp \
+FILES +=  \
+common/src/arm_systick.c \
+common/src/delay.cpp \
+common/src/time_delay.cpp \
+common/src/time_interval.cpp \
+common/src/stream_uart.cpp \
+$(PROJECT)/src/strings.cpp \
 $(PROJECT)/src/$(BOARD).cpp \
-$(PROJECT)/src/stream_uart.cpp \
 $(PROJECT)/src/main.cpp
 
 LIBS +=
-INCLUDES += -IlibMcuLL/inc -I$(PROJECT)/inc
+INCLUDES += -Icommon/inc -IlibMcuLL/inc -I$(PROJECT)/inc
 

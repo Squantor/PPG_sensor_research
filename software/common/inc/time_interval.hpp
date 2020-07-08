@@ -1,7 +1,7 @@
 /*
 MIT License
 
-Copyright (c) 2019 Bart Bilos
+Copyright (c) 2020 Bart Bilos
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,33 +21,23 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#ifndef PPG_SENSOR_V000_HPP
-#define PPG_SENSOR_V000_HPP
+/*
+Time interval class to measure elapsing of defined time intervals
+*/
+#ifndef TIME_INTERVAL_HPP
+#define TIME_INTERVAL_HPP
 
-#define IOCON_XTAL_IN       IOCON_PIO8
-#define IOCON_XTAL_OUT      IOCON_PIO9
+#include <arm_systick.h>
 
-#define IOCON_LED_CTRL      IOCON_PIO12
-#define PIN_LED_CTRL        (12u)
-
-#define IOCON_UART_TX       IOCON_PIO13
-#define PIN_UART_TX         (13u)
-#define IOCON_UART_RX       IOCON_PIO17
-#define PIN_UART_RX         (17u)
-
-#define UART_DEBUG          LPC_USART0
-#define UART_BAUD_RATE      (115200u)
-
-#define CLOCK_MAIN_SOURCE   SYSCTL_MAINCLKSRC_PLLOUT
-
-#define CLOCK_XTAL          (12000000u)
-#define CLOCK_EXT_IN        (0u)
-#define CLOCK_CPU           (30000000u)
-#define CLOCK_AHB           (30000000u)
-#define CLOCK_MAIN          (60000000u)
-
-void boardInit(void);
-
-void boardPpgLedState(bool on);
+class timeInterval
+{
+public:
+    timeInterval(timeTicks duration);
+    void reset(void);
+    bool elapsed(void);
+private:
+    const timeTicks Duration;
+    timeTicks TriggerMoment;
+};
 
 #endif

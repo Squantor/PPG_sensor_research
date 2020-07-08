@@ -21,33 +21,36 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#ifndef PPG_SENSOR_V000_HPP
-#define PPG_SENSOR_V000_HPP
 
-#define IOCON_XTAL_IN       IOCON_PIO8
-#define IOCON_XTAL_OUT      IOCON_PIO9
+#include <time_delay.hpp>
 
-#define IOCON_LED_CTRL      IOCON_PIO12
-#define PIN_LED_CTRL        (12u)
+// initialize a time delay structure/object
+void timeDelayInit(timeDelay_t &delayData, timeTicks delay)
+{
+    delayData.timeDelayDuration = delay;
+    delayData.timeDelayTrigger = currentTicks + delayData.timeDelayDuration;
+}
 
-#define IOCON_UART_TX       IOCON_PIO13
-#define PIN_UART_TX         (13u)
-#define IOCON_UART_RX       IOCON_PIO17
-#define PIN_UART_RX         (17u)
+resultDelay_t timeDelayCheck(timeDelay_t &delayData)
+{
+    if(delayData.timeDelayTrigger > currentTicks)
+        return delayNotReached;
+    else if(delayData.timeDelayTrigger == currentTicks)
+    {
+        delayData.timeDelayTrigger = currentTicks + delayData.timeDelayDuration;
+        return delayReached;
+    }
+    else 
+    {
+        delayData.timeDelayTrigger = currentTicks + delayData.timeDelayDuration;
+        return delayExceeded;
+    }
+}
 
-#define UART_DEBUG          LPC_USART0
-#define UART_BAUD_RATE      (115200u)
-
-#define CLOCK_MAIN_SOURCE   SYSCTL_MAINCLKSRC_PLLOUT
-
-#define CLOCK_XTAL          (12000000u)
-#define CLOCK_EXT_IN        (0u)
-#define CLOCK_CPU           (30000000u)
-#define CLOCK_AHB           (30000000u)
-#define CLOCK_MAIN          (60000000u)
-
-void boardInit(void);
-
-void boardPpgLedState(bool on);
-
-#endif
+void timeDelaySimple(timeTicks delay)
+{
+    timeDelay_t simpleDelay;
+    timeDelayInit(simpleDelay, delay);
+    while(timeDelayCheck(simpleDelay) == delayNotReached)
+        ;
+}

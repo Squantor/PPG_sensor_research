@@ -21,33 +21,38 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#ifndef PPG_SENSOR_V000_HPP
-#define PPG_SENSOR_V000_HPP
+#ifndef TIME_DELAY_HPP
+#define TIME_DELAY_HPP
 
-#define IOCON_XTAL_IN       IOCON_PIO8
-#define IOCON_XTAL_OUT      IOCON_PIO9
+#include <arm_systick.h>
+#include <board.hpp>
 
-#define IOCON_LED_CTRL      IOCON_PIO12
-#define PIN_LED_CTRL        (12u)
+#if !defined(TICKS_PER_S)
+    #warning Ticks per second (TICKS_PER_S) is not defined!
+    #define TICKS_PER_S     (100u)
+#endif
 
-#define IOCON_UART_TX       IOCON_PIO13
-#define PIN_UART_TX         (13u)
-#define IOCON_UART_RX       IOCON_PIO17
-#define PIN_UART_RX         (17u)
+typedef struct {
+    timeTicks timeDelayDuration;
+    // at what time to trigger
+    timeTicks timeDelayTrigger;
+} timeDelay_t;
 
-#define UART_DEBUG          LPC_USART0
-#define UART_BAUD_RATE      (115200u)
+typedef enum {
+    delayNotReached, // we have not reached the delay yet
+    delayReached,    // we are at just the right time
+    delayExceeded,   // we have exceeded the delay
+} resultDelay_t;
 
-#define CLOCK_MAIN_SOURCE   SYSCTL_MAINCLKSRC_PLLOUT
+#define SEC2TICKS(sec) ((timeTicks)(sec * TICKS_PER_S))
 
-#define CLOCK_XTAL          (12000000u)
-#define CLOCK_EXT_IN        (0u)
-#define CLOCK_CPU           (30000000u)
-#define CLOCK_AHB           (30000000u)
-#define CLOCK_MAIN          (60000000u)
+extern volatile timeTicks ticks;
 
-void boardInit(void);
-
-void boardPpgLedState(bool on);
+// initialize the time delay structure
+void timeDelayInit(timeDelay_t &delayData, timeTicks delay);
+// non blocking check if we have a reached a time interval
+resultDelay_t timeDelayCheck(timeDelay_t &delayData);
+// blocking delay
+void timeDelaySimple(timeTicks delay);
 
 #endif
