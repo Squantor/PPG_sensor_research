@@ -14,6 +14,12 @@
             "problemMatcher": "$gcc"
         },
         {
+            "label": "build PPG sensor V000 documentation",
+            "type": "shell",
+            "command": "make PROJECT=PPG_sensor_V000 doc",
+            "group": "build",
+        },
+        {
             "label": "clean",
             "type": "shell",
             "command": "make PROJECT=PPG_sensor_V000 clean",
