@@ -34,18 +34,49 @@ Simple uart example
 #include <time_delay.hpp>
 #include <time_interval.hpp>
 
+void ppgSensorSetup(void)
+{
+    // SCT: Enable clock
+    // SCT: Disable reset
+    SctInit(LPC_SCT);
+    // SCT: interrupt?
+    // SCT: SWM inputs/outputs
+    SwmMovablePinAssign(SWM_CTOUT_0_O, PIN_LED_CTRL);
+    // SCT: 32 bit timer
+    SctConfig(LPC_SCT, 
+        SCT_CONFIG_32BIT_COUNTER | 
+        SCT_CONFIG_CLKMODE_BUSCLK | 
+        SCT_CONFIG_AUTOLIMIT_U );
+    SctSetControl(LPC_SCT, );
+    // SCT: Preload
+    SctSetCount(LPC_SCT, 0);
+    // SCT: setup match events
+    // match 0 is hardwired to reset the counter
+    SctSetMatchCount(LPC_SCT, SCT_MATCH_0, 30000000);
+    SctSetMatchReload(LPC_SCT, SCT_MATCH_0, 0);
+    LPC_SCT->EV[SCT_MATCH_0].CTRL = 1 << 12;
+	LPC_SCT->EV[SCT_MATCH_0].STATE = 1;
+    LPC_SCT->OUT[0].SET = 1;
+	LPC_SCT->OUT[0].CLR = 1 << SCT_MATCH_1;
+    // TODO match 0 event should clear the LED output
+    SctSetMatchCount(LPC_SCT, SCT_MATCH_1, 300000);
+    LPC_SCT->EV[SCT_MATCH_1].CTRL = (1 << 12);
+	LPC_SCT->EV[SCT_MATCH_1].STATE = 1;
+    LPC_SCT->OUT[1].SET = 1;
+	LPC_SCT->OUT[1].CLR = 1 << SCT_MATCH_1;
+    // TODO M
+    // SCT: reload value
+    
+    // SCT: capture event is later
+    // SCT: start timer by writing to CTRL reg
+
+}
+
 int main()
 {
     uint8_t character;
     boardInit();
     dsPuts(&streamUart, strHello);
-    timeInterval samplingFrequency(SEC2TICKS(0.5));
-    bool ledState = true;
     while (1) {
-        if(samplingFrequency.elapsed())
-        {
-            boardPpgLedState(ledState);
-            ledState = !ledState;
-        }
     }
 }

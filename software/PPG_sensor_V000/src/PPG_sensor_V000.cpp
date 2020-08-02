@@ -40,10 +40,10 @@ void boardInit(void)
     SwmMovablePinAssign(SWM_U0_TXD_O, PIN_UART_TX);
     SwmMovablePinAssign(SWM_U0_RXD_I, PIN_UART_RX);
     // setup LED control pins
-    IoconPinSetMode(LPC_IOCON, IOCON_LED_CTRL, PIN_MODE_INACTIVE);
-    GpioSetPinDir(LPC_GPIO_PORT, 0, PIN_LED_CTRL, true);
+    //IoconPinSetMode(LPC_IOCON, IOCON_LED_CTRL, PIN_MODE_INACTIVE);
+    //GpioSetPinDir(LPC_GPIO_PORT, 0, PIN_LED_CTRL, true);
     // TODO setup Photodiode sampling
-    ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
+    //ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
 
     // setup system clocks
     ClockSetPLLBypass(false, false);
@@ -70,5 +70,5 @@ void boardInit(void)
 
 void boardPpgLedState(bool on)
 {
-    GpioSetPinState(LPC_GPIO_PORT, 0, PIN_LED_CTRL, on);
+    //GpioSetPinState(LPC_GPIO_PORT, 0, PIN_LED_CTRL, on);
 }
