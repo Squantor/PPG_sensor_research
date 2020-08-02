@@ -1,0 +1,5 @@
+# doxygen settings to override from the default config
+PROJECT_NAME = "PPG sensor experiment"
+OUTPUT_DIRECTORY = documentation/PPG_sensor_V000
+INCLUDE_PATH = PPG_sensor_V000/inc libMcull/inc
+INPUT = PPG_sensor_V000/src PPG_sensor_V000/inc common/inc common/src squantorLibC/inc squantorLibC/src squantorLibEmbeddedC/inc squantorLibEmbeddedC/src

@@ -24,3 +24,5 @@ bin/
 #miscellanious generated files
 *.log
 
+# doxygen output
+documentation/

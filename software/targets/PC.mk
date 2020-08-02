@@ -52,4 +52,4 @@ ASMFLAGS = -c -x assembler-with-cpp
 LDFLAGS +=
 DEFINES_release += -DNDEBUG
 DEFINES_debug += -DDEBUG
-DEFINES += -DMCU_$(MCU)
+DEFINES +=
