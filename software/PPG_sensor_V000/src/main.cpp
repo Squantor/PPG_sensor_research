@@ -37,6 +37,18 @@ Simple uart example
 #define PPG_SENSOR_FREQ     (1000000)
 #define PPG_SENSOR_DUTY     (PPG_SENSOR_FREQ / 10)
 
+extern "C" {
+    void SCT_IRQHandler(void)
+    {
+        __NOP();
+        SctClearEventFlag(LPC_SCT, SCT_EVENT_1_BIT);
+    }
+
+    void CMP_IRQHandler(void)
+    {
+
+    }
+}
 
 void ppgSensorSetup(void)
 {
@@ -71,6 +83,18 @@ void ppgSensorSetup(void)
     SctOutputClear(LPC_SCT, SCT_OUTPUT_1_VALUE, SCT_EVENT_0_BIT);
 
     SctOutput(LPC_SCT, SCT_OUTPUT_STATE(SCT_OUTPUT_0_VALUE, 1));
+    SctOutput(LPC_SCT, SCT_OUTPUT_STATE(SCT_OUTPUT_1_VALUE, 0));
+
+    SctSetEventInt(LPC_SCT, SCT_EVENT_1_BIT);
+    NVIC_EnableIRQ(SCT_IRQn);
+
+    // setup comparator
+    AcmpInit();
+    AcmpSetHysteresis(LPC_CMP, ACMP_HYS_20MV);
+    AcmpSetPosVoltRef(LPC_CMP, ACMP_POSIN_ACMP_I1);
+    // setup voltage ladder 
+    AcmpSetNegVoltRef(LPC_CMP, ACMP_NEGIN_INT_REF);
+    //NVIC_EnableIRQ(CMP_IRQn);
 
     SctClearControl(LPC_SCT, SCT_CTRL_HALT_U);
 }
