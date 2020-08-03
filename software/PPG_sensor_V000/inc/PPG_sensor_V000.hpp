@@ -29,6 +29,8 @@ SOFTWARE.
 
 #define IOCON_LED_CTRL      IOCON_PIO12
 #define PIN_LED_CTRL        (12u)
+#define IOCON_CAP_SENSE     IOCON_PIO0
+#define PIN_CAP_SENSE       (0u)
 #define IOCON_CAP_RESET     IOCON_PIO14
 #define PIN_CAP_RESET       (14u)
 
