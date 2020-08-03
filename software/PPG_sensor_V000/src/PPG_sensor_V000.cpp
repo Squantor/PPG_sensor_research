@@ -67,8 +67,3 @@ void boardInit(void)
 
     SysTick_Config(CLOCK_AHB / TICKS_PER_S);
 }
-
-void boardPpgLedState(bool on)
-{
-    //GpioSetPinState(LPC_GPIO_PORT, 0, PIN_LED_CTRL, on);
-}
