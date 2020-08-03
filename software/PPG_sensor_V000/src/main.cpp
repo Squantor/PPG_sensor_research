@@ -35,7 +35,7 @@ Simple uart example
 #include <time_interval.hpp>
 
 #define PPG_SENSOR_FREQ     (1000000)
-#define PPG_SENSOR_DUTY     (PPG_SENSOR_FREQ / 20)
+#define PPG_SENSOR_DUTY     (PPG_SENSOR_FREQ / 10)
 
 
 void ppgSensorSetup(void)
