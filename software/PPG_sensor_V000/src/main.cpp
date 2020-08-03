@@ -43,7 +43,11 @@ void ppgSensorSetup(void)
     ClockEnablePeriphClock(SYSCTL_CLOCK_SWM);
     ClockEnablePeriphClock(SYSCTL_CLOCK_IOCON);
     IoconPinSetMode(LPC_IOCON, IOCON_LED_CTRL, PIN_MODE_INACTIVE);
+    IoconPinSetMode(LPC_IOCON, IOCON_CAP_SENSE, PIN_MODE_INACTIVE);
+    IoconPinSetMode(LPC_IOCON, IOCON_CAP_RESET, PIN_MODE_INACTIVE);
     SwmMovablePinAssign(SWM_CTOUT_0_O, PIN_LED_CTRL);
+    SwmMovablePinAssign(SWM_CTOUT_1_O, PIN_CAP_RESET);
+    SwmFixedPinEnable(SWM_FIXED_ACMP_I1, true);
     ClockDisablePeriphClock(SYSCTL_CLOCK_IOCON);
     ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
     
