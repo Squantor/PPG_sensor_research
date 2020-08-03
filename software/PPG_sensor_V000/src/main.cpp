@@ -44,10 +44,6 @@ extern "C" {
         SctClearEventFlag(LPC_SCT, SCT_EVENT_1_BIT);
     }
 
-    void CMP_IRQHandler(void)
-    {
-
-    }
 }
 
 void ppgSensorSetup(void)
@@ -59,6 +55,9 @@ void ppgSensorSetup(void)
     IoconPinSetMode(LPC_IOCON, IOCON_CAP_RESET, PIN_MODE_INACTIVE);
     SwmMovablePinAssign(SWM_CTOUT_0_O, PIN_LED_CTRL);
     SwmMovablePinAssign(SWM_CTOUT_1_O, PIN_CAP_RESET);
+    // connect comparator output to SCT 0 input
+    SwmMovablePinAssign(SWM_ACMP_O_O, PIN_CMP_OUT);
+    SwmMovablePinAssign(SWM_CTIN_0_I, PIN_CMP_OUT);
     SwmFixedPinEnable(SWM_FIXED_ACMP_I1, true);
     ClockDisablePeriphClock(SYSCTL_CLOCK_IOCON);
     ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
@@ -69,13 +68,15 @@ void ppgSensorSetup(void)
 
     SctMatchU(LPC_SCT, SCT_MATCH_0, PPG_SENSOR_FREQ);
     SctMatchReloadU(LPC_SCT, SCT_MATCH_0, PPG_SENSOR_FREQ);
-    SctMatchU(LPC_SCT, SCT_MATCH_1, PPG_SENSOR_DUTY);
-    SctMatchReloadU(LPC_SCT, SCT_MATCH_1, PPG_SENSOR_DUTY);
 
     SctSetEventStateMask(LPC_SCT, SCT_EVENT_0_VAL, SCT_STATE_0_BIT | SCT_STATE_1_BIT);
     SctSetEventControl(LPC_SCT, SCT_EVENT_0_VAL, SCT_EV_CTRL_MATCHSEL(SCT_MATCH_0) | SCT_EV_CTRL_COMBMODE(SCT_COMBMODE_MATCH));
     SctSetEventStateMask(LPC_SCT, SCT_EVENT_1_VAL, SCT_STATE_0_BIT | SCT_STATE_1_BIT);
-    SctSetEventControl(LPC_SCT, SCT_EVENT_1_VAL, SCT_EV_CTRL_MATCHSEL(SCT_MATCH_1) | SCT_EV_CTRL_COMBMODE(SCT_COMBMODE_MATCH));
+    SctSetEventControl(LPC_SCT, SCT_EVENT_1_VAL, 
+        SCT_EV_CTRL_INSEL | 
+        SCT_EV_CTRL_IOSEL(SCT_INPUT_0_VALUE) | 
+        SCT_EV_CTRL_IOCOND(SCT_IOCOND_HIGH) |
+        SCT_EV_CTRL_COMBMODE(SCT_COMBMODE_IO) );
 
     SctOutputSet(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_0_BIT);
     SctOutputClear(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_1_BIT);
@@ -91,10 +92,10 @@ void ppgSensorSetup(void)
     // setup comparator
     AcmpInit();
     AcmpSetHysteresis(LPC_CMP, ACMP_HYS_20MV);
+    AcmpSetEdgeSelection(LPC_CMP, ACMP_EDGESEL_BOTH);
     AcmpSetPosVoltRef(LPC_CMP, ACMP_POSIN_ACMP_I1);
-    // setup voltage ladder 
+    // TODO setup voltage ladder 
     AcmpSetNegVoltRef(LPC_CMP, ACMP_NEGIN_INT_REF);
-    //NVIC_EnableIRQ(CMP_IRQn);
 
     SctClearControl(LPC_SCT, SCT_CTRL_HALT_U);
 }
