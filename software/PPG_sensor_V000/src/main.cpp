@@ -77,7 +77,11 @@ void ppgSensorSetup(void)
         SCT_EV_CTRL_IOSEL(SCT_INPUT_0_VALUE) | 
         SCT_EV_CTRL_IOCOND(SCT_IOCOND_HIGH) |
         SCT_EV_CTRL_COMBMODE(SCT_COMBMODE_IO) );
-
+    // TODO setup capture
+    // setup REGMODE to use capture 1 as capture register
+    // setup capture 1 to be triggered by event 1 (comparator output)
+    //SctCaptureControlU(LPC_SCT, SCT_CAPTURE_1, SCT_EVENT_1_BIT);
+    
     SctOutputSet(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_0_BIT);
     SctOutputClear(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_1_BIT);
     SctOutputSet(LPC_SCT, SCT_OUTPUT_1_VALUE, SCT_EVENT_1_BIT);
