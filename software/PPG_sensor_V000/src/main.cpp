@@ -35,12 +35,17 @@ Simple uart example
 #include <time_interval.hpp>
 
 #define PPG_SENSOR_FREQ     (1000000)
-#define PPG_SENSOR_DUTY     (PPG_SENSOR_FREQ / 10)
+
+volatile uint32_t captureCount;
+volatile uint32_t captureValue;
 
 extern "C" {
     void SCT_IRQHandler(void)
     {
-        __NOP();
+        uint32_t captureCurrent;
+        captureCount++;
+        SctCaptureU(LPC_SCT, SCT_CAPTURE_1, &captureCurrent);
+        captureValue = captureCurrent;
         SctClearEventFlag(LPC_SCT, SCT_EVENT_1_BIT);
     }
 
@@ -48,6 +53,7 @@ extern "C" {
 
 void ppgSensorSetup(void)
 {
+    captureCount = 0;
     ClockEnablePeriphClock(SYSCTL_CLOCK_SWM);
     ClockEnablePeriphClock(SYSCTL_CLOCK_IOCON);
     IoconPinSetMode(LPC_IOCON, IOCON_LED_CTRL, PIN_MODE_INACTIVE);
@@ -106,9 +112,18 @@ void ppgSensorSetup(void)
 
 int main()
 {
+    uint32_t currentCaptureCount = 0;
     boardInit();
     dsPuts(&streamUart, strHello);
     ppgSensorSetup();
     while (1) {
+        if(currentCaptureCount != captureCount)
+        {
+            currentCaptureCount = captureCount;
+            printDecNzU32(&streamUart, currentCaptureCount);
+            dsPuts(&streamUart, ",");
+            printDecNzU32(&streamUart, captureValue);
+            dsPuts(&streamUart, "\n");
+        }
     }
 }
