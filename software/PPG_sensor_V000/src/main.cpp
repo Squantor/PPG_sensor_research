@@ -101,11 +101,8 @@ void ppgSensorSetup(void)
 
     // setup comparator
     AcmpInit();
-    AcmpSetHysteresis(LPC_CMP, ACMP_HYS_20MV);
-    AcmpSetEdgeSelection(LPC_CMP, ACMP_EDGESEL_BOTH);
-    AcmpSetPosVoltRef(LPC_CMP, ACMP_POSIN_ACMP_I1);
-    // TODO setup voltage ladder 
-    AcmpSetNegVoltRef(LPC_CMP, ACMP_NEGIN_INT_REF);
+    AcmpControl(LPC_CMP, ACMP_HYS_20MV | ACMP_POSIN_ACMP_I1 | ACMP_NEGIN_VLO);
+    AcmpLadder(LPC_CMP, ACMP_LAD_ENABLE | ACMP_LADSEL(9) | ACMP_LADREF_VDD);
 
     SctClearControl(LPC_SCT, SCT_CTRL_HALT_U);
 }
