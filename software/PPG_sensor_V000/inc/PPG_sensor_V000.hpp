@@ -35,6 +35,8 @@ SOFTWARE.
 #define PIN_CMP_OUT         (7u)
 #define IOCON_CAP_RESET     IOCON_PIO14
 #define PIN_CAP_RESET       (14u)
+#define IOCON_VDDCMP        IOCON_PIO6
+#define PIN_VDDCMP          (6u)
 
 #define IOCON_UART_TX       IOCON_PIO13
 #define PIN_UART_TX         (13u)
