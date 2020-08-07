@@ -66,6 +66,7 @@ void ppgSensorSetup(void)
     SwmMovablePinAssign(SWM_ACMP_O_O, PIN_CMP_OUT);
     SwmMovablePinAssign(SWM_CTIN_0_I, PIN_CMP_OUT);
     SwmFixedPinEnable(SWM_FIXED_ACMP_I1, true);
+    SwmFixedPinEnable(SWM_FIXED_ACMP_I2, true);
     SwmFixedPinEnable(SWM_FIXED_VDDCMP, true);
     ClockDisablePeriphClock(SYSCTL_CLOCK_IOCON);
     ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
@@ -103,7 +104,7 @@ void ppgSensorSetup(void)
 
     // setup comparator
     AcmpInit();
-    AcmpControl(LPC_CMP, ACMP_HYS_20MV | ACMP_POSIN_ACMP_I1 | ACMP_NEGIN_VLO);
+    AcmpControl(LPC_CMP, ACMP_HYS_20MV | ACMP_POSIN_ACMP_I1 | ACMP_NEGIN_ACMP_I2);
     AcmpLadder(LPC_CMP, ACMP_LAD_ENABLE | ACMP_LADSEL(6) | ACMP_LADREF_VDDCMP);
 
     SctClearControl(LPC_SCT, SCT_CTRL_HALT_U);
