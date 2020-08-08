@@ -1,7 +1,7 @@
 # PPG sensor research
 This repository contains electronics, mechanical, embedded and PC side software into researching how PPG sensors work. 
 ## Structure
-* Electronics contains the various iterations of PPG sensors
+* [Electronics](https://github.com/Squantor/PPG_sensor_research/tree/master/electronics) contains the various iterations of PPG sensors
 * [Software](https://github.com/Squantor/PPG_sensor_research/tree/master/software) contains the software needed for the project, either embedded or PC side software
 * Scripts contain data analysis software
 * Mechanical contains drawings of casing/mechanisms etc
