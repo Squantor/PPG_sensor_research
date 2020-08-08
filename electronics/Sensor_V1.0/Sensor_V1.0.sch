@@ -79,17 +79,17 @@ F 3 "" H 1500 2450 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 Text Label 950  750  2    50   ~ 0
-VDD1
+VDD
 Text Label 2050 750  0    50   ~ 0
-VDD1
+VDD
 Text Label 950  850  2    50   ~ 0
 VBUS
 Text Label 2050 850  0    50   ~ 0
 VBUS
 Text Label 950  950  2    50   ~ 0
-VSS1
+VSS
 Text Label 2050 950  0    50   ~ 0
-VSS1
+VSS
 Text Label 950  1050 2    50   ~ 0
 GPIO_00
 Text Label 950  1150 2    50   ~ 0
@@ -158,14 +158,6 @@ Wire Wire Line
 	2000 850  2050 850 
 Wire Wire Line
 	2050 750  2000 750 
-Text Label 950  2050 2    50   ~ 0
-VDD2
-Text Label 2050 2050 0    50   ~ 0
-VDD2
-Text Label 950  2150 2    50   ~ 0
-VSS2
-Text Label 2050 2150 0    50   ~ 0
-VSS2
 Text Label 2050 2950 0    50   ~ 0
 GPIO_14
 Text Label 950  2950 2    50   ~ 0
@@ -252,12 +244,8 @@ Wire Notes Line
 	1900 3100 1900 3250
 Text Notes 1950 3200 0    50   ~ 0
 Connectors
-Text Label 3700 750  2    50   ~ 0
-VDD1
 Text Label 3700 850  2    50   ~ 0
 VBUS
-Text Label 3700 950  2    50   ~ 0
-VSS1
 Text Label 3700 1050 2    50   ~ 0
 GPIO_00
 Text Label 3700 1150 2    50   ~ 0
@@ -332,9 +320,9 @@ Wire Wire Line
 Wire Wire Line
 	3750 2350 3700 2350
 Text Label 3000 750  2    50   ~ 0
-VDD2
+VDDA
 Text Label 3000 850  2    50   ~ 0
-VSS2
+VSSA
 $Comp
 L SquantorConnectors:PINS_1X18 J3
 U 1 1 5F3585BD
@@ -430,4 +418,102 @@ Text Notes 3550 2650 0    50   ~ 0
 breakout
 Wire Notes Line
 	600  7600 1550 7600
+$Comp
+L SquantorConnectorsNamed:DevBoardUartInput J5
+U 1 1 5F2EE742
+P 900 3650
+F 0 "J5" H 900 3950 50  0000 C CNN
+F 1 "DevBoardUartInput" H 900 3350 50  0000 C CNN
+F 2 "Connector_JST:JST_PH_S4B-PH-K_1x04_P2.00mm_Horizontal" H 900 3650 50  0001 C CNN
+F 3 "" H 900 3650 50  0001 C CNN
+	1    900  3650
+	1    0    0    -1  
+$EndComp
+Text Label 3700 750  2    50   ~ 0
+VDD
+Text Label 3700 950  2    50   ~ 0
+VSS
+Text Label 950  2050 2    50   ~ 0
+VDDA
+Text Label 950  2150 2    50   ~ 0
+VSSA
+Text Label 2050 2050 0    50   ~ 0
+VDDA
+Text Label 2050 2150 0    50   ~ 0
+VSSA
+Text Label 1150 3500 0    50   ~ 0
+VSS
+Text Label 1150 3600 0    50   ~ 0
+VBUS
+$Comp
+L Device:R R1
+U 1 1 5F2F3702
+P 1300 3700
+F 0 "R1" V 1250 3550 50  0000 C CNN
+F 1 "100" V 1300 3700 50  0000 C CNN
+F 2 "SquantorRcl:R_0603_hand" V 1230 3700 50  0001 C CNN
+F 3 "~" H 1300 3700 50  0001 C CNN
+	1    1300 3700
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 5F2F4505
+P 1300 3800
+F 0 "R2" V 1250 3650 50  0000 C CNN
+F 1 "100" V 1300 3800 50  0000 C CNN
+F 2 "SquantorRcl:R_0603_hand" V 1230 3800 50  0001 C CNN
+F 3 "~" H 1300 3800 50  0001 C CNN
+	1    1300 3800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1100 3800 1150 3800
+Wire Wire Line
+	1150 3700 1100 3700
+Text Label 1500 3700 0    50   ~ 0
+UART_RX
+Text Label 1500 3800 0    50   ~ 0
+UART_TX
+Wire Wire Line
+	1100 3500 1150 3500
+Wire Wire Line
+	1150 3600 1100 3600
+$Comp
+L Connector:TestPoint TP1
+U 1 1 5F3061B8
+P 1750 3700
+F 0 "TP1" V 1750 3900 50  0000 L CNN
+F 1 "UART_RX" V 1750 4050 50  0000 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1950 3700 50  0001 C CNN
+F 3 "~" H 1950 3700 50  0001 C CNN
+	1    1750 3700
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP2
+U 1 1 5F306926
+P 1750 3800
+F 0 "TP2" V 1750 4000 50  0000 L CNN
+F 1 "UART_TX" V 1750 4150 50  0000 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1950 3800 50  0001 C CNN
+F 3 "~" H 1950 3800 50  0001 C CNN
+	1    1750 3800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1450 3700 1750 3700
+Wire Wire Line
+	1450 3800 1750 3800
+$Comp
+L SquantorOpto:PPG_sensor U1
+U 1 1 5F30F2AF
+P 3750 3550
+F 0 "U1" H 3750 3800 50  0000 C CNN
+F 1 "PPG_sensor" H 3750 3300 50  0000 C CNN
+F 2 "SquantorOpto:PPG_sensor_reverse" H 3750 3500 50  0001 C CNN
+F 3 "" H 3750 3500 50  0001 C CNN
+	1    3750 3550
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
