@@ -1190,19 +1190,33 @@ Divider_out
 $Comp
 L Connector:TestPoint TP11
 U 1 1 5F5119A4
-P 5800 1500
-F 0 "TP11" V 5750 1450 50  0000 L CNN
-F 1 "Div out" V 5800 1700 50  0000 L CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 6000 1500 50  0001 C CNN
-F 3 "~" H 6000 1500 50  0001 C CNN
-	1    5800 1500
+P 5900 1500
+F 0 "TP11" V 5850 1400 50  0000 L CNN
+F 1 "Div out" V 5900 1700 50  0000 L CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 6100 1500 50  0001 C CNN
+F 3 "~" H 6100 1500 50  0001 C CNN
+	1    5900 1500
 	0    1    1    0   
 $EndComp
 Wire Wire Line
 	5750 1650 5750 1500
 Wire Wire Line
-	5750 1500 5800 1500
+	5750 1500 5900 1500
 Wire Wire Line
 	5650 1500 5750 1500
 Connection ~ 5750 1500
+Text Notes 5800 2250 0    50   ~ 0
+Resistor divider
+Wire Notes Line
+	4150 1400 6450 1400
+Wire Notes Line
+	6450 1400 6450 2300
+Wire Notes Line
+	6450 2300 4150 2300
+Wire Notes Line
+	4150 2300 4150 1400
+Wire Notes Line
+	5750 2300 5750 2150
+Wire Notes Line
+	5750 2150 6450 2150
 $EndSCHEMATC
