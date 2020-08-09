@@ -549,14 +549,10 @@ Wire Wire Line
 	1300 4850 1300 4800
 Connection ~ 1300 4800
 Wire Wire Line
-	1300 4800 1400 4800
-Wire Wire Line
 	1250 5200 1300 5200
 Wire Wire Line
 	1300 5200 1300 5150
 Connection ~ 1300 5200
-Wire Wire Line
-	1300 5200 1400 5200
 $Comp
 L Device:Ferrite_Bead_Small FB2
 U 1 1 5F3A36F4
@@ -803,10 +799,10 @@ Wire Wire Line
 	5200 2700 5400 2700
 Connection ~ 5200 2700
 $Comp
-L Connector:TestPoint TP?
+L Connector:TestPoint TP7
 U 1 1 5F3452B2
 P 1500 4800
-F 0 "TP?" V 1500 5000 50  0000 L CNN
+F 0 "TP7" V 1500 5000 50  0000 L CNN
 F 1 "VDDA" V 1600 4950 50  0000 L CNN
 F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1700 4800 50  0001 C CNN
 F 3 "~" H 1700 4800 50  0001 C CNN
@@ -814,14 +810,18 @@ F 3 "~" H 1700 4800 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:TestPoint TP?
+L Connector:TestPoint TP8
 U 1 1 5F345FFB
 P 1500 5200
-F 0 "TP?" V 1500 5400 50  0000 L CNN
+F 0 "TP8" V 1500 5400 50  0000 L CNN
 F 1 "VSSA" V 1400 5350 50  0000 L CNN
 F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1700 5200 50  0001 C CNN
 F 3 "~" H 1700 5200 50  0001 C CNN
 	1    1500 5200
 	0    1    1    0   
 $EndComp
+Wire Wire Line
+	1300 4800 1500 4800
+Wire Wire Line
+	1300 5200 1500 5200
 $EndSCHEMATC
