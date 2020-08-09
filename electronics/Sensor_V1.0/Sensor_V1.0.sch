@@ -244,178 +244,6 @@ Wire Notes Line
 	1900 3100 1900 3250
 Text Notes 1950 3200 0    50   ~ 0
 Connectors
-Text Label 3700 850  2    50   ~ 0
-VBUS
-Text Label 3700 1050 2    50   ~ 0
-GPIO_00
-Text Label 3700 1150 2    50   ~ 0
-GPIO_01
-Text Label 3700 1250 2    50   ~ 0
-GPIO_02
-Text Label 3700 1450 2    50   ~ 0
-GPIO_04
-Text Label 3700 1650 2    50   ~ 0
-GPIO_06
-Text Label 3700 1850 2    50   ~ 0
-GPIO_08
-Text Label 3700 2050 2    50   ~ 0
-GPIO_10
-Text Label 3700 2250 2    50   ~ 0
-GPIO_12
-$Comp
-L SquantorConnectors:PINS_1X17 J4
-U 1 1 5F34098B
-P 3950 1550
-F 0 "J4" H 4000 2500 60  0000 R CNN
-F 1 "PINS_1X17" H 4200 600 60  0000 R CNN
-F 2 "SquantorConnectors:Header-0127-1X17-H006" H 3950 2350 60  0001 C CNN
-F 3 "" H 3950 2350 60  0001 C CNN
-	1    3950 1550
-	-1   0    0    -1  
-$EndComp
-Text Label 3700 1350 2    50   ~ 0
-GPIO_03
-Text Label 3700 1550 2    50   ~ 0
-GPIO_05
-Text Label 3700 1750 2    50   ~ 0
-GPIO_07
-Text Label 3700 1950 2    50   ~ 0
-GPIO_09
-Text Label 3700 2150 2    50   ~ 0
-GPIO_11
-Text Label 3700 2350 2    50   ~ 0
-GPIO_13
-Wire Wire Line
-	3700 750  3750 750 
-Wire Wire Line
-	3750 850  3700 850 
-Wire Wire Line
-	3700 950  3750 950 
-Wire Wire Line
-	3750 1050 3700 1050
-Wire Wire Line
-	3700 1150 3750 1150
-Wire Wire Line
-	3750 1250 3700 1250
-Wire Wire Line
-	3700 1350 3750 1350
-Wire Wire Line
-	3750 1450 3700 1450
-Wire Wire Line
-	3700 1550 3750 1550
-Wire Wire Line
-	3750 1650 3700 1650
-Wire Wire Line
-	3700 1750 3750 1750
-Wire Wire Line
-	3700 1850 3750 1850
-Wire Wire Line
-	3750 1950 3700 1950
-Wire Wire Line
-	3700 2050 3750 2050
-Wire Wire Line
-	3750 2150 3700 2150
-Wire Wire Line
-	3700 2250 3750 2250
-Wire Wire Line
-	3750 2350 3700 2350
-Text Label 3000 750  2    50   ~ 0
-VDDA
-Text Label 3000 850  2    50   ~ 0
-VSSA
-$Comp
-L SquantorConnectors:PINS_1X18 J3
-U 1 1 5F3585BD
-P 3250 1600
-F 0 "J3" H 3300 2600 60  0000 R CNN
-F 1 "PINS_1X18" H 3500 600 60  0000 R CNN
-F 2 "SquantorConnectors:Header-0127-1X18-H006" H 3250 2450 60  0001 C CNN
-F 3 "" H 3250 2450 60  0001 C CNN
-	1    3250 1600
-	-1   0    0    -1  
-$EndComp
-Text Label 3000 950  2    50   ~ 0
-GPIO_29
-Text Label 3000 1050 2    50   ~ 0
-GPIO_28
-Text Label 3000 1150 2    50   ~ 0
-GPIO_27
-Text Label 3000 1350 2    50   ~ 0
-GPIO_25
-Text Label 3000 1550 2    50   ~ 0
-GPIO_23
-Text Label 3000 1750 2    50   ~ 0
-GPIO_21
-Text Label 3000 1950 2    50   ~ 0
-GPIO_19
-Text Label 3000 2150 2    50   ~ 0
-GPIO_17
-Text Label 3000 2350 2    50   ~ 0
-GPIO_15
-Text Label 3000 1250 2    50   ~ 0
-GPIO_26
-Text Label 3000 1450 2    50   ~ 0
-GPIO_24
-Text Label 3000 1650 2    50   ~ 0
-GPIO_22
-Text Label 3000 1850 2    50   ~ 0
-GPIO_20
-Text Label 3000 2050 2    50   ~ 0
-GPIO_18
-Text Label 3000 2250 2    50   ~ 0
-GPIO_16
-Text Label 3000 2450 2    50   ~ 0
-GPIO_14
-Wire Wire Line
-	3000 750  3050 750 
-Wire Wire Line
-	3050 850  3000 850 
-Wire Wire Line
-	3000 950  3050 950 
-Wire Wire Line
-	3000 1050 3050 1050
-Wire Wire Line
-	3050 1150 3000 1150
-Wire Wire Line
-	3000 1250 3050 1250
-Wire Wire Line
-	3050 1350 3000 1350
-Wire Wire Line
-	3000 1450 3050 1450
-Wire Wire Line
-	3050 1550 3000 1550
-Wire Wire Line
-	3000 1650 3050 1650
-Wire Wire Line
-	3000 1750 3050 1750
-Wire Wire Line
-	3050 1850 3000 1850
-Wire Wire Line
-	3000 1950 3050 1950
-Wire Wire Line
-	3050 2050 3000 2050
-Wire Wire Line
-	3000 2150 3050 2150
-Wire Wire Line
-	3050 2250 3000 2250
-Wire Wire Line
-	3000 2350 3050 2350
-Wire Wire Line
-	3050 2450 3000 2450
-Wire Notes Line
-	2600 550  2600 2700
-Wire Notes Line
-	2600 2700 4200 2700
-Wire Notes Line
-	4200 2700 4200 550 
-Wire Notes Line
-	4200 550  2600 550 
-Wire Notes Line
-	3500 2700 3500 2550
-Wire Notes Line
-	3500 2550 4200 2550
-Text Notes 3550 2650 0    50   ~ 0
-breakout
 Wire Notes Line
 	600  7600 1550 7600
 $Comp
@@ -424,15 +252,11 @@ U 1 1 5F2EE742
 P 900 3700
 F 0 "J5" H 900 4000 50  0000 C CNN
 F 1 "DevBoardUartInput" H 900 3400 50  0000 C CNN
-F 2 "Connector_JST:JST_PH_S4B-PH-K_1x04_P2.00mm_Horizontal" H 900 3700 50  0001 C CNN
+F 2 "Connector_JST:JST_PH_B4B-PH-SM4-TB_1x04-1MP_P2.00mm_Vertical" H 900 3700 50  0001 C CNN
 F 3 "" H 900 3700 50  0001 C CNN
 	1    900  3700
 	1    0    0    -1  
 $EndComp
-Text Label 3700 750  2    50   ~ 0
-VDD
-Text Label 3700 950  2    50   ~ 0
-VSS
 Text Label 950  2150 2    50   ~ 0
 VSSA_RAW
 Text Label 2050 2150 0    50   ~ 0
@@ -507,7 +331,7 @@ U 1 1 5F30F2AF
 P 3300 3350
 F 0 "U1" H 3300 3600 50  0000 C CNN
 F 1 "PPG_sensor" H 3300 3100 50  0000 C CNN
-F 2 "SquantorOpto:PPG_sensor_reverse" H 3300 3300 50  0001 C CNN
+F 2 "SquantorOpto:PPG_sensor_reverse_PD_antiparallel" H 3300 3300 50  0001 C CNN
 F 3 "" H 3300 3300 50  0001 C CNN
 	1    3300 3350
 	1    0    0    -1  
@@ -744,20 +568,20 @@ F 3 "~" H 1150 5200 50  0001 C CNN
 	1    1150 5200
 	0    1    1    0   
 $EndComp
-Text Notes 1050 5400 0    50   ~ 0
+Text Notes 1300 5400 0    50   ~ 0
 Analog supply
 Wire Notes Line
-	1600 4700 1600 5450
+	1850 4700 1850 5450
 Wire Notes Line
-	1600 5450 550  5450
+	1850 5450 550  5450
 Wire Notes Line
 	550  5450 550  4700
 Wire Notes Line
-	550  4700 1600 4700
+	550  4700 1850 4700
 Wire Notes Line
-	1000 5450 1000 5300
+	1250 5450 1250 5300
 Wire Notes Line
-	1000 5300 1600 5300
+	1250 5300 1850 5300
 Wire Notes Line
 	3550 3650 3550 3500
 Wire Notes Line
@@ -978,4 +802,26 @@ VREF
 Wire Wire Line
 	5200 2700 5400 2700
 Connection ~ 5200 2700
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5F3452B2
+P 1500 4800
+F 0 "TP?" V 1500 5000 50  0000 L CNN
+F 1 "VDDA" V 1600 4950 50  0000 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1700 4800 50  0001 C CNN
+F 3 "~" H 1700 4800 50  0001 C CNN
+	1    1500 4800
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5F345FFB
+P 1500 5200
+F 0 "TP?" V 1500 5400 50  0000 L CNN
+F 1 "VSSA" V 1400 5350 50  0000 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1700 5200 50  0001 C CNN
+F 3 "~" H 1700 5200 50  0001 C CNN
+	1    1500 5200
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
