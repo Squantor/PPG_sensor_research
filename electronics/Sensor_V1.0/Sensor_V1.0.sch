@@ -447,43 +447,37 @@ Wire Wire Line
 $Comp
 L Connector:TestPoint TP6
 U 1 1 5F35EBAD
-P 3400 3000
-F 0 "TP6" V 3400 3200 50  0000 L CNN
-F 1 "guard" V 3400 3350 50  0000 L CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 3600 3000 50  0001 C CNN
-F 3 "~" H 3600 3000 50  0001 C CNN
-	1    3400 3000
+P 4050 3000
+F 0 "TP6" V 4050 3200 50  0000 L CNN
+F 1 "guard" V 4050 3350 50  0000 L CNN
+F 2 "SquantorTestPoints:TestPoint_pad_circle_D05" H 4250 3000 50  0001 C CNN
+F 3 "~" H 4250 3000 50  0001 C CNN
+	1    4050 3000
 	0    -1   -1   0   
 $EndComp
-Text Label 3450 3000 0    50   ~ 0
+Text Label 4100 2850 2    50   ~ 0
 PD_OUT_GUARD
-Wire Wire Line
-	3400 3000 3450 3000
 $Comp
 L Connector:TestPoint TP5
 U 1 1 5F366186
-P 3400 2900
-F 0 "TP5" V 3400 3100 50  0000 L CNN
-F 1 "guard" V 3400 3250 50  0000 L CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 3600 2900 50  0001 C CNN
-F 3 "~" H 3600 2900 50  0001 C CNN
-	1    3400 2900
+P 4050 2900
+F 0 "TP5" V 4050 3100 50  0000 L CNN
+F 1 "guard" V 4050 3250 50  0000 L CNN
+F 2 "SquantorTestPoints:TestPoint_pad_circle_D05" H 4250 2900 50  0001 C CNN
+F 3 "~" H 4250 2900 50  0001 C CNN
+	1    4050 2900
 	0    -1   -1   0   
 $EndComp
-Text Label 3450 2900 0    50   ~ 0
-PD_OUT_GUARD
-Wire Wire Line
-	3400 2900 3450 2900
 Text Notes 3600 3600 0    50   ~ 0
 PPG sensor
 Wire Notes Line
-	2650 2800 4150 2800
+	2650 2750 4150 2750
 Wire Notes Line
-	4150 2800 4150 3650
+	4150 2750 4150 3650
 Wire Notes Line
 	4150 3650 2650 3650
 Wire Notes Line
-	2650 3650 2650 2800
+	2650 3650 2650 2750
 Text Label 950  2050 2    50   ~ 0
 VDDA_RAW
 Text Label 2050 2050 0    50   ~ 0
@@ -824,4 +818,29 @@ Wire Wire Line
 	1300 4800 1500 4800
 Wire Wire Line
 	1300 5200 1500 5200
+$Comp
+L Connector:TestPoint TP9
+U 1 1 5F31E965
+P 4050 3100
+F 0 "TP9" V 4050 3300 50  0000 L CNN
+F 1 "guard" V 4050 3450 50  0000 L CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 4250 3100 50  0001 C CNN
+F 3 "~" H 4250 3100 50  0001 C CNN
+	1    4050 3100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4100 2850 4100 2900
+Wire Wire Line
+	4100 3100 4050 3100
+Wire Wire Line
+	4050 3000 4100 3000
+Connection ~ 4100 3000
+Wire Wire Line
+	4100 3000 4100 3100
+Wire Wire Line
+	4100 2900 4050 2900
+Connection ~ 4100 2900
+Wire Wire Line
+	4100 2900 4100 3000
 $EndSCHEMATC
