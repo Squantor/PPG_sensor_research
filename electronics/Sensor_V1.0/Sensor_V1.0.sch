@@ -305,7 +305,7 @@ U 1 1 5F3061B8
 P 1750 3750
 F 0 "TP1" V 1750 3950 50  0000 L CNN
 F 1 "UART RX" V 1750 4100 50  0000 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1950 3750 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 1950 3750 50  0001 C CNN
 F 3 "~" H 1950 3750 50  0001 C CNN
 	1    1750 3750
 	0    1    1    0   
@@ -316,7 +316,7 @@ U 1 1 5F306926
 P 1750 3850
 F 0 "TP2" V 1750 4050 50  0000 L CNN
 F 1 "UART TX" V 1750 4200 50  0000 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1950 3850 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 1950 3850 50  0001 C CNN
 F 3 "~" H 1950 3850 50  0001 C CNN
 	1    1750 3850
 	0    1    1    0   
@@ -356,7 +356,7 @@ U 1 1 5F314C6B
 P 1350 4300
 F 0 "TP3" V 1350 4500 50  0000 L CNN
 F 1 "LED1 drive" V 1350 4650 50  0000 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1550 4300 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 1550 4300 50  0001 C CNN
 F 3 "~" H 1550 4300 50  0001 C CNN
 	1    1350 4300
 	0    -1   -1   0   
@@ -367,7 +367,7 @@ U 1 1 5F3177F7
 P 1350 4400
 F 0 "TP4" V 1350 4600 50  0000 L CNN
 F 1 "LED2 drive" V 1350 4750 50  0000 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1550 4400 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 1550 4400 50  0001 C CNN
 F 3 "~" H 1550 4400 50  0001 C CNN
 	1    1350 4400
 	0    -1   -1   0   
@@ -450,7 +450,7 @@ U 1 1 5F35EBAD
 P 3400 3000
 F 0 "TP6" V 3400 3200 50  0000 L CNN
 F 1 "guard" V 3400 3350 50  0000 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 3600 3000 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 3600 3000 50  0001 C CNN
 F 3 "~" H 3600 3000 50  0001 C CNN
 	1    3400 3000
 	0    -1   -1   0   
@@ -465,7 +465,7 @@ U 1 1 5F366186
 P 3400 2900
 F 0 "TP5" V 3400 3100 50  0000 L CNN
 F 1 "guard" V 3400 3250 50  0000 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 3600 2900 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 3600 2900 50  0001 C CNN
 F 3 "~" H 3600 2900 50  0001 C CNN
 	1    3400 2900
 	0    -1   -1   0   
@@ -804,7 +804,7 @@ U 1 1 5F3452B2
 P 1500 4800
 F 0 "TP7" V 1500 5000 50  0000 L CNN
 F 1 "VDDA" V 1600 4950 50  0000 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1700 4800 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 1700 4800 50  0001 C CNN
 F 3 "~" H 1700 4800 50  0001 C CNN
 	1    1500 4800
 	0    1    1    0   
@@ -815,7 +815,7 @@ U 1 1 5F345FFB
 P 1500 5200
 F 0 "TP8" V 1500 5400 50  0000 L CNN
 F 1 "VSSA" V 1400 5350 50  0000 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1700 5200 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 1700 5200 50  0001 C CNN
 F 3 "~" H 1700 5200 50  0001 C CNN
 	1    1500 5200
 	0    1    1    0   
