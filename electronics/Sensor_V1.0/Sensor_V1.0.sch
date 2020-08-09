@@ -433,14 +433,10 @@ Text Label 3700 750  2    50   ~ 0
 VDD
 Text Label 3700 950  2    50   ~ 0
 VSS
-Text Label 950  2050 2    50   ~ 0
-VDDA
 Text Label 950  2150 2    50   ~ 0
-VSSA
-Text Label 2050 2050 0    50   ~ 0
-VDDA
+VSSA_RAW
 Text Label 2050 2150 0    50   ~ 0
-VSSA
+VSSA_RAW
 Text Label 1150 3550 0    50   ~ 0
 VSS
 Text Label 1150 3650 0    50   ~ 0
@@ -484,7 +480,7 @@ L Connector:TestPoint TP1
 U 1 1 5F3061B8
 P 1750 3750
 F 0 "TP1" V 1750 3950 50  0000 L CNN
-F 1 "UART_RX" V 1750 4100 50  0000 L CNN
+F 1 "UART RX" V 1750 4100 50  0000 L CNN
 F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1950 3750 50  0001 C CNN
 F 3 "~" H 1950 3750 50  0001 C CNN
 	1    1750 3750
@@ -495,7 +491,7 @@ L Connector:TestPoint TP2
 U 1 1 5F306926
 P 1750 3850
 F 0 "TP2" V 1750 4050 50  0000 L CNN
-F 1 "UART_TX" V 1750 4200 50  0000 L CNN
+F 1 "UART TX" V 1750 4200 50  0000 L CNN
 F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1950 3850 50  0001 C CNN
 F 3 "~" H 1950 3850 50  0001 C CNN
 	1    1750 3850
@@ -506,14 +502,14 @@ Wire Wire Line
 Wire Wire Line
 	1450 3850 1750 3850
 $Comp
-L SquantorOpto:PPG_sensor U1
+L SquantorOpto:PPG_sensor_PD_flipped U1
 U 1 1 5F30F2AF
-P 3450 3400
-F 0 "U1" H 3450 3650 50  0000 C CNN
-F 1 "PPG_sensor" H 3450 3150 50  0000 C CNN
-F 2 "SquantorOpto:PPG_sensor_reverse" H 3450 3350 50  0001 C CNN
-F 3 "" H 3450 3350 50  0001 C CNN
-	1    3450 3400
+P 3300 3350
+F 0 "U1" H 3300 3600 50  0000 C CNN
+F 1 "PPG_sensor" H 3300 3100 50  0000 C CNN
+F 2 "SquantorOpto:PPG_sensor_reverse" H 3300 3300 50  0001 C CNN
+F 3 "" H 3300 3300 50  0001 C CNN
+	1    3300 3350
 	1    0    0    -1  
 $EndComp
 Wire Notes Line
@@ -531,32 +527,32 @@ Wire Notes Line
 Wire Notes Line
 	1750 3950 2500 3950
 $Comp
-L Connector:TestPoint TP?
+L Connector:TestPoint TP3
 U 1 1 5F314C6B
 P 1350 4300
-F 0 "TP?" V 1350 4500 50  0000 L CNN
-F 1 "LED1_drive" V 1350 4650 50  0000 L CNN
+F 0 "TP3" V 1350 4500 50  0000 L CNN
+F 1 "LED1 drive" V 1350 4650 50  0000 L CNN
 F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1550 4300 50  0001 C CNN
 F 3 "~" H 1550 4300 50  0001 C CNN
 	1    1350 4300
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Connector:TestPoint TP?
+L Connector:TestPoint TP4
 U 1 1 5F3177F7
 P 1350 4400
-F 0 "TP?" V 1350 4600 50  0000 L CNN
-F 1 "LED2_drive" V 1350 4750 50  0000 L CNN
+F 0 "TP4" V 1350 4600 50  0000 L CNN
+F 1 "LED2 drive" V 1350 4750 50  0000 L CNN
 F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1550 4400 50  0001 C CNN
 F 3 "~" H 1550 4400 50  0001 C CNN
 	1    1350 4400
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R3
 U 1 1 5F317D47
 P 1550 4300
-F 0 "R?" V 1500 4150 50  0000 C CNN
+F 0 "R3" V 1500 4150 50  0000 C CNN
 F 1 "1K" V 1550 4300 50  0000 C CNN
 F 2 "SquantorRcl:R_0603_hand" V 1480 4300 50  0001 C CNN
 F 3 "~" H 1550 4300 50  0001 C CNN
@@ -564,10 +560,10 @@ F 3 "~" H 1550 4300 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R4
 U 1 1 5F3189C9
 P 1550 4400
-F 0 "R?" V 1500 4250 50  0000 C CNN
+F 0 "R4" V 1500 4250 50  0000 C CNN
 F 1 "1K" V 1550 4400 50  0000 C CNN
 F 2 "SquantorRcl:R_0603_hand" V 1480 4400 50  0001 C CNN
 F 3 "~" H 1550 4400 50  0001 C CNN
@@ -600,28 +596,195 @@ Wire Notes Line
 	1450 4600 1450 4450
 Wire Notes Line
 	1450 4450 2000 4450
-Text Label 3150 3300 2    50   ~ 0
+Text Label 3000 3250 2    50   ~ 0
 LED1
-Text Label 3150 3500 2    50   ~ 0
+Text Label 3000 3450 2    50   ~ 0
 LED2
-Text Label 3750 3300 0    50   ~ 0
+Text Label 3600 3250 0    50   ~ 0
 VSS
-Text Label 3750 3500 0    50   ~ 0
+Text Label 3600 3450 0    50   ~ 0
 VSS
-Text Label 3750 3400 0    50   ~ 0
+Text Label 3000 3350 2    50   ~ 0
 PD_BIAS
-Text Label 3150 3400 2    50   ~ 0
+Text Label 3600 3350 0    50   ~ 0
 PD_OUT
 Wire Wire Line
-	3150 3300 3200 3300
+	3000 3250 3050 3250
 Wire Wire Line
-	3200 3400 3150 3400
+	3050 3350 3000 3350
 Wire Wire Line
-	3150 3500 3200 3500
+	3000 3450 3050 3450
 Wire Wire Line
-	3700 3500 3750 3500
+	3550 3450 3600 3450
 Wire Wire Line
-	3750 3400 3700 3400
+	3600 3350 3550 3350
 Wire Wire Line
-	3700 3300 3750 3300
+	3550 3250 3600 3250
+$Comp
+L Connector:TestPoint TP6
+U 1 1 5F35EBAD
+P 3400 3000
+F 0 "TP6" V 3400 3200 50  0000 L CNN
+F 1 "guard" V 3400 3350 50  0000 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 3600 3000 50  0001 C CNN
+F 3 "~" H 3600 3000 50  0001 C CNN
+	1    3400 3000
+	0    -1   -1   0   
+$EndComp
+Text Label 3450 3000 0    50   ~ 0
+PD_OUT_GUARD
+Wire Wire Line
+	3400 3000 3450 3000
+$Comp
+L Connector:TestPoint TP5
+U 1 1 5F366186
+P 3400 2900
+F 0 "TP5" V 3400 3100 50  0000 L CNN
+F 1 "guard" V 3400 3250 50  0000 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 3600 2900 50  0001 C CNN
+F 3 "~" H 3600 2900 50  0001 C CNN
+	1    3400 2900
+	0    -1   -1   0   
+$EndComp
+Text Label 3450 2900 0    50   ~ 0
+PD_OUT_GUARD
+Wire Wire Line
+	3400 2900 3450 2900
+Text Notes 3600 3600 0    50   ~ 0
+PPG sensor
+Wire Notes Line
+	2650 2800 4150 2800
+Wire Notes Line
+	4150 2800 4150 3650
+Wire Notes Line
+	4150 3650 2650 3650
+Wire Notes Line
+	2650 3650 2650 2800
+Text Label 950  2050 2    50   ~ 0
+VDDA_RAW
+Text Label 2050 2050 0    50   ~ 0
+VDDA_RAW
+Text Label 950  4800 2    50   ~ 0
+VDDA_RAW
+Text Label 950  5200 2    50   ~ 0
+VSSA_RAW
+$Comp
+L Device:C C1
+U 1 1 5F3977F9
+P 1000 5000
+F 0 "C1" H 900 5100 50  0000 L CNN
+F 1 "1u" H 1050 4900 50  0000 L CNN
+F 2 "SquantorRcl:C_0603" H 1038 4850 50  0001 C CNN
+F 3 "~" H 1000 5000 50  0001 C CNN
+	1    1000 5000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	950  4800 1000 4800
+Wire Wire Line
+	1000 4800 1000 4850
+Wire Wire Line
+	950  5200 1000 5200
+Wire Wire Line
+	1000 5200 1000 5150
+$Comp
+L Device:Ferrite_Bead_Small FB1
+U 1 1 5F3A2C0B
+P 1150 4800
+F 0 "FB1" V 1100 4700 50  0000 C CNN
+F 1 "600" V 1100 4950 50  0000 C CNN
+F 2 "SquantorRcl:L_0603" V 1080 4800 50  0001 C CNN
+F 3 "~" H 1150 4800 50  0001 C CNN
+	1    1150 4800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1000 5200 1050 5200
+Connection ~ 1000 5200
+Wire Wire Line
+	1000 4800 1050 4800
+Connection ~ 1000 4800
+$Comp
+L Device:C C2
+U 1 1 5F3AFB21
+P 1300 5000
+F 0 "C2" H 1350 5100 50  0000 L CNN
+F 1 "10u" H 1350 4900 50  0000 L CNN
+F 2 "SquantorRcl:C_0603" H 1338 4850 50  0001 C CNN
+F 3 "~" H 1300 5000 50  0001 C CNN
+	1    1300 5000
+	1    0    0    -1  
+$EndComp
+Text Label 1400 4800 0    50   ~ 0
+VDDA
+Text Label 1400 5200 0    50   ~ 0
+VSSA
+Wire Wire Line
+	1250 4800 1300 4800
+Wire Wire Line
+	1300 4850 1300 4800
+Connection ~ 1300 4800
+Wire Wire Line
+	1300 4800 1400 4800
+Wire Wire Line
+	1250 5200 1300 5200
+Wire Wire Line
+	1300 5200 1300 5150
+Connection ~ 1300 5200
+Wire Wire Line
+	1300 5200 1400 5200
+$Comp
+L Device:Ferrite_Bead_Small FB2
+U 1 1 5F3A36F4
+P 1150 5200
+F 0 "FB2" V 1200 5050 50  0000 C CNN
+F 1 "600" V 1200 5300 50  0000 C CNN
+F 2 "SquantorRcl:L_0603" V 1080 5200 50  0001 C CNN
+F 3 "~" H 1150 5200 50  0001 C CNN
+	1    1150 5200
+	0    1    1    0   
+$EndComp
+Text Notes 1050 5400 0    50   ~ 0
+Analog supply
+Wire Notes Line
+	1600 4700 1600 5450
+Wire Notes Line
+	1600 5450 550  5450
+Wire Notes Line
+	550  5450 550  4700
+Wire Notes Line
+	550  4700 1600 4700
+Wire Notes Line
+	1000 5450 1000 5300
+Wire Notes Line
+	1000 5300 1600 5300
+Wire Notes Line
+	3550 3650 3550 3500
+Wire Notes Line
+	3550 3500 4150 3500
+Text Label 4600 900  2    50   ~ 0
+VDDA
+Text Label 4600 1000 2    50   ~ 0
+VSSA
+Text Label 4600 700  2    50   ~ 0
+PD_BIAS
+$Comp
+L SquantorSpecial:Solderjumper_2way_noconn JP?
+U 1 1 5F40E401
+P 5000 900
+F 0 "JP?" H 5000 1050 50  0000 C CNN
+F 1 "bias VDD" H 5000 750 50  0000 C CNN
+F 2 "SquantorSpecial:solder_jumper_2way_noconn" H 5000 900 50  0001 C CNN
+F 3 "" H 5000 900 50  0001 C CNN
+	1    5000 900 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4600 900  4800 900 
+Wire Wire Line
+	4600 700  5450 700 
+Wire Wire Line
+	5450 700  5450 900 
+Wire Wire Line
+	5450 900  5200 900 
 $EndSCHEMATC
