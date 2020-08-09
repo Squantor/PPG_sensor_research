@@ -762,29 +762,220 @@ Wire Notes Line
 	3550 3650 3550 3500
 Wire Notes Line
 	3550 3500 4150 3500
-Text Label 4600 900  2    50   ~ 0
+Text Label 4550 850  2    50   ~ 0
 VDDA
-Text Label 4600 1000 2    50   ~ 0
+Text Label 4550 950  2    50   ~ 0
 VSSA
-Text Label 4600 700  2    50   ~ 0
+Text Label 4650 650  2    50   ~ 0
 PD_BIAS
 $Comp
-L SquantorSpecial:Solderjumper_2way_noconn JP?
+L SquantorSpecial:Solderjumper_2way_noconn JP1
 U 1 1 5F40E401
-P 5000 900
-F 0 "JP?" H 5000 1050 50  0000 C CNN
-F 1 "bias VDD" H 5000 750 50  0000 C CNN
-F 2 "SquantorSpecial:solder_jumper_2way_noconn" H 5000 900 50  0001 C CNN
-F 3 "" H 5000 900 50  0001 C CNN
-	1    5000 900 
+P 5450 850
+F 0 "JP1" H 5450 1000 50  0000 C CNN
+F 1 "bias VDD" H 5450 700 50  0000 C CNN
+F 2 "SquantorSpecial:solder_jumper_2way_noconn" H 5450 850 50  0001 C CNN
+F 3 "" H 5450 850 50  0001 C CNN
+	1    5450 850 
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4600 900  4800 900 
+	4550 850  5250 850 
 Wire Wire Line
-	4600 700  5450 700 
+	4650 650  5700 650 
 Wire Wire Line
-	5450 700  5450 900 
+	5700 650  5700 850 
 Wire Wire Line
-	5450 900  5200 900 
+	5700 850  5650 850 
+$Comp
+L SquantorGenericAnalog:reference_sot23-3 U2
+U 1 1 5F422666
+P 4900 2300
+F 0 "U2" H 5100 2450 50  0000 C CNN
+F 1 "reference_sot23-3" H 4900 2050 50  0000 C CNN
+F 2 "SquantorIC:SOT23-3" H 4900 2300 50  0001 C CNN
+F 3 "" H 4900 2300 50  0001 C CNN
+	1    4900 2300
+	-1   0    0    -1  
+$EndComp
+Text Label 5200 2200 0    50   ~ 0
+VDDA
+Text Label 4550 2300 2    50   ~ 0
+VSSA
+$Comp
+L Device:C C3
+U 1 1 5F43C25C
+P 4600 1450
+F 0 "C3" H 4500 1550 50  0000 L CNN
+F 1 "1u" H 4650 1350 50  0000 L CNN
+F 2 "SquantorRcl:C_0603" H 4638 1300 50  0001 C CNN
+F 3 "~" H 4600 1450 50  0001 C CNN
+	1    4600 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4550 1250 4600 1250
+Wire Wire Line
+	4600 1250 4600 1300
+Wire Wire Line
+	4550 1650 4600 1650
+Wire Wire Line
+	4600 1650 4600 1600
+$Comp
+L Device:Ferrite_Bead_Small FB3
+U 1 1 5F43C26A
+P 4750 1250
+F 0 "FB3" V 4700 1150 50  0000 C CNN
+F 1 "600" V 4700 1400 50  0000 C CNN
+F 2 "SquantorRcl:L_0603" V 4680 1250 50  0001 C CNN
+F 3 "~" H 4750 1250 50  0001 C CNN
+	1    4750 1250
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4600 1650 4650 1650
+Connection ~ 4600 1650
+Wire Wire Line
+	4600 1250 4650 1250
+Connection ~ 4600 1250
+$Comp
+L Device:C C4
+U 1 1 5F43C278
+P 4900 1450
+F 0 "C4" H 4950 1550 50  0000 L CNN
+F 1 "10u" H 4950 1350 50  0000 L CNN
+F 2 "SquantorRcl:C_0603" H 4938 1300 50  0001 C CNN
+F 3 "~" H 4900 1450 50  0001 C CNN
+	1    4900 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4850 1250 4900 1250
+Wire Wire Line
+	4900 1300 4900 1250
+Connection ~ 4900 1250
+Wire Wire Line
+	4900 1250 5250 1250
+Wire Wire Line
+	4850 1650 4900 1650
+Wire Wire Line
+	4900 1650 4900 1600
+Connection ~ 4900 1650
+Wire Wire Line
+	4900 1650 5000 1650
+$Comp
+L Device:Ferrite_Bead_Small FB4
+U 1 1 5F43C28A
+P 4750 1650
+F 0 "FB4" V 4800 1500 50  0000 C CNN
+F 1 "600" V 4800 1750 50  0000 C CNN
+F 2 "SquantorRcl:L_0603" V 4680 1650 50  0001 C CNN
+F 3 "~" H 4750 1650 50  0001 C CNN
+	1    4750 1650
+	0    1    1    0   
+$EndComp
+Text Label 4550 1650 2    50   ~ 0
+VSS
+Text Label 4550 1250 2    50   ~ 0
+VBUS
+Text Label 5000 1650 0    50   ~ 0
+VSSA
+$Comp
+L SquantorSpecial:Solderjumper_2way_noconn JP2
+U 1 1 5F461F8A
+P 5450 1250
+F 0 "JP2" H 5450 1400 50  0000 C CNN
+F 1 "bias VBUS" H 5450 1100 50  0000 C CNN
+F 2 "SquantorSpecial:solder_jumper_2way_noconn" H 5450 1250 50  0001 C CNN
+F 3 "" H 5450 1250 50  0001 C CNN
+	1    5450 1250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 850  5700 1250
+Wire Wire Line
+	5700 1250 5650 1250
+Connection ~ 5700 850 
+$Comp
+L SquantorSpecial:Solderjumper_2way_noconn JP3
+U 1 1 5F4B1706
+P 5450 2400
+F 0 "JP3" H 5450 2550 50  0000 C CNN
+F 1 "bias REF" H 5450 2250 50  0000 C CNN
+F 2 "SquantorSpecial:solder_jumper_2way_noconn" H 5450 2400 50  0001 C CNN
+F 3 "" H 5450 2400 50  0001 C CNN
+	1    5450 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 1250 5700 2400
+Wire Wire Line
+	5700 2400 5650 2400
+Connection ~ 5700 1250
+$Comp
+L Device:C C5
+U 1 1 5F4B91DE
+P 4900 1950
+F 0 "C5" V 4850 2000 50  0000 L CNN
+F 1 "1u" V 4950 1800 50  0000 L CNN
+F 2 "SquantorRcl:C_0603" H 4938 1800 50  0001 C CNN
+F 3 "~" H 4900 1950 50  0001 C CNN
+	1    4900 1950
+	0    1    1    0   
+$EndComp
+Text Label 4700 1950 2    50   ~ 0
+VSSA
+Text Label 5100 1950 0    50   ~ 0
+VDDA
+$Comp
+L Device:C C6
+U 1 1 5F4E3D6E
+P 4900 2700
+F 0 "C6" V 4850 2750 50  0000 L CNN
+F 1 "10u" V 4950 2550 50  0000 L CNN
+F 2 "SquantorRcl:C_0603" H 4938 2550 50  0001 C CNN
+F 3 "~" H 4900 2700 50  0001 C CNN
+	1    4900 2700
+	0    1    1    0   
+$EndComp
+Text Label 4700 2700 2    50   ~ 0
+VSSA
+Wire Wire Line
+	4550 2300 4650 2300
+Wire Wire Line
+	5150 2200 5200 2200
+Wire Wire Line
+	5150 2400 5200 2400
+Wire Wire Line
+	5050 2700 5200 2700
+Wire Wire Line
+	5200 2700 5200 2400
+Connection ~ 5200 2400
+Wire Wire Line
+	5200 2400 5250 2400
+Wire Wire Line
+	4700 2700 4750 2700
+Wire Wire Line
+	4700 1950 4750 1950
+Wire Wire Line
+	5050 1950 5100 1950
+Text Notes 5050 2850 0    50   ~ 0
+PD bias selection
+Wire Notes Line
+	4300 550  5750 550 
+Wire Notes Line
+	5750 550  5750 2900
+Wire Notes Line
+	5750 2900 4300 2900
+Wire Notes Line
+	4300 2900 4300 550 
+Wire Notes Line
+	5000 2900 5000 2750
+Wire Notes Line
+	5000 2750 5750 2750
+Text Label 5400 2700 0    50   ~ 0
+VREF
+Wire Wire Line
+	5200 2700 5400 2700
+Connection ~ 5200 2700
 $EndSCHEMATC
