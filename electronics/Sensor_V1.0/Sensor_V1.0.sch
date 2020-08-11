@@ -968,209 +968,74 @@ Connection ~ 5550 950
 Wire Wire Line
 	5550 950  5600 950 
 $Comp
-L SquantorSpecial:Solderjumper_2way_noconn JP4
-U 1 1 5F4739A8
-P 4650 1650
-F 0 "JP4" H 4650 1800 50  0000 C CNN
-F 1 "AVDD divider" H 4650 1500 50  0000 C CNN
-F 2 "SquantorSpecial:solder_jumper_2way_noconn" H 4650 1650 50  0001 C CNN
-F 3 "" H 4650 1650 50  0001 C CNN
-	1    4650 1650
-	1    0    0    -1  
-$EndComp
-Text Label 4400 1650 2    50   ~ 0
-VDDA
-Text Label 4400 2050 2    50   ~ 0
-VREF
-$Comp
-L SquantorSpecial:Solderjumper_2way_noconn JP5
-U 1 1 5F474801
-P 4650 2050
-F 0 "JP5" H 4650 2200 50  0000 C CNN
-F 1 "VREF divider" H 4650 1900 50  0000 C CNN
-F 2 "SquantorSpecial:solder_jumper_2way_noconn" H 4650 2050 50  0001 C CNN
-F 3 "" H 4650 2050 50  0001 C CNN
-	1    4650 2050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4400 2050 4450 2050
-Wire Wire Line
-	4450 1650 4400 1650
-$Comp
-L Device:R R5
-U 1 1 5F48D3D0
-P 5100 1650
-F 0 "R5" V 5050 1800 50  0000 C CNN
-F 1 "R" V 5100 1650 50  0000 C CNN
-F 2 "SquantorRcl:R_0603_hand" V 5030 1650 50  0001 C CNN
-F 3 "~" H 5100 1650 50  0001 C CNN
-	1    5100 1650
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R R6
-U 1 1 5F48E386
-P 5100 1850
-F 0 "R6" V 5050 2000 50  0000 C CNN
-F 1 "R" V 5100 1850 50  0000 C CNN
-F 2 "SquantorRcl:R_0603_hand" V 5030 1850 50  0001 C CNN
-F 3 "~" H 5100 1850 50  0001 C CNN
-	1    5100 1850
-	0    1    1    0   
-$EndComp
-$Comp
 L Device:R R7
 U 1 1 5F48E66A
-P 5100 2050
-F 0 "R7" V 5050 2200 50  0000 C CNN
-F 1 "R" V 5100 2050 50  0000 C CNN
-F 2 "SquantorRcl:R_0603_hand" V 5030 2050 50  0001 C CNN
-F 3 "~" H 5100 2050 50  0001 C CNN
-	1    5100 2050
+P 5200 1800
+F 0 "R7" V 5150 1950 50  0000 C CNN
+F 1 "R" V 5200 1800 50  0000 C CNN
+F 2 "SquantorRcl:R_0603_hand" V 5130 1800 50  0001 C CNN
+F 3 "~" H 5200 1800 50  0001 C CNN
+	1    5200 1800
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	4850 1650 4900 1650
+	5350 1800 5450 1800
 Wire Wire Line
-	4900 1650 4900 1850
-Wire Wire Line
-	4900 2050 4950 2050
-Wire Wire Line
-	4850 2050 4900 2050
-Connection ~ 4900 2050
-Wire Wire Line
-	4950 1850 4900 1850
-Connection ~ 4900 1850
-Wire Wire Line
-	4900 1850 4900 2050
-Wire Wire Line
-	4950 1650 4900 1650
-Connection ~ 4900 1650
-$Comp
-L Device:R R9
-U 1 1 5F4B8CB5
-P 5500 1650
-F 0 "R9" V 5450 1800 50  0000 C CNN
-F 1 "R" V 5500 1650 50  0000 C CNN
-F 2 "SquantorRcl:R_0603_hand" V 5430 1650 50  0001 C CNN
-F 3 "~" H 5500 1650 50  0001 C CNN
-	1    5500 1650
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R R10
-U 1 1 5F4B8FA1
-P 5500 1850
-F 0 "R10" V 5450 2050 50  0000 C CNN
-F 1 "R" V 5500 1850 50  0000 C CNN
-F 2 "SquantorRcl:R_0603_hand" V 5430 1850 50  0001 C CNN
-F 3 "~" H 5500 1850 50  0001 C CNN
-	1    5500 1850
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	5250 1850 5300 1850
-Wire Wire Line
-	5350 1650 5300 1650
-Wire Wire Line
-	5300 1650 5300 1850
-Connection ~ 5300 1650
-Wire Wire Line
-	5300 1650 5250 1650
-Connection ~ 5300 1850
-Wire Wire Line
-	5300 1850 5350 1850
-Wire Wire Line
-	5650 1650 5750 1650
-Wire Wire Line
-	5750 1650 5750 1850
-Wire Wire Line
-	5250 2050 5750 2050
-Wire Wire Line
-	5650 1850 5750 1850
-Connection ~ 5750 1850
-Wire Wire Line
-	5750 1850 5750 2050
-$Comp
-L Device:R R13
-U 1 1 5F4E24EB
-P 5950 1850
-F 0 "R13" V 5900 2050 50  0000 C CNN
-F 1 "R" V 5950 1850 50  0000 C CNN
-F 2 "SquantorRcl:R_0603_hand" V 5880 1850 50  0001 C CNN
-F 3 "~" H 5950 1850 50  0001 C CNN
-	1    5950 1850
-	0    1    1    0   
-$EndComp
+	5450 1800 5450 2000
 $Comp
 L Device:R R12
 U 1 1 5F4E2B8C
-P 5950 1650
-F 0 "R12" V 5900 1850 50  0000 C CNN
-F 1 "R" V 5950 1650 50  0000 C CNN
-F 2 "SquantorRcl:R_0603_hand" V 5880 1650 50  0001 C CNN
-F 3 "~" H 5950 1650 50  0001 C CNN
-	1    5950 1650
+P 5650 1800
+F 0 "R12" V 5600 2000 50  0000 C CNN
+F 1 "R" V 5650 1800 50  0000 C CNN
+F 2 "SquantorRcl:R_0603_hand" V 5580 1800 50  0001 C CNN
+F 3 "~" H 5650 1800 50  0001 C CNN
+	1    5650 1800
 	0    1    1    0   
 $EndComp
-Text Label 6200 1850 0    50   ~ 0
+Text Label 5900 1900 0    50   ~ 0
 VSSA
 Wire Wire Line
-	5750 1650 5800 1650
-Connection ~ 5750 1650
+	5450 1800 5500 1800
+Connection ~ 5450 1800
 Wire Wire Line
-	5800 1850 5750 1850
+	5500 2000 5450 2000
 Wire Wire Line
-	5750 2050 5800 2050
-Connection ~ 5750 2050
+	5850 1800 5800 1800
 Wire Wire Line
-	6100 2050 6150 2050
-Wire Wire Line
-	6150 2050 6150 1850
-Wire Wire Line
-	6150 1850 6200 1850
-Wire Wire Line
-	6150 1850 6150 1650
-Wire Wire Line
-	6150 1650 6100 1650
-Connection ~ 6150 1850
-Wire Wire Line
-	6100 1850 6150 1850
-Text Label 5650 1500 2    50   ~ 0
-Divider_out
+	5800 2000 5850 2000
 $Comp
 L Connector:TestPoint TP11
 U 1 1 5F5119A4
-P 5900 1500
-F 0 "TP11" V 5850 1400 50  0000 L CNN
-F 1 "Div out" V 5900 1700 50  0000 L CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 6100 1500 50  0001 C CNN
-F 3 "~" H 6100 1500 50  0001 C CNN
-	1    5900 1500
+P 5600 1650
+F 0 "TP11" V 5550 1550 50  0000 L CNN
+F 1 "Div out" V 5600 1850 50  0000 L CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 5800 1650 50  0001 C CNN
+F 3 "~" H 5800 1650 50  0001 C CNN
+	1    5600 1650
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	5750 1650 5750 1500
+	5450 1800 5450 1650
 Wire Wire Line
-	5750 1500 5900 1500
+	5450 1650 5600 1650
 Wire Wire Line
-	5650 1500 5750 1500
-Connection ~ 5750 1500
-Text Notes 5800 2250 0    50   ~ 0
+	5350 1650 5450 1650
+Connection ~ 5450 1650
+Text Notes 5500 2250 0    50   ~ 0
 Resistor divider
 Wire Notes Line
-	4150 1400 6450 1400
+	4150 1400 6150 1400
 Wire Notes Line
-	6450 1400 6450 2300
+	6150 1400 6150 2300
 Wire Notes Line
-	6450 2300 4150 2300
+	6150 2300 4150 2300
 Wire Notes Line
 	4150 2300 4150 1400
 Wire Notes Line
-	5750 2300 5750 2150
+	5450 2300 5450 2150
 Wire Notes Line
-	5750 2150 6450 2150
+	5450 2150 6150 2150
 $Comp
 L SquantorMicrochip:MCP6541 U3
 U 1 1 5F30EAFC
@@ -1475,12 +1340,62 @@ Wire Wire Line
 $Comp
 L Device:C C11
 U 1 1 5F328139
-P 5950 2050
-F 0 "C11" V 5900 2100 50  0000 L CNN
-F 1 "1u" V 6000 1900 50  0000 L CNN
-F 2 "SquantorRcl:C_0603" H 5988 1900 50  0001 C CNN
-F 3 "~" H 5950 2050 50  0001 C CNN
-	1    5950 2050
+P 5650 2000
+F 0 "C11" V 5600 2050 50  0000 L CNN
+F 1 "1u" V 5700 1850 50  0000 L CNN
+F 2 "SquantorRcl:C_0603" H 5688 1850 50  0001 C CNN
+F 3 "~" H 5650 2000 50  0001 C CNN
+	1    5650 2000
 	0    1    1    0   
 $EndComp
+Wire Wire Line
+	5850 1800 5850 1900
+Wire Wire Line
+	5850 1900 5900 1900
+Wire Wire Line
+	5850 2000 5850 1900
+Connection ~ 5850 1900
+Text Label 5350 1650 2    50   ~ 0
+Divider_out
+Wire Wire Line
+	4900 1600 4900 1800
+Wire Wire Line
+	4850 2000 4900 2000
+Wire Wire Line
+	4850 1600 4900 1600
+Wire Wire Line
+	4450 1600 4400 1600
+Wire Wire Line
+	4400 2000 4450 2000
+$Comp
+L SquantorSpecial:Solderjumper_2way_noconn JP5
+U 1 1 5F474801
+P 4650 2000
+F 0 "JP5" H 4650 2150 50  0000 C CNN
+F 1 "VREF divider" H 4650 1850 50  0000 C CNN
+F 2 "SquantorSpecial:solder_jumper_2way_noconn" H 4650 2000 50  0001 C CNN
+F 3 "" H 4650 2000 50  0001 C CNN
+	1    4650 2000
+	1    0    0    -1  
+$EndComp
+Text Label 4400 2000 2    50   ~ 0
+VREF
+Text Label 4400 1600 2    50   ~ 0
+VDDA
+$Comp
+L SquantorSpecial:Solderjumper_2way_noconn JP4
+U 1 1 5F4739A8
+P 4650 1600
+F 0 "JP4" H 4650 1750 50  0000 C CNN
+F 1 "AVDD divider" H 4650 1450 50  0000 C CNN
+F 2 "SquantorSpecial:solder_jumper_2way_noconn" H 4650 1600 50  0001 C CNN
+F 3 "" H 4650 1600 50  0001 C CNN
+	1    4650 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 1800 4900 1800
+Connection ~ 4900 1800
+Wire Wire Line
+	4900 1800 4900 2000
 $EndSCHEMATC
