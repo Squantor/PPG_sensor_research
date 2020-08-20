@@ -56,18 +56,18 @@ void ppgSensorSetup(void)
     captureCount = 0;
     ClockEnablePeriphClock(SYSCTL_CLOCK_SWM);
     ClockEnablePeriphClock(SYSCTL_CLOCK_IOCON);
-    IoconPinSetMode(LPC_IOCON, IOCON_LED_CTRL, PIN_MODE_INACTIVE);
+    IoconPinSetMode(LPC_IOCON, IOCON_LED1_CTRL, PIN_MODE_INACTIVE);
+    IoconPinSetMode(LPC_IOCON, IOCON_LED2_CTRL, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_CAP_SENSE, PIN_MODE_INACTIVE);
+    IoconPinSetMode(LPC_IOCON, IOCON_DIV_INPUT, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_CAP_RESET, PIN_MODE_INACTIVE);
-    IoconPinSetMode(LPC_IOCON, IOCON_VDDCMP, PIN_MODE_INACTIVE);
-    SwmMovablePinAssign(SWM_CTOUT_0_O, PIN_LED_CTRL);
+    SwmMovablePinAssign(SWM_CTOUT_0_O, PIN_LED2_CTRL);
     SwmMovablePinAssign(SWM_CTOUT_1_O, PIN_CAP_RESET);
     // connect comparator output to SCT 0 input
     SwmMovablePinAssign(SWM_ACMP_O_O, PIN_CMP_OUT);
     SwmMovablePinAssign(SWM_CTIN_0_I, PIN_CMP_OUT);
     SwmFixedPinEnable(SWM_FIXED_ACMP_I1, true);
     SwmFixedPinEnable(SWM_FIXED_ACMP_I2, true);
-    SwmFixedPinEnable(SWM_FIXED_VDDCMP, true);
     ClockDisablePeriphClock(SYSCTL_CLOCK_IOCON);
     ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
     
@@ -110,7 +110,6 @@ void ppgSensorSetup(void)
     // setup comparator
     AcmpInit();
     AcmpControl(LPC_CMP, ACMP_HYS_20MV | ACMP_POSIN_ACMP_I1 | ACMP_NEGIN_ACMP_I2);
-    AcmpLadder(LPC_CMP, ACMP_LAD_ENABLE | ACMP_LADSEL(6) | ACMP_LADREF_VDDCMP);
 
     SctClearControl(LPC_SCT, SCT_CTRL_HALT_U);
 }

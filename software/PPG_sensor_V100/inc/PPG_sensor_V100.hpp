@@ -27,16 +27,19 @@ SOFTWARE.
 #define IOCON_XTAL_IN       IOCON_PIO8
 #define IOCON_XTAL_OUT      IOCON_PIO9
 
-#define IOCON_LED_CTRL      IOCON_PIO12
-#define PIN_LED_CTRL        (12u)
+#define IOCON_LED1_CTRL      IOCON_PIO14
+#define PIN_LED1_CTRL        (14u)
+#define IOCON_LED2_CTRL      IOCON_PIO15
+#define PIN_LED2_CTRL        (15u)
+
 #define IOCON_CAP_SENSE     IOCON_PIO0
 #define PIN_CAP_SENSE       (0u)
-#define IOCON_CMP_OUT       IOCON_PIO7
-#define PIN_CMP_OUT         (7u)
-#define IOCON_CAP_RESET     IOCON_PIO14
-#define PIN_CAP_RESET       (14u)
-#define IOCON_VDDCMP        IOCON_PIO6
-#define PIN_VDDCMP          (6u)
+#define IOCON_DIV_INPUT     IOCON_PIO1
+#define PIN_DIV_INPUT       (1u)
+#define IOCON_CMP_OUT       IOCON_PIO12
+#define PIN_CMP_OUT         (12u)
+#define IOCON_CAP_RESET     IOCON_PIO7
+#define PIN_CAP_RESET       (7u)
 
 #define IOCON_UART_TX       IOCON_PIO13
 #define PIN_UART_TX         (13u)
@@ -55,7 +58,5 @@ SOFTWARE.
 #define CLOCK_MAIN          (60000000u)
 
 void boardInit(void);
-
-void boardPpgLedState(bool on);
 
 #endif
