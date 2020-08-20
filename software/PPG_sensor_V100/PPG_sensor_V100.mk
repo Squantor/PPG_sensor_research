@@ -20,30 +20,31 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# settings for the MCU target
+# project settings
 #
-# Version: 20200820
+# Version: 20200625
 
-ifndef MCU
-$(error MCU is not defined!)
-else
-include targets/$(MCU).mk
-endif
+# includes of additional libraries
+include squantorLibC/squantorLibC.mk
+include squantorLibEmbeddedC/squantorLibEmbeddedC.mk
 
-# valid configurations like debug, release, test, define them here
-CONFIGS = debug release
+# project settings
+MCU = LPC812M101JDH20
+TARGET = MCU
+BOARD = PPG_sensor_V100
 
-# configuration specific flags
-CFLAGS += -std=gnu11 -Wall -Wextra -Wno-main -fno-common -c -ffunction-sections -fdata-sections
-CFLAGS_debug += -O0 -g3
-CFLAGS_release += -Os -g
-CXXFLAGS += -std=c++17 -Wall -Wextra -Wno-main -fno-common -c -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions
-CXXFLAGS_debug += -Og -g3
-CXXFLAGS_release += -Os -g
-ASMFLAGS += -c -x assembler-with-cpp
-LDFLAGS += -nostdlib -Wl,--gc-sections -Wl,-print-memory-usage
-DEFINES +=
-DEFINES_release += -DNDEBUG
-DEFINES_debug += -DDEBUG
-LIBS += -lgcc
+# project sources
+FILES +=  \
+common/src/arm_systick.c \
+common/src/delay.cpp \
+common/src/time_delay.cpp \
+common/src/time_interval.cpp \
+common/src/stream_uart.cpp \
+$(PROJECT)/src/strings.cpp \
+$(PROJECT)/src/$(BOARD).cpp \
+$(PROJECT)/src/main.cpp
+
+LIBS +=
+INCLUDES += -Icommon/inc -IlibMcuLL/inc -I$(PROJECT)/inc
+DEFINES += -D"$(BOARD)"
 

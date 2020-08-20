@@ -4,9 +4,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build PPG sensor V000",
+            "label": "build PPG sensor V1.0",
             "type": "shell",
-            "command": "make PROJECT=PPG_sensor_V000",
+            "command": "make PROJECT=PPG_sensor_V100",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -14,15 +14,15 @@
             "problemMatcher": "$gcc"
         },
         {
-            "label": "build PPG sensor V000 documentation",
+            "label": "build PPG sensor V1.0 documentation",
             "type": "shell",
-            "command": "make PROJECT=PPG_sensor_V000 doc",
+            "command": "make PROJECT=PPG_sensor_V100 doc",
             "group": "build",
         },
         {
             "label": "clean",
             "type": "shell",
-            "command": "make PROJECT=PPG_sensor_V000 clean",
+            "command": "make PROJECT=PPG_sensor_V100 clean",
             "group": "build",
             "problemMatcher": [
                 "$gcc"

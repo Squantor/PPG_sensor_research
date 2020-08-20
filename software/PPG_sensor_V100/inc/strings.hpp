@@ -22,35 +22,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 /*
-Datastream that points to the user facing UART interface
+Common used strings
 */
+#ifndef STRINGS_HPP
+#define STRINGS_HPP
 
-#include <results.h>
-#include <stream_uart.hpp>
-#include <PPG_sensor_V100.hpp>
-#include <mcu_ll.h>
+extern const char strHello[];
+extern const char strCrLf[];
 
-const static char streamUartName[] = "uartStream";
-result writeUart(const char *c);
-result readUart(char *c);
-const datastreamChar_t streamUart = {writeUart, readUart, streamUartName};
-
-result writeUart(const char *c)
-{
-    while((UartGetStatus(UART_DEBUG) & UART_STAT_TXRDY) == 0) 
-        ;
-    UartSendByte(UART_DEBUG, *c);
-    return noError;
-}
-
-result readUart(char *c)
-{
-    if((UartGetStatus(UART_DEBUG) & UART_STAT_RXRDY) != 0)
-    {
-        *c = UartReadByte(UART_DEBUG);
-        return noError;
-    }
-    else
-        return streamEmtpy;       
-}
-
+#endif

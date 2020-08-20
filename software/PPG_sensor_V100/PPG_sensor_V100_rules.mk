@@ -20,30 +20,32 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# settings for the MCU target
+# Project specific rules, a few predefined but feel free to add your own
 #
-# Version: 20200820
+# Version: 20200425
 
-ifndef MCU
-$(error MCU is not defined!)
-else
-include targets/$(MCU).mk
-endif
+# executed 
+pre-build:
+	@echo executing pre build steps
 
-# valid configurations like debug, release, test, define them here
-CONFIGS = debug release
+.PHONY: pre-build
 
-# configuration specific flags
-CFLAGS += -std=gnu11 -Wall -Wextra -Wno-main -fno-common -c -ffunction-sections -fdata-sections
-CFLAGS_debug += -O0 -g3
-CFLAGS_release += -Os -g
-CXXFLAGS += -std=c++17 -Wall -Wextra -Wno-main -fno-common -c -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions
-CXXFLAGS_debug += -Og -g3
-CXXFLAGS_release += -Os -g
-ASMFLAGS += -c -x assembler-with-cpp
-LDFLAGS += -nostdlib -Wl,--gc-sections -Wl,-print-memory-usage
-DEFINES +=
-DEFINES_release += -DNDEBUG
-DEFINES_debug += -DDEBUG
-LIBS += -lgcc
+post-build: main-build
+	@echo executing post build steps
+
+.PHONY: post-build
+
+#project hardware specific commands
+gdbbmp: all
+	$(TOOLCHAIN_PREFIX)$(GDB) -x ./gdb_scripts/$(PROJECT).txt
+.PHONY: gdbbmp
+
+tpwrdisable:
+	$(TOOLCHAIN_PREFIX)$(GDB) -x ./gdb_scripts/bmp_tpwr_disable.txt
+.PHONY: tpwrdisable
+
+tpwrenable:
+	$(TOOLCHAIN_PREFIX)$(GDB) -x ./gdb_scripts/bmp_tpwr_enable.txt
+.PHONY: tpwrenable
+
 

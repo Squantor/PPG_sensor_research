@@ -3,7 +3,7 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/PPG_sensor_V000/inc",
+                "${workspaceFolder}/PPG_sensor_V100/inc",
                 "${workspaceFolder}/common/inc/",
                 "${workspaceFolder}/libMcuLL/inc/",
                 "${workspaceFolder}/squantorLibC/inc/",

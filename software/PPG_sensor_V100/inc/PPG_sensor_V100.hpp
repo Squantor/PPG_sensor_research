@@ -21,36 +21,41 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-/*
-Datastream that points to the user facing UART interface
-*/
+#ifndef PPG_SENSOR_V000_HPP
+#define PPG_SENSOR_V000_HPP
 
-#include <results.h>
-#include <stream_uart.hpp>
-#include <PPG_sensor_V100.hpp>
-#include <mcu_ll.h>
+#define IOCON_XTAL_IN       IOCON_PIO8
+#define IOCON_XTAL_OUT      IOCON_PIO9
 
-const static char streamUartName[] = "uartStream";
-result writeUart(const char *c);
-result readUart(char *c);
-const datastreamChar_t streamUart = {writeUart, readUart, streamUartName};
+#define IOCON_LED_CTRL      IOCON_PIO12
+#define PIN_LED_CTRL        (12u)
+#define IOCON_CAP_SENSE     IOCON_PIO0
+#define PIN_CAP_SENSE       (0u)
+#define IOCON_CMP_OUT       IOCON_PIO7
+#define PIN_CMP_OUT         (7u)
+#define IOCON_CAP_RESET     IOCON_PIO14
+#define PIN_CAP_RESET       (14u)
+#define IOCON_VDDCMP        IOCON_PIO6
+#define PIN_VDDCMP          (6u)
 
-result writeUart(const char *c)
-{
-    while((UartGetStatus(UART_DEBUG) & UART_STAT_TXRDY) == 0) 
-        ;
-    UartSendByte(UART_DEBUG, *c);
-    return noError;
-}
+#define IOCON_UART_TX       IOCON_PIO13
+#define PIN_UART_TX         (13u)
+#define IOCON_UART_RX       IOCON_PIO17
+#define PIN_UART_RX         (17u)
 
-result readUart(char *c)
-{
-    if((UartGetStatus(UART_DEBUG) & UART_STAT_RXRDY) != 0)
-    {
-        *c = UartReadByte(UART_DEBUG);
-        return noError;
-    }
-    else
-        return streamEmtpy;       
-}
+#define UART_DEBUG          LPC_USART0
+#define UART_BAUD_RATE      (115200u)
 
+#define CLOCK_MAIN_SOURCE   SYSCTL_MAINCLKSRC_PLLOUT
+
+#define CLOCK_XTAL          (12000000u)
+#define CLOCK_EXT_IN        (0u)
+#define CLOCK_CPU           (30000000u)
+#define CLOCK_AHB           (30000000u)
+#define CLOCK_MAIN          (60000000u)
+
+void boardInit(void);
+
+void boardPpgLedState(bool on);
+
+#endif
