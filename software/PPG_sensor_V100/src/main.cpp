@@ -62,7 +62,7 @@ void ppgSensorSetup(void)
     IoconPinSetMode(LPC_IOCON, IOCON_DIV_INPUT, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_CAP_RESET, PIN_MODE_INACTIVE);
     SwmMovablePinAssign(SWM_CTOUT_0_O, PIN_LED2_CTRL);
-    SwmMovablePinAssign(SWM_CTOUT_1_O, PIN_CAP_RESET);
+    SwmMovablePinAssign(SWM_CTOUT_2_O, PIN_CAP_RESET);
     // connect comparator output to SCT 0 input
     SwmMovablePinAssign(SWM_ACMP_O_O, PIN_CMP_OUT);
     SwmMovablePinAssign(SWM_CTIN_0_I, PIN_CMP_OUT);
@@ -80,10 +80,13 @@ void ppgSensorSetup(void)
     SctMatchU(LPC_SCT, SCT_MATCH_1, PPG_SENSOR_FREQ-1000);
     SctMatchReloadU(LPC_SCT, SCT_MATCH_1, PPG_SENSOR_FREQ-1000);
 
+    // Event 0 determines the sampling frequency
     SctSetEventStateMask(LPC_SCT, SCT_EVENT_0_VAL, SCT_STATE_0_BIT | SCT_STATE_1_BIT);
     SctSetEventControl(LPC_SCT, SCT_EVENT_0_VAL, SCT_EV_CTRL_MATCHSEL(SCT_MATCH_0) | SCT_EV_CTRL_COMBMODE(SCT_COMBMODE_MATCH));
+    // Event 1 triggers the integrator capacitor reset
     SctSetEventStateMask(LPC_SCT, SCT_EVENT_1_VAL, SCT_STATE_0_BIT | SCT_STATE_1_BIT);
     SctSetEventControl(LPC_SCT, SCT_EVENT_1_VAL, SCT_EV_CTRL_MATCHSEL(SCT_MATCH_1) | SCT_EV_CTRL_COMBMODE(SCT_COMBMODE_MATCH));
+    // Event 2 is triggered by the input (either external or internal comparator) and performs a capture
     SctSetEventStateMask(LPC_SCT, SCT_EVENT_2_VAL, SCT_STATE_0_BIT | SCT_STATE_1_BIT);
     SctSetEventControl(LPC_SCT, SCT_EVENT_2_VAL, 
         SCT_EV_CTRL_INSEL | 
@@ -98,11 +101,11 @@ void ppgSensorSetup(void)
     
     SctOutputSet(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_0_BIT);
     SctOutputClear(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT);
-    SctOutputSet(LPC_SCT, SCT_OUTPUT_1_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT);
-    SctOutputClear(LPC_SCT, SCT_OUTPUT_1_VALUE, SCT_EVENT_0_BIT);
+    SctOutputSet(LPC_SCT, SCT_OUTPUT_2_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT);
+    SctOutputClear(LPC_SCT, SCT_OUTPUT_2_VALUE, SCT_EVENT_0_BIT);
 
     SctOutput(LPC_SCT, SCT_OUTPUT_STATE(SCT_OUTPUT_0_VALUE, 1));
-    SctOutput(LPC_SCT, SCT_OUTPUT_STATE(SCT_OUTPUT_1_VALUE, 0));
+    SctOutput(LPC_SCT, SCT_OUTPUT_STATE(SCT_OUTPUT_2_VALUE, 0));
 
     SctSetEventInt(LPC_SCT, SCT_EVENT_2_BIT);
     NVIC_EnableIRQ(SCT_IRQn);
