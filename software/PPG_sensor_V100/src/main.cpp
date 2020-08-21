@@ -35,6 +35,7 @@ Simple uart example
 #include <time_interval.hpp>
 
 #define PPG_SENSOR_FREQ     (1000000)
+#define PPG_SENSOR_IRESET   (1000)
 
 volatile uint32_t captureCount;
 volatile uint32_t captureValue;
@@ -61,7 +62,8 @@ void ppgSensorSetup(void)
     IoconPinSetMode(LPC_IOCON, IOCON_CAP_SENSE, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_DIV_INPUT, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_CAP_RESET, PIN_MODE_INACTIVE);
-    SwmMovablePinAssign(SWM_CTOUT_0_O, PIN_LED2_CTRL);
+    SwmMovablePinAssign(SWM_CTOUT_0_O, PIN_LED1_CTRL);
+    SwmMovablePinAssign(SWM_CTOUT_1_O, PIN_LED2_CTRL);
     SwmMovablePinAssign(SWM_CTOUT_2_O, PIN_CAP_RESET);
     // connect comparator output to SCT 0 input
     SwmMovablePinAssign(SWM_ACMP_O_O, PIN_CMP_OUT);
@@ -77,8 +79,8 @@ void ppgSensorSetup(void)
 
     SctMatchU(LPC_SCT, SCT_MATCH_0, PPG_SENSOR_FREQ);
     SctMatchReloadU(LPC_SCT, SCT_MATCH_0, PPG_SENSOR_FREQ);
-    SctMatchU(LPC_SCT, SCT_MATCH_1, PPG_SENSOR_FREQ-1000);
-    SctMatchReloadU(LPC_SCT, SCT_MATCH_1, PPG_SENSOR_FREQ-1000);
+    SctMatchU(LPC_SCT, SCT_MATCH_1, PPG_SENSOR_FREQ-PPG_SENSOR_IRESET);
+    SctMatchReloadU(LPC_SCT, SCT_MATCH_1, PPG_SENSOR_FREQ-PPG_SENSOR_IRESET);
 
     // Event 0 determines the sampling frequency
     SctSetEventStateMask(LPC_SCT, SCT_EVENT_0_VAL, SCT_STATE_0_BIT | SCT_STATE_1_BIT);
@@ -101,10 +103,13 @@ void ppgSensorSetup(void)
     
     SctOutputSet(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_0_BIT);
     SctOutputClear(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT);
+    SctOutputSet(LPC_SCT, SCT_OUTPUT_1_VALUE, SCT_EVENT_0_BIT);
+    SctOutputClear(LPC_SCT, SCT_OUTPUT_1_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT);
     SctOutputSet(LPC_SCT, SCT_OUTPUT_2_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT);
     SctOutputClear(LPC_SCT, SCT_OUTPUT_2_VALUE, SCT_EVENT_0_BIT);
 
     SctOutput(LPC_SCT, SCT_OUTPUT_STATE(SCT_OUTPUT_0_VALUE, 1));
+    SctOutput(LPC_SCT, SCT_OUTPUT_STATE(SCT_OUTPUT_1_VALUE, 1));
     SctOutput(LPC_SCT, SCT_OUTPUT_STATE(SCT_OUTPUT_2_VALUE, 0));
 
     SctSetEventInt(LPC_SCT, SCT_EVENT_2_BIT);
