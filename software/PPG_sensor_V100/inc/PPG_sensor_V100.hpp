@@ -36,8 +36,8 @@ SOFTWARE.
 #define PIN_CAP_SENSE       (0u)
 #define IOCON_DIV_INPUT     IOCON_PIO1
 #define PIN_DIV_INPUT       (1u)
-#define IOCON_CMP_OUT       IOCON_PIO12
-#define PIN_CMP_OUT         (12u)
+#define IOCON_CMP_OUT       IOCON_PIO6
+#define PIN_CMP_OUT         (6u)
 #define IOCON_CAP_RESET     IOCON_PIO7
 #define PIN_CAP_RESET       (7u)
 
@@ -47,7 +47,7 @@ SOFTWARE.
 #define PIN_UART_RX         (17u)
 
 #define UART_DEBUG          LPC_USART0
-#define UART_BAUD_RATE      (230400u)
+#define UART_BAUD_RATE      (115200u)
 
 #define CLOCK_MAIN_SOURCE   SYSCTL_MAINCLKSRC_PLLOUT
 
