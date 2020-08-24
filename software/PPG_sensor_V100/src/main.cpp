@@ -93,7 +93,7 @@ void ppgSensorSetup(void)
     SctSetEventControl(LPC_SCT, SCT_EVENT_2_VAL, 
         SCT_EV_CTRL_INSEL | 
         SCT_EV_CTRL_IOSEL(SCT_INPUT_0_VALUE) | 
-        SCT_EV_CTRL_IOCOND(SCT_IOCOND_HIGH) |
+        SCT_EV_CTRL_IOCOND(SCT_IOCOND_RISE) |
         SCT_EV_CTRL_COMBMODE(SCT_COMBMODE_IO) );
     SctRegisterModeU(LPC_SCT, 
         SCT_REGMODE_U(SCT_MATCH_0, SCT_REGMODE_MATCH) | 
