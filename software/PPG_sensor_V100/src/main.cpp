@@ -132,7 +132,8 @@ int main()
         if(currentCaptureCount != captureCount)
         {
             currentCaptureCount = captureCount;
-            printDecNzU32(&streamUart, currentCaptureCount);
+            // modulo 100 to limit amount of printing output
+            printDecNzU32(&streamUart, currentCaptureCount % 100);
             dsPuts(&streamUart, ",");
             printDecNzU32(&streamUart, captureValue);
             dsPuts(&streamUart, "\n");
