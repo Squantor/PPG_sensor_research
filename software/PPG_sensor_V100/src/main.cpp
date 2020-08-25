@@ -58,12 +58,12 @@ void ppgSensorSetup(void)
     ClockEnablePeriphClock(SYSCTL_CLOCK_SWM);
     ClockEnablePeriphClock(SYSCTL_CLOCK_IOCON);
     IoconPinSetMode(LPC_IOCON, IOCON_LED1_CTRL, PIN_MODE_INACTIVE);
-    IoconPinSetMode(LPC_IOCON, IOCON_LED2_CTRL, PIN_MODE_INACTIVE);
+    //IoconPinSetMode(LPC_IOCON, IOCON_LED2_CTRL, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_CAP_SENSE, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_DIV_INPUT, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_CAP_RESET, PIN_MODE_INACTIVE);
     SwmMovablePinAssign(SWM_CTOUT_0_O, PIN_LED1_CTRL);
-    SwmMovablePinAssign(SWM_CTOUT_1_O, PIN_LED2_CTRL);
+    // SwmMovablePinAssign(SWM_CTOUT_1_O, PIN_LED2_CTRL);
     SwmMovablePinAssign(SWM_CTOUT_2_O, PIN_CAP_RESET);
     // connect comparator output to SCT 0 input
     SwmMovablePinAssign(SWM_ACMP_O_O, PIN_CMP_OUT);
@@ -101,8 +101,10 @@ void ppgSensorSetup(void)
         SCT_REGMODE_U(SCT_MATCH_2, SCT_REGMODE_CAPTURE) );
     SctCaptureControlU(LPC_SCT, SCT_CAPTURE_2, SCT_EVENT_2_BIT);
     
+    // LED1 control
     SctOutputSet(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_0_BIT);
     SctOutputClear(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT);
+    // LED 2 control
     SctOutputSet(LPC_SCT, SCT_OUTPUT_1_VALUE, SCT_EVENT_0_BIT);
     SctOutputClear(LPC_SCT, SCT_OUTPUT_1_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT);
     SctOutputSet(LPC_SCT, SCT_OUTPUT_2_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT);
