@@ -34,8 +34,8 @@ Simple uart example
 #include <time_delay.hpp>
 #include <time_interval.hpp>
 
-#define PPG_SENSOR_FREQ     (1000000)
-#define PPG_SENSOR_IRESET   (1000)
+#define PPG_SENSOR_FREQ     (600000)
+#define PPG_SENSOR_IRESET   (100)
 
 volatile uint32_t captureCount;
 volatile uint32_t captureValue;
