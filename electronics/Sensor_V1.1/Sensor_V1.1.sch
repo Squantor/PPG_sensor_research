@@ -29,7 +29,7 @@ L SquantorLabels:VYYYYMMDD N2
 U 1 1 5D6A68B9
 P 6350 7150
 F 0 "N2" H 6300 7250 60  0000 L CNN
-F 1 "20200812" H 6100 7150 60  0000 L CNN
+F 1 "20200908" H 6100 7150 60  0000 L CNN
 F 2 "SquantorLabels:Label_Generic" H 6350 7150 60  0001 C CNN
 F 3 "" H 6350 7150 60  0001 C CNN
 	1    6350 7150
@@ -342,71 +342,25 @@ VREF
 Wire Wire Line
 	3500 2700 3700 2700
 Connection ~ 3500 2700
-$Comp
-L Device:C C7
-U 1 1 5F3819D6
-P 4550 1000
-F 0 "C7" H 4450 1100 50  0000 L CNN
-F 1 "4n7" H 4550 900 50  0000 L CNN
-F 2 "SquantorRcl:C_0805+0603" H 4588 850 50  0001 C CNN
-F 3 "~" H 4550 1000 50  0001 C CNN
-	1    4550 1000
-	1    0    0    -1  
-$EndComp
 Text Label 4500 1200 2    50   ~ 0
 VSSA
 Text Label 4500 700  2    50   ~ 0
 PD_OUT
-Wire Wire Line
-	4500 700  4550 700 
-Wire Wire Line
-	4550 700  4550 850 
-Wire Wire Line
-	4550 1150 4550 1200
-Wire Wire Line
-	4550 1200 4500 1200
-$Comp
-L Device:C C8
-U 1 1 5F38C809
-P 4750 1000
-F 0 "C8" H 4650 1100 50  0000 L CNN
-F 1 "4n7" H 4750 900 50  0000 L CNN
-F 2 "SquantorRcl:C_0805+0603" H 4788 850 50  0001 C CNN
-F 3 "~" H 4750 1000 50  0001 C CNN
-	1    4750 1000
-	1    0    0    -1  
-$EndComp
 $Comp
 L Device:C C9
 U 1 1 5F38C9B5
 P 4950 1000
 F 0 "C9" H 4850 1100 50  0000 L CNN
 F 1 "4n7" H 4950 900 50  0000 L CNN
-F 2 "SquantorRcl:C_0805+0603" H 4988 850 50  0001 C CNN
+F 2 "SquantorRcl:C_1206" H 4988 850 50  0001 C CNN
 F 3 "~" H 4950 1000 50  0001 C CNN
 	1    4950 1000
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4550 700  4750 700 
-Wire Wire Line
 	4950 700  4950 850 
-Connection ~ 4550 700 
 Wire Wire Line
 	4950 1150 4950 1200
-Wire Wire Line
-	4950 1200 4750 1200
-Connection ~ 4550 1200
-Wire Wire Line
-	4750 1150 4750 1200
-Connection ~ 4750 1200
-Wire Wire Line
-	4750 1200 4550 1200
-Wire Wire Line
-	4750 850  4750 700 
-Connection ~ 4750 700 
-Wire Wire Line
-	4750 700  4950 700 
 $Comp
 L Device:R R8
 U 1 1 5F3AF303
@@ -1039,4 +993,8 @@ Wire Wire Line
 	1000 1050 1050 1050
 Wire Wire Line
 	2050 1050 2100 1050
+Wire Wire Line
+	4500 700  4950 700 
+Wire Wire Line
+	4500 1200 4950 1200
 $EndSCHEMATC
