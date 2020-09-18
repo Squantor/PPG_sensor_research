@@ -288,7 +288,7 @@ U 1 1 5F4B91DE
 P 3200 1950
 F 0 "C5" V 3150 2000 50  0000 L CNN
 F 1 "1u" V 3250 1800 50  0000 L CNN
-F 2 "SquantorRcl:C_0603" H 3238 1800 50  0001 C CNN
+F 2 "SquantorRcl:C_0402" H 3238 1800 50  0001 C CNN
 F 3 "~" H 3200 1950 50  0001 C CNN
 	1    3200 1950
 	0    1    1    0   
@@ -343,72 +343,48 @@ Wire Wire Line
 	3500 2700 3700 2700
 Connection ~ 3500 2700
 Text Label 4500 1200 2    50   ~ 0
-VSSA
+VSS_PD
 Text Label 4500 700  2    50   ~ 0
 PD_OUT
 $Comp
 L Device:C C9
 U 1 1 5F38C9B5
-P 4950 1000
-F 0 "C9" H 4850 1100 50  0000 L CNN
-F 1 "4n7" H 4950 900 50  0000 L CNN
-F 2 "SquantorRcl:C_1206" H 4988 850 50  0001 C CNN
-F 3 "~" H 4950 1000 50  0001 C CNN
-	1    4950 1000
+P 4600 950
+F 0 "C9" H 4500 1050 50  0000 L CNN
+F 1 "4n7" H 4600 850 50  0000 L CNN
+F 2 "SquantorRcl:C_1206" H 4638 800 50  0001 C CNN
+F 3 "~" H 4600 950 50  0001 C CNN
+	1    4600 950 
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4950 700  4950 850 
+	4600 700  4600 800 
 Wire Wire Line
-	4950 1150 4950 1200
+	4600 1100 4600 1200
 $Comp
 L Device:R R8
 U 1 1 5F3AF303
-P 5350 1200
-F 0 "R8" V 5300 1050 50  0000 C CNN
-F 1 "100K" V 5350 1200 50  0000 C CNN
-F 2 "SquantorRcl:R_0603_hand" V 5280 1200 50  0001 C CNN
-F 3 "~" H 5350 1200 50  0001 C CNN
-	1    5350 1200
+P 5100 1200
+F 0 "R8" V 5050 1050 50  0000 C CNN
+F 1 "100K" V 5100 1200 50  0000 C CNN
+F 2 "SquantorRcl:R_0402_hand" V 5030 1200 50  0001 C CNN
+F 3 "~" H 5100 1200 50  0001 C CNN
+	1    5100 1200
 	0    -1   -1   0   
 $EndComp
-$Comp
-L Device:R R11
-U 1 1 5F3B58A6
-P 5750 950
-F 0 "R11" V 5700 800 50  0000 C CNN
-F 1 "4K7" V 5750 950 50  0000 C CNN
-F 2 "SquantorRcl:R_0603_hand" V 5680 950 50  0001 C CNN
-F 3 "~" H 5750 950 50  0001 C CNN
-	1    5750 950 
-	0    -1   -1   0   
-$EndComp
-Text Label 5950 950  0    50   ~ 0
+Text Label 5300 950  0    50   ~ 0
 I_reset
 $Comp
 L Connector:TestPoint TP10
 U 1 1 5F3C5825
-P 5300 700
-F 0 "TP10" V 5200 900 50  0000 L CNN
-F 1 "PD out" V 5300 900 50  0000 L CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 5500 700 50  0001 C CNN
-F 3 "~" H 5500 700 50  0001 C CNN
-	1    5300 700 
+P 5050 700
+F 0 "TP10" V 4950 900 50  0000 L CNN
+F 1 "PD out" V 5050 900 50  0000 L CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 5250 700 50  0001 C CNN
+F 3 "~" H 5250 700 50  0001 C CNN
+	1    5050 700 
 	0    1    1    0   
 $EndComp
-$Comp
-L Connector:TestPoint TP12
-U 1 1 5F3CE4E3
-P 6150 950
-F 0 "TP12" V 6050 1150 50  0000 L CNN
-F 1 "I reset" V 6150 1150 50  0000 L CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 6350 950 50  0001 C CNN
-F 3 "~" H 6350 950 50  0001 C CNN
-	1    6150 950 
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	5900 950  6150 950 
 $Comp
 L SquantorSpecial:Solderjumper_2way_noconn JP1
 U 1 1 5F40E401
@@ -434,49 +410,31 @@ Wire Notes Line
 	5650 1300 5650 1150
 Wire Notes Line
 	5650 1150 6750 1150
-$Comp
-L Device:Q_NPN_BCE Q1
-U 1 1 5F39FB42
-P 5250 950
-F 0 "Q1" H 5400 1100 50  0000 L CNN
-F 1 "BC846" H 5000 800 50  0000 L CNN
-F 2 "SquantorIC:SOT23-3" H 5450 1050 50  0001 C CNN
-F 3 "~" H 5250 950 50  0001 C CNN
-	1    5250 950 
-	-1   0    0    -1  
-$EndComp
 Wire Wire Line
-	4950 700  5150 700 
-Connection ~ 4950 700 
+	4600 700  4900 700 
+Connection ~ 4600 700 
 Wire Wire Line
-	5150 750  5150 700 
-Connection ~ 5150 700 
+	4900 750  4900 700 
+Connection ~ 4900 700 
 Wire Wire Line
-	5150 700  5300 700 
+	4900 700  5050 700 
 Wire Wire Line
-	4950 1200 5150 1200
-Connection ~ 4950 1200
+	4900 1150 4900 1200
 Wire Wire Line
-	5150 1150 5150 1200
-Connection ~ 5150 1200
+	4900 1200 4950 1200
 Wire Wire Line
-	5150 1200 5200 1200
+	5200 950  5300 950 
 Wire Wire Line
-	5450 950  5550 950 
+	5250 1200 5300 1200
 Wire Wire Line
-	5500 1200 5550 1200
-Wire Wire Line
-	5550 1200 5550 950 
-Connection ~ 5550 950 
-Wire Wire Line
-	5550 950  5600 950 
+	5300 1200 5300 950 
 $Comp
 L Device:R R7
 U 1 1 5F48E66A
 P 5200 1800
 F 0 "R7" V 5150 1950 50  0000 C CNN
 F 1 "R" V 5200 1800 50  0000 C CNN
-F 2 "SquantorRcl:R_0603_hand" V 5130 1800 50  0001 C CNN
+F 2 "SquantorRcl:R_0402_hand" V 5130 1800 50  0001 C CNN
 F 3 "~" H 5200 1800 50  0001 C CNN
 	1    5200 1800
 	0    1    1    0   
@@ -491,7 +449,7 @@ U 1 1 5F4E2B8C
 P 5650 1800
 F 0 "R12" V 5600 2000 50  0000 C CNN
 F 1 "R" V 5650 1800 50  0000 C CNN
-F 2 "SquantorRcl:R_0603_hand" V 5580 1800 50  0001 C CNN
+F 2 "SquantorRcl:R_0402_hand" V 5580 1800 50  0001 C CNN
 F 3 "~" H 5650 1800 50  0001 C CNN
 	1    5650 1800
 	0    1    1    0   
@@ -556,7 +514,7 @@ U 1 1 5F311417
 P 8050 650
 F 0 "C10" V 8000 700 50  0000 L CNN
 F 1 "1u" V 8100 500 50  0000 L CNN
-F 2 "SquantorRcl:C_0603" H 8088 500 50  0001 C CNN
+F 2 "SquantorRcl:C_0402" H 8088 500 50  0001 C CNN
 F 3 "~" H 8050 650 50  0001 C CNN
 	1    8050 650 
 	0    1    1    0   
@@ -579,26 +537,15 @@ Wire Wire Line
 	8400 950  8450 950 
 Text Label 7650 950  2    50   ~ 0
 CMP_OUT
-$Comp
-L Connector:TestPoint TP13
-U 1 1 5F3337A1
-P 7400 950
-F 0 "TP13" V 7500 1150 50  0000 L CNN
-F 1 "Cmp Out" V 7400 1150 50  0000 L CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 7600 950 50  0001 C CNN
-F 3 "~" H 7600 950 50  0001 C CNN
-	1    7400 950 
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
-	7400 950  7700 950 
+	7650 950  7700 950 
 $Comp
 L Device:R R18
 U 1 1 5F34DE3E
 P 8650 1150
 F 0 "R18" V 8600 1300 50  0000 C CNN
 F 1 "R" V 8650 1150 50  0000 C CNN
-F 2 "SquantorRcl:R_0603_hand" V 8580 1150 50  0001 C CNN
+F 2 "SquantorRcl:R_0402_hand" V 8580 1150 50  0001 C CNN
 F 3 "~" H 8650 1150 50  0001 C CNN
 	1    8650 1150
 	0    1    1    0   
@@ -609,45 +556,13 @@ U 1 1 5F34ED02
 P 8650 1050
 F 0 "R17" V 8600 1200 50  0000 C CNN
 F 1 "R" V 8650 1050 50  0000 C CNN
-F 2 "SquantorRcl:R_0603_hand" V 8580 1050 50  0001 C CNN
+F 2 "SquantorRcl:R_0402_hand" V 8580 1050 50  0001 C CNN
 F 3 "~" H 8650 1050 50  0001 C CNN
 	1    8650 1050
 	0    1    1    0   
 $EndComp
-$Comp
-L Device:R R15
-U 1 1 5F34F0F0
-P 7450 1150
-F 0 "R15" V 7400 1300 50  0000 C CNN
-F 1 "R" V 7450 1150 50  0000 C CNN
-F 2 "SquantorRcl:R_0603_hand" V 7380 1150 50  0001 C CNN
-F 3 "~" H 7450 1150 50  0001 C CNN
-	1    7450 1150
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R R16
-U 1 1 5F34F5CC
-P 7450 1250
-F 0 "R16" V 7400 1400 50  0000 C CNN
-F 1 "R" V 7450 1250 50  0000 C CNN
-F 2 "SquantorRcl:R_0603_hand" V 7380 1250 50  0001 C CNN
-F 3 "~" H 7450 1250 50  0001 C CNN
-	1    7450 1250
-	0    1    1    0   
-$EndComp
-Text Label 7250 1250 2    50   ~ 0
-CMP_OUT
 Text Label 8850 1050 0    50   ~ 0
 CMP_OUT
-Wire Wire Line
-	7250 1250 7300 1250
-Wire Wire Line
-	7600 1250 7650 1250
-Wire Wire Line
-	7650 1250 7650 1150
-Wire Wire Line
-	7650 1150 7700 1150
 Wire Wire Line
 	8400 1150 8450 1150
 Wire Wire Line
@@ -657,17 +572,10 @@ Wire Wire Line
 Wire Wire Line
 	8800 1050 8850 1050
 Wire Wire Line
-	7600 1150 7650 1150
-Connection ~ 7650 1150
-Wire Wire Line
 	8450 1150 8500 1150
 Connection ~ 8450 1150
-Text Label 7250 1150 2    50   ~ 0
-PD_OUT
 Text Label 8850 1150 0    50   ~ 0
 Divider_out
-Wire Wire Line
-	7250 1150 7300 1150
 Wire Wire Line
 	8800 1150 8850 1150
 Text Notes 8750 1300 0    50   ~ 0
@@ -798,7 +706,7 @@ U 1 1 5F328139
 P 5650 2000
 F 0 "C11" V 5600 2050 50  0000 L CNN
 F 1 "1u" V 5700 1850 50  0000 L CNN
-F 2 "SquantorRcl:C_0603" H 5688 1850 50  0001 C CNN
+F 2 "SquantorRcl:C_0402" H 5688 1850 50  0001 C CNN
 F 3 "~" H 5650 2000 50  0001 C CNN
 	1    5650 2000
 	0    1    1    0   
@@ -994,7 +902,28 @@ Wire Wire Line
 Wire Wire Line
 	2050 1050 2100 1050
 Wire Wire Line
-	4500 700  4950 700 
+	4500 700  4600 700 
 Wire Wire Line
-	4500 1200 4950 1200
+	4500 1200 4600 1200
+$Comp
+L Device:Q_NMOS_GSD Q1
+U 1 1 5F666A62
+P 5000 950
+F 0 "Q1" H 4850 1100 50  0000 L CNN
+F 1 "DMG1012" H 4750 800 50  0000 L CNN
+F 2 "SquantorIC:SOT23-3" H 5200 1050 50  0001 C CNN
+F 3 "~" H 5000 950 50  0001 C CNN
+	1    5000 950 
+	-1   0    0    -1  
+$EndComp
+Text Label 2100 1150 0    50   ~ 0
+I_reset
+Wire Wire Line
+	2100 1150 2050 1150
+Text Label 4900 1200 2    50   ~ 0
+VSS
+Text Label 7650 1150 2    50   ~ 0
+PD_OUT
+Wire Wire Line
+	7650 1150 7700 1150
 $EndSCHEMATC
