@@ -157,12 +157,12 @@ Wire Wire Line
 $Comp
 L SquantorOpto:PPG_sensor_PD_flipped U1
 U 1 1 5F30F2AF
-P 3250 3300
-F 0 "U1" H 3250 3550 50  0000 C CNN
-F 1 "PPG_sensor" H 3250 3050 50  0000 C CNN
-F 2 "SquantorOpto:PPG_sensor_reverse_PD_antiparallel" H 3250 3250 50  0001 C CNN
-F 3 "" H 3250 3250 50  0001 C CNN
-	1    3250 3300
+P 3250 2500
+F 0 "U1" H 3250 2750 50  0000 C CNN
+F 1 "PPG_sensor" H 3150 2250 50  0000 C CNN
+F 2 "SquantorOpto:PPG_sensor_reverse_PD_antiparallel" H 3250 2450 50  0001 C CNN
+F 3 "" H 3250 2450 50  0001 C CNN
+	1    3250 2500
 	1    0    0    -1  
 $EndComp
 Wire Notes Line
@@ -221,32 +221,32 @@ Wire Notes Line
 	2350 5450 550  5450
 Wire Notes Line
 	550  5450 550  4200
-Text Label 2950 3300 2    50   ~ 0
+Text Label 2950 2500 2    50   ~ 0
 PD_BIAS
-Text Label 3550 3300 0    50   ~ 0
+Text Label 3550 2500 0    50   ~ 0
 PD_OUT
 Wire Wire Line
-	2950 3200 3000 3200
+	2950 2400 3000 2400
 Wire Wire Line
-	3000 3300 2950 3300
+	3000 2500 2950 2500
 Wire Wire Line
-	2950 3400 3000 3400
+	2950 2600 3000 2600
 Wire Wire Line
-	3500 3400 3550 3400
+	3500 2600 3550 2600
 Wire Wire Line
-	3550 3300 3500 3300
+	3550 2500 3500 2500
 Wire Wire Line
-	3500 3200 3550 3200
-Text Notes 3600 3600 0    50   ~ 0
+	3500 2400 3550 2400
+Text Notes 3550 2800 0    50   ~ 0
 PPG sensor
 Wire Notes Line
-	2600 3000 4100 3000
+	2600 2200 4050 2200
 Wire Notes Line
-	4100 3000 4100 3650
+	4050 2200 4050 2850
 Wire Notes Line
-	4100 3650 2600 3650
+	4050 2850 2600 2850
 Wire Notes Line
-	2600 3650 2600 3000
+	2600 2850 2600 2200
 Text Label 2950 650  2    50   ~ 0
 PD_BIAS
 Wire Wire Line
@@ -260,88 +260,88 @@ Wire Wire Line
 $Comp
 L SquantorGenericAnalog:reference_sot23-3 U2
 U 1 1 5F422666
-P 3200 2300
-F 0 "U2" H 3400 2450 50  0000 C CNN
-F 1 "reference_sot23-3" H 3200 2050 50  0000 C CNN
-F 2 "SquantorIC:SOT23-3" H 3200 2300 50  0001 C CNN
-F 3 "" H 3200 2300 50  0001 C CNN
-	1    3200 2300
+P 3200 1500
+F 0 "U2" H 3400 1650 50  0000 C CNN
+F 1 "reference_sot23-3" H 3200 1250 50  0000 C CNN
+F 2 "SquantorIC:SOT23-3" H 3200 1500 50  0001 C CNN
+F 3 "" H 3200 1500 50  0001 C CNN
+	1    3200 1500
 	-1   0    0    -1  
 $EndComp
 Connection ~ 4000 850 
 $Comp
 L SquantorSpecial:Solderjumper_2way_noconn JP3
 U 1 1 5F4B1706
-P 3750 2400
-F 0 "JP3" H 3750 2550 50  0000 C CNN
-F 1 "bias REF" H 3750 2250 50  0000 C CNN
-F 2 "SquantorSpecial:solder_jumper_2way_noconn" H 3750 2400 50  0001 C CNN
-F 3 "" H 3750 2400 50  0001 C CNN
-	1    3750 2400
+P 3750 1600
+F 0 "JP3" H 3750 1750 50  0000 C CNN
+F 1 "bias REF" H 3750 1450 50  0000 C CNN
+F 2 "SquantorSpecial:solder_jumper_2way_noconn" H 3750 1600 50  0001 C CNN
+F 3 "" H 3750 1600 50  0001 C CNN
+	1    3750 1600
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4000 2400 3950 2400
+	4000 1600 3950 1600
 $Comp
 L Device:C C5
 U 1 1 5F4B91DE
-P 3200 1950
-F 0 "C5" V 3150 2000 50  0000 L CNN
-F 1 "1u" V 3250 1800 50  0000 L CNN
-F 2 "SquantorRcl:C_0402" H 3238 1800 50  0001 C CNN
-F 3 "~" H 3200 1950 50  0001 C CNN
-	1    3200 1950
+P 3200 1150
+F 0 "C5" V 3150 1200 50  0000 L CNN
+F 1 "1u" V 3250 1000 50  0000 L CNN
+F 2 "SquantorRcl:C_0402" H 3238 1000 50  0001 C CNN
+F 3 "~" H 3200 1150 50  0001 C CNN
+	1    3200 1150
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C C6
 U 1 1 5F4E3D6E
-P 3200 2700
-F 0 "C6" V 3150 2750 50  0000 L CNN
-F 1 "10u" V 3250 2500 50  0000 L CNN
-F 2 "SquantorRcl:C_0603" H 3238 2550 50  0001 C CNN
-F 3 "~" H 3200 2700 50  0001 C CNN
-	1    3200 2700
+P 3200 1900
+F 0 "C6" V 3150 1950 50  0000 L CNN
+F 1 "10u" V 3250 1700 50  0000 L CNN
+F 2 "SquantorRcl:C_0603" H 3238 1750 50  0001 C CNN
+F 3 "~" H 3200 1900 50  0001 C CNN
+	1    3200 1900
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	2850 2300 2950 2300
+	2850 1500 2950 1500
 Wire Wire Line
-	3450 2200 3500 2200
+	3450 1400 3500 1400
 Wire Wire Line
-	3450 2400 3500 2400
+	3450 1600 3500 1600
 Wire Wire Line
-	3350 2700 3500 2700
+	3350 1900 3500 1900
 Wire Wire Line
-	3500 2700 3500 2400
-Connection ~ 3500 2400
+	3500 1900 3500 1600
+Connection ~ 3500 1600
 Wire Wire Line
-	3500 2400 3550 2400
+	3500 1600 3550 1600
 Wire Wire Line
-	3000 2700 3050 2700
+	3000 1900 3050 1900
 Wire Wire Line
-	3000 1950 3050 1950
+	3000 1150 3050 1150
 Wire Wire Line
-	3350 1950 3400 1950
-Text Notes 3350 2850 0    50   ~ 0
+	3350 1150 3400 1150
+Text Notes 3350 2050 0    50   ~ 0
 PD bias selection
 Wire Notes Line
 	2600 550  4050 550 
 Wire Notes Line
-	4050 550  4050 2900
+	4050 550  4050 2100
 Wire Notes Line
-	4050 2900 2600 2900
+	4050 2100 2600 2100
 Wire Notes Line
-	2600 2900 2600 550 
+	2600 2100 2600 550 
 Wire Notes Line
-	3300 2900 3300 2750
+	3300 2100 3300 1950
 Wire Notes Line
-	3300 2750 4050 2750
-Text Label 3700 2700 0    50   ~ 0
+	3300 1950 4050 1950
+Text Label 3700 1900 0    50   ~ 0
 VREF
 Wire Wire Line
-	3500 2700 3700 2700
-Connection ~ 3500 2700
+	3500 1900 3700 1900
+Connection ~ 3500 1900
 Text Label 4500 1200 2    50   ~ 0
 VSS_PD
 Text Label 4500 700  2    50   ~ 0
@@ -762,11 +762,11 @@ Connection ~ 4900 1800
 Wire Wire Line
 	4900 1800 4900 2000
 Text Label 1000 2050 2    50   ~ 0
-VDD
+VDDA
 Text Label 1000 2150 2    50   ~ 0
 VSS
 Text Label 2100 2050 0    50   ~ 0
-VDD
+VDDA
 Text Label 2100 2150 0    50   ~ 0
 VSS
 Wire Wire Line
@@ -786,30 +786,30 @@ Wire Wire Line
 Wire Wire Line
 	2100 1650 2050 1650
 Wire Wire Line
-	4000 850  4000 2400
+	4000 850  4000 1600
 Text Label 2850 850  2    50   ~ 0
 VDD
-Text Label 3400 1950 0    50   ~ 0
+Text Label 3400 1150 0    50   ~ 0
 VDD
-Text Label 3500 2200 0    50   ~ 0
+Text Label 3500 1400 0    50   ~ 0
 VDD
-Text Label 3000 1950 2    50   ~ 0
+Text Label 3000 1150 2    50   ~ 0
 VSS
-Text Label 2850 2300 2    50   ~ 0
+Text Label 2850 1500 2    50   ~ 0
 VSS
-Text Label 3000 2700 2    50   ~ 0
+Text Label 3000 1900 2    50   ~ 0
 VSS
 Wire Notes Line
-	4100 3500 3550 3500
+	4050 2700 3500 2700
 Wire Notes Line
-	3550 3500 3550 3650
-Text Label 3550 3200 0    50   ~ 0
+	3500 2700 3500 2850
+Text Label 3550 2400 0    50   ~ 0
 LED1
-Text Label 3550 3400 0    50   ~ 0
+Text Label 3550 2600 0    50   ~ 0
 LED2
-Text Label 2950 3200 2    50   ~ 0
+Text Label 2950 2400 2    50   ~ 0
 VDD
-Text Label 2950 3400 2    50   ~ 0
+Text Label 2950 2600 2    50   ~ 0
 VDD
 $Comp
 L Device:Q_NMOS_GSD Q3
