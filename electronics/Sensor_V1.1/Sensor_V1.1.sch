@@ -661,7 +661,7 @@ $EndComp
 Text Label 950  5750 2    50   ~ 0
 VDDA
 Text Label 950  5650 2    50   ~ 0
-VSSA
+VSS
 Wire Wire Line
 	950  5650 1000 5650
 Wire Wire Line
@@ -754,7 +754,7 @@ Wire Wire Line
 Wire Wire Line
 	4000 850  4000 1600
 Text Label 2850 850  2    50   ~ 0
-VDD
+VDDA
 Text Label 3400 1150 0    50   ~ 0
 VDD
 Text Label 3500 1400 0    50   ~ 0
@@ -896,4 +896,34 @@ Wire Notes Line
 	1000 6150 1000 6300
 Wire Notes Line
 	1550 6150 1000 6150
+$Comp
+L SquantorSpecial:starground J?
+U 1 1 5F7E3134
+P 1450 7050
+F 0 "J?" H 1450 7400 50  0000 C CNN
+F 1 "starground" H 1450 6950 50  0000 C CNN
+F 2 "" H 1450 7050 50  0001 C CNN
+F 3 "" H 1450 7050 50  0001 C CNN
+	1    1450 7050
+	1    0    0    -1  
+$EndComp
+$Comp
+L SquantorSpecial:starground J?
+U 1 1 5F7E3C46
+P 2100 7050
+F 0 "J?" H 2100 7400 50  0000 C CNN
+F 1 "starVDDA" H 2100 6950 50  0000 C CNN
+F 2 "" H 2100 7050 50  0001 C CNN
+F 3 "" H 2100 7050 50  0001 C CNN
+	1    2100 7050
+	1    0    0    -1  
+$EndComp
+Text Label 1300 6800 2    50   ~ 0
+VSS
+Text Label 1950 6800 2    50   ~ 0
+VDDA
+Wire Wire Line
+	1300 6800 1350 6800
+Wire Wire Line
+	1950 6800 2000 6800
 $EndSCHEMATC
