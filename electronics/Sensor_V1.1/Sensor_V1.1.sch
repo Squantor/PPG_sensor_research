@@ -896,28 +896,6 @@ Wire Notes Line
 	1000 6150 1000 6300
 Wire Notes Line
 	1550 6150 1000 6150
-$Comp
-L SquantorSpecial:starground J?
-U 1 1 5F7E3134
-P 1450 7050
-F 0 "J?" H 1450 7400 50  0000 C CNN
-F 1 "starground" H 1450 6950 50  0000 C CNN
-F 2 "" H 1450 7050 50  0001 C CNN
-F 3 "" H 1450 7050 50  0001 C CNN
-	1    1450 7050
-	1    0    0    -1  
-$EndComp
-$Comp
-L SquantorSpecial:starground J?
-U 1 1 5F7E3C46
-P 2100 7050
-F 0 "J?" H 2100 7400 50  0000 C CNN
-F 1 "starVDDA" H 2100 6950 50  0000 C CNN
-F 2 "" H 2100 7050 50  0001 C CNN
-F 3 "" H 2100 7050 50  0001 C CNN
-	1    2100 7050
-	1    0    0    -1  
-$EndComp
 Text Label 1300 6800 2    50   ~ 0
 VSS
 Text Label 1950 6800 2    50   ~ 0
@@ -926,4 +904,28 @@ Wire Wire Line
 	1300 6800 1350 6800
 Wire Wire Line
 	1950 6800 2000 6800
+Text Label 2100 1250 0    50   ~ 0
+PIO_3
+Text Label 2100 1350 0    50   ~ 0
+PIO_11
+Wire Wire Line
+	2100 1250 2050 1250
+Wire Wire Line
+	2050 1350 2100 1350
+Text Label 2100 2250 0    50   ~ 0
+PIO0_17
+Text Label 1000 2250 2    50   ~ 0
+PIO0_18
+Text Label 1000 2350 2    50   ~ 0
+PIO0_20
+Text Label 2100 2350 0    50   ~ 0
+PIO0_19
+Wire Wire Line
+	2100 2250 2050 2250
+Wire Wire Line
+	2050 2350 2100 2350
+Wire Wire Line
+	1050 2350 1000 2350
+Wire Wire Line
+	1000 2250 1050 2250
 $EndSCHEMATC
