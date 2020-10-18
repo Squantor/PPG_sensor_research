@@ -896,14 +896,6 @@ Wire Notes Line
 	1000 6150 1000 6300
 Wire Notes Line
 	1550 6150 1000 6150
-Text Label 1300 6800 2    50   ~ 0
-VSS
-Text Label 1950 6800 2    50   ~ 0
-VDDA
-Wire Wire Line
-	1300 6800 1350 6800
-Wire Wire Line
-	1950 6800 2000 6800
 Text Label 2100 1250 0    50   ~ 0
 PIO_3
 Text Label 2100 1350 0    50   ~ 0
@@ -928,4 +920,37 @@ Wire Wire Line
 	1050 2350 1000 2350
 Wire Wire Line
 	1000 2250 1050 2250
+$Comp
+L Device:Net-Tie_2 NT?
+U 1 1 5F8E4681
+P 1050 6650
+F 0 "NT?" H 1050 6700 50  0000 C CNN
+F 1 "PD" H 1050 6600 50  0000 C CNN
+F 2 "NetTie:NetTie-2_SMD_Pad0.5mm" H 1050 6650 50  0001 C CNN
+F 3 "~" H 1050 6650 50  0001 C CNN
+	1    1050 6650
+	1    0    0    -1  
+$EndComp
+Text Label 900  6650 2    50   ~ 0
+VSS
+Text Label 1200 6650 0    50   ~ 0
+VSS_PD
+Wire Wire Line
+	900  6650 950  6650
+Wire Wire Line
+	1150 6650 1200 6650
+Wire Notes Line
+	550  6400 1550 6400
+Wire Notes Line
+	1550 6400 1550 7650
+Wire Notes Line
+	1550 7650 550  7650
+Wire Notes Line
+	550  7650 550  6400
+Text Notes 1200 7600 0    50   ~ 0
+Net ties\n
+Wire Notes Line
+	1550 7500 1150 7500
+Wire Notes Line
+	1150 7500 1150 7650
 $EndSCHEMATC
