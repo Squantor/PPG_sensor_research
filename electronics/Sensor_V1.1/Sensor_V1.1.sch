@@ -726,11 +726,11 @@ Wire Wire Line
 Text Label 1000 2050 2    50   ~ 0
 VDDA
 Text Label 1000 2150 2    50   ~ 0
-VSS
+VSSA
 Text Label 2100 2050 0    50   ~ 0
 VDDA
 Text Label 2100 2150 0    50   ~ 0
-VSS
+VSSA
 Wire Wire Line
 	1000 2050 1050 2050
 Wire Wire Line
@@ -917,10 +917,10 @@ Wire Wire Line
 Wire Wire Line
 	1000 2250 1050 2250
 $Comp
-L Device:Net-Tie_2 NT?
+L Device:Net-Tie_2 NT1
 U 1 1 5F8E4681
 P 1000 6550
-F 0 "NT?" H 1000 6600 50  0000 C CNN
+F 0 "NT1" H 1000 6600 50  0000 C CNN
 F 1 "VSS_PD" H 1000 6500 50  0000 C CNN
 F 2 "NetTie:NetTie-2_SMD_Pad0.5mm" H 1000 6550 50  0001 C CNN
 F 3 "~" H 1000 6550 50  0001 C CNN
@@ -952,10 +952,10 @@ Wire Notes Line
 Text Label 850  6750 2    50   ~ 0
 VSS
 $Comp
-L Device:Net-Tie_2 NT?
+L Device:Net-Tie_2 NT2
 U 1 1 5F9052A1
 P 1000 6750
-F 0 "NT?" H 1000 6800 50  0000 C CNN
+F 0 "NT2" H 1000 6800 50  0000 C CNN
 F 1 "VSS_CMP" H 1000 6700 50  0000 C CNN
 F 2 "NetTie:NetTie-2_SMD_Pad0.5mm" H 1000 6750 50  0001 C CNN
 F 3 "~" H 1000 6750 50  0001 C CNN
@@ -973,12 +973,12 @@ VSS_CMP
 Text Label 7850 650  2    50   ~ 0
 VSS_CMP
 Text Label 850  6950 2    50   ~ 0
-VDD
+VDDA
 $Comp
-L Device:Net-Tie_2 NT?
+L Device:Net-Tie_2 NT3
 U 1 1 5F91DA35
 P 1000 6950
-F 0 "NT?" H 1000 7000 50  0000 C CNN
+F 0 "NT3" H 1000 7000 50  0000 C CNN
 F 1 "VDD_CMP" H 1000 6900 50  0000 C CNN
 F 2 "NetTie:NetTie-2_SMD_Pad0.5mm" H 1000 6950 50  0001 C CNN
 F 3 "~" H 1000 6950 50  0001 C CNN
