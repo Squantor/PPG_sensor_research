@@ -519,12 +519,8 @@ F 3 "~" H 8050 650 50  0001 C CNN
 	1    8050 650 
 	0    1    1    0   
 $EndComp
-Text Label 7850 650  2    50   ~ 0
-VSSA
 Text Label 8250 650  0    50   ~ 0
 VDDA
-Text Label 7650 1050 2    50   ~ 0
-VSSA
 Text Label 8450 950  0    50   ~ 0
 VDDA
 Wire Wire Line
@@ -923,22 +919,22 @@ Wire Wire Line
 $Comp
 L Device:Net-Tie_2 NT?
 U 1 1 5F8E4681
-P 1050 6650
-F 0 "NT?" H 1050 6700 50  0000 C CNN
-F 1 "PD" H 1050 6600 50  0000 C CNN
-F 2 "NetTie:NetTie-2_SMD_Pad0.5mm" H 1050 6650 50  0001 C CNN
-F 3 "~" H 1050 6650 50  0001 C CNN
-	1    1050 6650
+P 1000 6550
+F 0 "NT?" H 1000 6600 50  0000 C CNN
+F 1 "VSS_PD" H 1000 6500 50  0000 C CNN
+F 2 "NetTie:NetTie-2_SMD_Pad0.5mm" H 1000 6550 50  0001 C CNN
+F 3 "~" H 1000 6550 50  0001 C CNN
+	1    1000 6550
 	1    0    0    -1  
 $EndComp
-Text Label 900  6650 2    50   ~ 0
+Text Label 850  6550 2    50   ~ 0
 VSS
-Text Label 1200 6650 0    50   ~ 0
+Text Label 1150 6550 0    50   ~ 0
 VSS_PD
 Wire Wire Line
-	900  6650 950  6650
+	850  6550 900  6550
 Wire Wire Line
-	1150 6650 1200 6650
+	1100 6550 1150 6550
 Wire Notes Line
 	550  6400 1550 6400
 Wire Notes Line
@@ -953,4 +949,46 @@ Wire Notes Line
 	1550 7500 1150 7500
 Wire Notes Line
 	1150 7500 1150 7650
+Text Label 850  6750 2    50   ~ 0
+VSS
+$Comp
+L Device:Net-Tie_2 NT?
+U 1 1 5F9052A1
+P 1000 6750
+F 0 "NT?" H 1000 6800 50  0000 C CNN
+F 1 "VSS_CMP" H 1000 6700 50  0000 C CNN
+F 2 "NetTie:NetTie-2_SMD_Pad0.5mm" H 1000 6750 50  0001 C CNN
+F 3 "~" H 1000 6750 50  0001 C CNN
+	1    1000 6750
+	1    0    0    -1  
+$EndComp
+Text Label 1150 6750 0    50   ~ 0
+VSS_CMP
+Wire Wire Line
+	850  6750 900  6750
+Wire Wire Line
+	1100 6750 1150 6750
+Text Label 7650 1050 2    50   ~ 0
+VSS_CMP
+Text Label 7850 650  2    50   ~ 0
+VSS_CMP
+Text Label 850  6950 2    50   ~ 0
+VDD
+$Comp
+L Device:Net-Tie_2 NT?
+U 1 1 5F91DA35
+P 1000 6950
+F 0 "NT?" H 1000 7000 50  0000 C CNN
+F 1 "VDD_CMP" H 1000 6900 50  0000 C CNN
+F 2 "NetTie:NetTie-2_SMD_Pad0.5mm" H 1000 6950 50  0001 C CNN
+F 3 "~" H 1000 6950 50  0001 C CNN
+	1    1000 6950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	850  6950 900  6950
+Text Label 1150 6950 0    50   ~ 0
+VDD_CMP
+Wire Wire Line
+	1150 6950 1100 6950
 $EndSCHEMATC
