@@ -342,8 +342,6 @@ VREF
 Wire Wire Line
 	3500 1900 3700 1900
 Connection ~ 3500 1900
-Text Label 4500 1200 2    50   ~ 0
-VSS_PD
 Text Label 4500 700  2    50   ~ 0
 PD_OUT
 $Comp
@@ -375,17 +373,6 @@ $EndComp
 Text Label 5300 950  0    50   ~ 0
 I_reset
 $Comp
-L Connector:TestPoint TP10
-U 1 1 5F3C5825
-P 5050 700
-F 0 "TP10" V 4950 900 50  0000 L CNN
-F 1 "PD out" V 5050 900 50  0000 L CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H03R05" H 5250 700 50  0001 C CNN
-F 3 "~" H 5250 700 50  0001 C CNN
-	1    5050 700 
-	0    1    1    0   
-$EndComp
-$Comp
 L SquantorSpecial:Solderjumper_2way_noconn JP1
 U 1 1 5F40E401
 P 3750 850
@@ -415,9 +402,6 @@ Wire Wire Line
 Connection ~ 4600 700 
 Wire Wire Line
 	4900 750  4900 700 
-Connection ~ 4900 700 
-Wire Wire Line
-	4900 700  5050 700 
 Wire Wire Line
 	4900 1150 4900 1200
 Wire Wire Line
@@ -454,8 +438,6 @@ F 3 "~" H 5650 1800 50  0001 C CNN
 	1    5650 1800
 	0    1    1    0   
 $EndComp
-Text Label 5900 1900 0    50   ~ 0
-VSSA
 Wire Wire Line
 	5450 1800 5500 1800
 Connection ~ 5450 1800
@@ -725,12 +707,8 @@ Wire Wire Line
 	4900 1800 4900 2000
 Text Label 1000 2050 2    50   ~ 0
 VDDA
-Text Label 1000 2150 2    50   ~ 0
-VSSA
 Text Label 2100 2050 0    50   ~ 0
 VDDA
-Text Label 2100 2150 0    50   ~ 0
-VSSA
 Wire Wire Line
 	1000 2050 1050 2050
 Wire Wire Line
@@ -866,7 +844,7 @@ Wire Wire Line
 Wire Wire Line
 	4500 700  4600 700 
 Wire Wire Line
-	4500 1200 4600 1200
+	4900 1200 4600 1200
 $Comp
 L Device:Q_NMOS_GSD Q1
 U 1 1 5F666A62
@@ -916,79 +894,29 @@ Wire Wire Line
 	1050 2350 1000 2350
 Wire Wire Line
 	1000 2250 1050 2250
-$Comp
-L Device:Net-Tie_2 NT1
-U 1 1 5F8E4681
-P 1000 6550
-F 0 "NT1" H 1000 6600 50  0000 C CNN
-F 1 "VSS_PD" H 1000 6500 50  0000 C CNN
-F 2 "NetTie:NetTie-2_SMD_Pad0.5mm" H 1000 6550 50  0001 C CNN
-F 3 "~" H 1000 6550 50  0001 C CNN
-	1    1000 6550
-	1    0    0    -1  
-$EndComp
-Text Label 850  6550 2    50   ~ 0
-VSS
-Text Label 1150 6550 0    50   ~ 0
-VSS_PD
-Wire Wire Line
-	850  6550 900  6550
-Wire Wire Line
-	1100 6550 1150 6550
-Wire Notes Line
-	550  6400 1550 6400
-Wire Notes Line
-	1550 6400 1550 7650
-Wire Notes Line
-	1550 7650 550  7650
-Wire Notes Line
-	550  7650 550  6400
-Text Notes 1200 7600 0    50   ~ 0
-Net ties\n
-Wire Notes Line
-	1550 7500 1150 7500
-Wire Notes Line
-	1150 7500 1150 7650
-Text Label 850  6750 2    50   ~ 0
-VSS
-$Comp
-L Device:Net-Tie_2 NT2
-U 1 1 5F9052A1
-P 1000 6750
-F 0 "NT2" H 1000 6800 50  0000 C CNN
-F 1 "VSS_CMP" H 1000 6700 50  0000 C CNN
-F 2 "NetTie:NetTie-2_SMD_Pad0.5mm" H 1000 6750 50  0001 C CNN
-F 3 "~" H 1000 6750 50  0001 C CNN
-	1    1000 6750
-	1    0    0    -1  
-$EndComp
-Text Label 1150 6750 0    50   ~ 0
-VSS_CMP
-Wire Wire Line
-	850  6750 900  6750
-Wire Wire Line
-	1100 6750 1150 6750
-Text Label 7650 1050 2    50   ~ 0
-VSS_CMP
 Text Label 7850 650  2    50   ~ 0
-VSS_CMP
-Text Label 850  6950 2    50   ~ 0
-VDDA
+VSS
+Text Label 7650 1050 2    50   ~ 0
+VSS
+Connection ~ 4900 1200
+Text Label 5900 1900 0    50   ~ 0
+VSS
+Text Label 1000 2150 2    50   ~ 0
+VSS
+Text Label 2100 2150 0    50   ~ 0
+VSS
 $Comp
-L Device:Net-Tie_2 NT3
-U 1 1 5F91DA35
-P 1000 6950
-F 0 "NT3" H 1000 7000 50  0000 C CNN
-F 1 "VDD_CMP" H 1000 6900 50  0000 C CNN
-F 2 "NetTie:NetTie-2_SMD_Pad0.5mm" H 1000 6950 50  0001 C CNN
-F 3 "~" H 1000 6950 50  0001 C CNN
-	1    1000 6950
-	1    0    0    -1  
+L Device:R R?
+U 1 1 5F9FD37E
+P 5100 700
+F 0 "R?" V 5050 550 50  0000 C CNN
+F 1 "0" V 5100 700 50  0000 C CNN
+F 2 "SquantorRcl:R_0402_hand" V 5030 700 50  0001 C CNN
+F 3 "~" H 5100 700 50  0001 C CNN
+	1    5100 700 
+	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	850  6950 900  6950
-Text Label 1150 6950 0    50   ~ 0
-VDD_CMP
-Wire Wire Line
-	1150 6950 1100 6950
+	4900 700  4950 700 
+Connection ~ 4900 700 
 $EndSCHEMATC
