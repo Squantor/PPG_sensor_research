@@ -71,20 +71,12 @@ Text Label 1000 750  2    50   ~ 0
 VDD
 Text Label 2100 750  0    50   ~ 0
 VDD
-Text Label 1000 850  2    50   ~ 0
-VBUS
 Text Label 2100 850  0    50   ~ 0
 VBUS
-Text Label 1000 950  2    50   ~ 0
-VSS
 Text Label 2100 950  0    50   ~ 0
 VSS
 Wire Wire Line
 	1000 750  1050 750 
-Wire Wire Line
-	1050 850  1000 850 
-Wire Wire Line
-	1000 950  1050 950 
 Wire Wire Line
 	2100 950  2050 950 
 Wire Wire Line
@@ -568,25 +560,10 @@ Wire Notes Line
 	2500 550  2500 3250
 Wire Notes Line
 	2050 3350 2050 4100
-$Comp
-L power:PWR_FLAG #FLG0103
-U 1 1 5F658CE3
-P 1000 5850
-F 0 "#FLG0103" H 1000 5925 50  0001 C CNN
-F 1 "PWR_FLAG" V 1000 5978 50  0000 L CNN
-F 2 "" H 1000 5850 50  0001 C CNN
-F 3 "~" H 1000 5850 50  0001 C CNN
-	1    1000 5850
-	0    1    1    0   
-$EndComp
 Wire Notes Line
 	2000 3100 2000 3250
 Wire Notes Line
 	2500 3100 2000 3100
-Text Label 950  5850 2    50   ~ 0
-VDD
-Wire Wire Line
-	950  5850 1000 5850
 Text Notes 1050 6250 0    50   ~ 0
 Power flags
 Wire Notes Line
@@ -597,36 +574,6 @@ Wire Notes Line
 	550  5550 550  6300
 Wire Notes Line
 	550  6300 1550 6300
-$Comp
-L power:PWR_FLAG #FLG0104
-U 1 1 5F87EC8A
-P 1000 5750
-F 0 "#FLG0104" H 1000 5825 50  0001 C CNN
-F 1 "PWR_FLAG" V 1000 5878 50  0000 L CNN
-F 2 "" H 1000 5750 50  0001 C CNN
-F 3 "~" H 1000 5750 50  0001 C CNN
-	1    1000 5750
-	0    1    1    0   
-$EndComp
-$Comp
-L power:PWR_FLAG #FLG0105
-U 1 1 5F87EE86
-P 1000 5650
-F 0 "#FLG0105" H 1000 5725 50  0001 C CNN
-F 1 "PWR_FLAG" V 1000 5778 50  0000 L CNN
-F 2 "" H 1000 5650 50  0001 C CNN
-F 3 "~" H 1000 5650 50  0001 C CNN
-	1    1000 5650
-	0    1    1    0   
-$EndComp
-Text Label 950  5750 2    50   ~ 0
-VDDA
-Text Label 950  5650 2    50   ~ 0
-VSS
-Wire Wire Line
-	950  5650 1000 5650
-Wire Wire Line
-	1000 5750 950  5750
 $Comp
 L Device:C C11
 U 1 1 5F328139
@@ -696,8 +643,6 @@ Wire Wire Line
 	1000 2050 1050 2050
 Wire Wire Line
 	1050 2150 1000 2150
-Wire Wire Line
-	2050 2150 2100 2150
 Wire Wire Line
 	2100 2050 2050 2050
 Text Label 1000 1650 2    50   ~ 0
@@ -849,14 +794,6 @@ Wire Notes Line
 	1000 6150 1000 6300
 Wire Notes Line
 	1550 6150 1000 6150
-Text Label 2100 1250 0    50   ~ 0
-PIO_3
-Text Label 2100 1350 0    50   ~ 0
-PIO_11
-Wire Wire Line
-	2100 1250 2050 1250
-Wire Wire Line
-	2050 1350 2100 1350
 Text Label 7850 650  2    50   ~ 0
 VSS
 Text Label 7650 1050 2    50   ~ 0
@@ -865,8 +802,6 @@ Connection ~ 4900 1200
 Text Label 5900 1900 0    50   ~ 0
 VSS
 Text Label 1000 2150 2    50   ~ 0
-VSS
-Text Label 2100 2150 0    50   ~ 0
 VSS
 $Comp
 L Device:R R9
@@ -947,4 +882,55 @@ Wire Wire Line
 Wire Wire Line
 	3400 1150 3400 1400
 Connection ~ 3400 1150
+NoConn ~ 1050 1150
+NoConn ~ 1050 1250
+NoConn ~ 1050 1350
+NoConn ~ 1050 1450
+NoConn ~ 1050 1550
+NoConn ~ 2050 1550
+NoConn ~ 2050 1450
+NoConn ~ 2050 1350
+NoConn ~ 2050 1250
+NoConn ~ 1050 2350
+NoConn ~ 1050 2450
+NoConn ~ 1050 2550
+NoConn ~ 1050 2650
+NoConn ~ 1050 2850
+NoConn ~ 2050 2850
+NoConn ~ 2050 2750
+NoConn ~ 2050 2650
+NoConn ~ 2050 2550
+NoConn ~ 2050 2450
+NoConn ~ 2050 2350
+$Comp
+L power:PWR_FLAG #FLG0101
+U 1 1 5FAF2FF3
+P 8650 950
+F 0 "#FLG0101" H 8650 1025 50  0001 C CNN
+F 1 "PWR_FLAG" V 8650 1078 50  0000 L CNN
+F 2 "" H 8650 950 50  0001 C CNN
+F 3 "~" H 8650 950 50  0001 C CNN
+	1    8650 950 
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8450 950  8650 950 
+Connection ~ 8450 950 
+$Comp
+L power:PWR_FLAG #FLG0102
+U 1 1 5FAF9C50
+P 3450 1400
+F 0 "#FLG0102" H 3450 1475 50  0001 C CNN
+F 1 "PWR_FLAG" V 3450 1528 50  0000 L CNN
+F 2 "" H 3450 1400 50  0001 C CNN
+F 3 "~" H 3450 1400 50  0001 C CNN
+	1    3450 1400
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3450 1400 3400 1400
+Connection ~ 3400 1400
+NoConn ~ 1050 950 
+NoConn ~ 1050 850 
+NoConn ~ 2050 2150
 $EndSCHEMATC
