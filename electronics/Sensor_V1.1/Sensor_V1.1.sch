@@ -570,17 +570,6 @@ Wire Notes Line
 	8650 1350 8650 1200
 Wire Notes Line
 	8650 1200 9300 1200
-$Comp
-L SquantorConnectorsNamed:expansion_small_right_LPC82XJHI33 J2
-U 1 1 5F2AD81B
-P 1550 2500
-F 0 "J2" H 1550 1900 50  0000 C CNN
-F 1 "nuclone_small_right" H 1550 3100 50  0000 C CNN
-F 2 "SquantorConnectors:Header-0254-2X10-H010" H 1550 2450 50  0001 C CNN
-F 3 "" H 1550 2450 50  0001 C CNN
-	1    1550 2500
-	-1   0    0    1   
-$EndComp
 Wire Notes Line
 	2500 550  2500 3250
 Wire Notes Line
@@ -878,22 +867,6 @@ Wire Wire Line
 	2100 1250 2050 1250
 Wire Wire Line
 	2050 1350 2100 1350
-Text Label 2100 2250 0    50   ~ 0
-PIO0_17
-Text Label 1000 2250 2    50   ~ 0
-PIO0_18
-Text Label 1000 2350 2    50   ~ 0
-PIO0_20
-Text Label 2100 2350 0    50   ~ 0
-PIO0_19
-Wire Wire Line
-	2100 2250 2050 2250
-Wire Wire Line
-	2050 2350 2100 2350
-Wire Wire Line
-	1050 2350 1000 2350
-Wire Wire Line
-	1000 2250 1050 2250
 Text Label 7850 650  2    50   ~ 0
 VSS
 Text Label 7650 1050 2    50   ~ 0
@@ -919,4 +892,27 @@ $EndComp
 Wire Wire Line
 	4900 700  4950 700 
 Connection ~ 4900 700 
+Text Label 5300 700  0    50   ~ 0
+PD_ADC
+Wire Wire Line
+	5300 700  5250 700 
+Text Label 1000 2250 2    50   ~ 0
+PD_ADC
+Text Label 2100 2250 0    50   ~ 0
+CMP_OUT
+Wire Wire Line
+	2100 2250 2050 2250
+Wire Wire Line
+	1050 2250 1000 2250
+$Comp
+L SquantorConnectorsNamed:expansion_small_right_LPC82XJHI33 J2
+U 1 1 5F2AD81B
+P 1550 2500
+F 0 "J2" H 1550 1900 50  0000 C CNN
+F 1 "nuclone_small_right" H 1550 3100 50  0000 C CNN
+F 2 "SquantorConnectors:Header-0254-2X10-H010" H 1550 2450 50  0001 C CNN
+F 3 "" H 1550 2450 50  0001 C CNN
+	1    1550 2500
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC
