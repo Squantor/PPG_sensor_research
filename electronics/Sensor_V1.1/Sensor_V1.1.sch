@@ -260,12 +260,12 @@ Wire Wire Line
 $Comp
 L SquantorGenericAnalog:reference_sot23-3 U2
 U 1 1 5F422666
-P 3200 1500
-F 0 "U2" H 3400 1650 50  0000 C CNN
-F 1 "reference_sot23-3" H 3200 1250 50  0000 C CNN
-F 2 "SquantorIC:SOT23-3" H 3200 1500 50  0001 C CNN
-F 3 "" H 3200 1500 50  0001 C CNN
-	1    3200 1500
+P 3100 1500
+F 0 "U2" H 3300 1650 50  0000 C CNN
+F 1 "reference_sot23-3" H 3100 1250 50  0000 C CNN
+F 2 "SquantorIC:SOT23-3" H 3100 1500 50  0001 C CNN
+F 3 "" H 3100 1500 50  0001 C CNN
+	1    3100 1500
 	-1   0    0    -1  
 $EndComp
 Connection ~ 4000 850 
@@ -285,12 +285,12 @@ Wire Wire Line
 $Comp
 L Device:C C5
 U 1 1 5F4B91DE
-P 3200 1150
-F 0 "C5" V 3150 1200 50  0000 L CNN
-F 1 "1u" V 3250 1000 50  0000 L CNN
-F 2 "SquantorRcl:C_0402" H 3238 1000 50  0001 C CNN
-F 3 "~" H 3200 1150 50  0001 C CNN
-	1    3200 1150
+P 3100 1150
+F 0 "C5" V 3050 1200 50  0000 L CNN
+F 1 "1u" V 3150 1000 50  0000 L CNN
+F 2 "SquantorRcl:C_0402" H 3138 1000 50  0001 C CNN
+F 3 "~" H 3100 1150 50  0001 C CNN
+	1    3100 1150
 	0    1    1    0   
 $EndComp
 $Comp
@@ -305,11 +305,11 @@ F 3 "~" H 3200 1900 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	2850 1500 2950 1500
+	2800 1500 2850 1500
 Wire Wire Line
-	3450 1400 3500 1400
+	3350 1400 3400 1400
 Wire Wire Line
-	3450 1600 3500 1600
+	3350 1600 3500 1600
 Wire Wire Line
 	3350 1900 3500 1900
 Wire Wire Line
@@ -320,9 +320,9 @@ Wire Wire Line
 Wire Wire Line
 	3000 1900 3050 1900
 Wire Wire Line
-	3000 1150 3050 1150
+	2800 1150 2950 1150
 Wire Wire Line
-	3350 1150 3400 1150
+	3250 1150 3400 1150
 Text Notes 3350 2050 0    50   ~ 0
 PD bias selection
 Wire Notes Line
@@ -501,16 +501,10 @@ F 3 "~" H 8050 650 50  0001 C CNN
 	1    8050 650 
 	0    1    1    0   
 $EndComp
-Text Label 8250 650  0    50   ~ 0
-VDDA
-Text Label 8450 950  0    50   ~ 0
-VDDA
 Wire Wire Line
 	7900 650  7850 650 
 Wire Wire Line
 	7650 1050 7700 1050
-Wire Wire Line
-	8200 650  8250 650 
 Wire Wire Line
 	8400 950  8450 950 
 Text Label 7650 950  2    50   ~ 0
@@ -718,13 +712,9 @@ Wire Wire Line
 	4000 850  4000 1600
 Text Label 2850 850  2    50   ~ 0
 VDDA
-Text Label 3400 1150 0    50   ~ 0
-VDD
-Text Label 3500 1400 0    50   ~ 0
-VDD
-Text Label 3000 1150 2    50   ~ 0
+Text Label 2800 1150 2    50   ~ 0
 VSS
-Text Label 2850 1500 2    50   ~ 0
+Text Label 2800 1500 2    50   ~ 0
 VSS
 Text Label 3000 1900 2    50   ~ 0
 VSS
@@ -915,4 +905,46 @@ F 3 "" H 1550 2450 50  0001 C CNN
 	1    1550 2500
 	-1   0    0    1   
 $EndComp
+$Comp
+L Device:Ferrite_Bead FB?
+U 1 1 5FA1F381
+P 8650 650
+F 0 "FB?" V 8600 800 50  0000 C CNN
+F 1 "Ferrite_Bead" V 8800 650 50  0000 C CNN
+F 2 "SquantorRcl:L_0402" V 8580 650 50  0001 C CNN
+F 3 "~" H 8650 650 50  0001 C CNN
+	1    8650 650 
+	0    1    1    0   
+$EndComp
+Text Label 8850 650  0    50   ~ 0
+VDDA
+Wire Wire Line
+	8200 650  8450 650 
+Wire Wire Line
+	8450 950  8450 650 
+Connection ~ 8450 650 
+Wire Wire Line
+	8450 650  8500 650 
+Wire Wire Line
+	8800 650  8850 650 
+Text Label 3800 1150 0    50   ~ 0
+VDDA
+$Comp
+L Device:Ferrite_Bead FB?
+U 1 1 5FA3DB1A
+P 3600 1150
+F 0 "FB?" V 3550 1300 50  0000 C CNN
+F 1 "Ferrite_Bead" V 3750 1150 50  0000 C CNN
+F 2 "SquantorRcl:L_0402" V 3530 1150 50  0001 C CNN
+F 3 "~" H 3600 1150 50  0001 C CNN
+	1    3600 1150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3800 1150 3750 1150
+Wire Wire Line
+	3450 1150 3400 1150
+Wire Wire Line
+	3400 1150 3400 1400
+Connection ~ 3400 1150
 $EndSCHEMATC
