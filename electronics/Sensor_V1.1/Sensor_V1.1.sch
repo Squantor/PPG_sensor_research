@@ -906,10 +906,10 @@ F 3 "" H 1550 2450 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:Ferrite_Bead FB?
+L Device:Ferrite_Bead FB2
 U 1 1 5FA1F381
 P 8650 650
-F 0 "FB?" V 8600 800 50  0000 C CNN
+F 0 "FB2" V 8600 800 50  0000 C CNN
 F 1 "Ferrite_Bead" V 8800 650 50  0000 C CNN
 F 2 "SquantorRcl:L_0402" V 8580 650 50  0001 C CNN
 F 3 "~" H 8650 650 50  0001 C CNN
@@ -930,10 +930,10 @@ Wire Wire Line
 Text Label 3800 1150 0    50   ~ 0
 VDDA
 $Comp
-L Device:Ferrite_Bead FB?
+L Device:Ferrite_Bead FB1
 U 1 1 5FA3DB1A
 P 3600 1150
-F 0 "FB?" V 3550 1300 50  0000 C CNN
+F 0 "FB1" V 3550 1300 50  0000 C CNN
 F 1 "Ferrite_Bead" V 3750 1150 50  0000 C CNN
 F 2 "SquantorRcl:L_0402" V 3530 1150 50  0001 C CNN
 F 3 "~" H 3600 1150 50  0001 C CNN
