@@ -229,16 +229,12 @@ Wire Wire Line
 	3550 2500 3500 2500
 Wire Wire Line
 	3500 2400 3550 2400
-Text Notes 3550 2800 0    50   ~ 0
+Text Notes 3550 3250 0    50   ~ 0
 PPG sensor
 Wire Notes Line
 	2600 2200 4050 2200
 Wire Notes Line
-	4050 2200 4050 2850
-Wire Notes Line
-	4050 2850 2600 2850
-Wire Notes Line
-	2600 2850 2600 2200
+	4050 3300 2600 3300
 Text Label 2950 650  2    50   ~ 0
 PD_BIAS
 Wire Wire Line
@@ -664,9 +660,9 @@ VSS
 Text Label 3000 1900 2    50   ~ 0
 VSS
 Wire Notes Line
-	4050 2700 3500 2700
+	4050 3150 3500 3150
 Wire Notes Line
-	3500 2700 3500 2850
+	3500 3150 3500 3300
 Text Label 3550 2400 0    50   ~ 0
 LED1
 Text Label 3550 2600 0    50   ~ 0
@@ -933,4 +929,46 @@ Connection ~ 3400 1400
 NoConn ~ 1050 950 
 NoConn ~ 1050 850 
 NoConn ~ 2050 2150
+Wire Notes Line
+	2600 2200 2600 3300
+Wire Notes Line
+	4050 2200 4050 3300
+$Comp
+L Device:Ferrite_Bead FB?
+U 1 1 5FA8F62F
+P 3200 2900
+F 0 "FB?" V 3150 3050 50  0000 C CNN
+F 1 "Ferrite_Bead" V 3350 2900 50  0000 C CNN
+F 2 "SquantorRcl:L_0402" V 3130 2900 50  0001 C CNN
+F 3 "~" H 3200 2900 50  0001 C CNN
+	1    3200 2900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FA94DA7
+P 3200 3200
+F 0 "C?" V 3150 3250 50  0000 L CNN
+F 1 "1u" V 3250 3050 50  0000 L CNN
+F 2 "SquantorRcl:C_0402" H 3238 3050 50  0001 C CNN
+F 3 "~" H 3200 3200 50  0001 C CNN
+	1    3200 3200
+	0    1    1    0   
+$EndComp
+Text Label 3450 3050 0    50   ~ 0
+VSS
+Wire Wire Line
+	3350 3200 3450 3200
+Wire Wire Line
+	3450 3200 3450 2900
+Wire Wire Line
+	3450 2900 3350 2900
+Wire Wire Line
+	3050 2900 2950 2900
+Wire Wire Line
+	2950 2900 2950 3200
+Wire Wire Line
+	2950 3200 3050 3200
+Text Label 2950 3050 2    50   ~ 0
+PD_BIAS
 $EndSCHEMATC
