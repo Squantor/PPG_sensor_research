@@ -29,7 +29,7 @@ L SquantorLabels:VYYYYMMDD N2
 U 1 1 5D6A68B9
 P 6350 7150
 F 0 "N2" H 6300 7250 60  0000 L CNN
-F 1 "20201001" H 6100 7150 60  0000 L CNN
+F 1 "20201211" H 6100 7150 60  0000 L CNN
 F 2 "SquantorLabels:Label_Generic" H 6350 7150 60  0001 C CNN
 F 3 "" H 6350 7150 60  0001 C CNN
 	1    6350 7150
@@ -187,7 +187,7 @@ Wire Wire Line
 Text Label 1800 4350 2    50   ~ 0
 LED1_C
 Text Label 1800 5100 2    50   ~ 0
-LED2_K
+LED2_C
 Text Notes 1950 5950 0    50   ~ 0
 LED drive
 Wire Notes Line
@@ -545,16 +545,6 @@ Wire Notes Line
 	2000 3100 2000 3250
 Wire Notes Line
 	2500 3100 2000 3100
-Text Notes 1050 7650 0    50   ~ 0
-Power flags
-Wire Notes Line
-	1550 7700 1550 6950
-Wire Notes Line
-	1550 6950 550  6950
-Wire Notes Line
-	550  6950 550  7700
-Wire Notes Line
-	550  7700 1550 7700
 $Comp
 L Device:C C11
 U 1 1 5F328139
@@ -747,10 +737,6 @@ Text Label 7650 1150 2    50   ~ 0
 PD_OUT
 Wire Wire Line
 	7650 1150 7700 1150
-Wire Notes Line
-	1000 7550 1000 7700
-Wire Notes Line
-	1550 7550 1000 7550
 Text Label 7850 650  2    50   ~ 0
 VSS
 Text Label 7650 1050 2    50   ~ 0
@@ -954,10 +940,10 @@ Wire Wire Line
 Wire Wire Line
 	2150 5100 2150 5150
 $Comp
-L Device:C C?
+L Device:C C2
 U 1 1 5FDE71DD
 P 1200 4550
-F 0 "C?" H 1100 4650 50  0000 L CNN
+F 0 "C2" H 1100 4650 50  0000 L CNN
 F 1 "100n" H 1200 4450 50  0000 L CNN
 F 2 "SquantorRcl:C_0402" H 1238 4400 50  0001 C CNN
 F 3 "~" H 1200 4550 50  0001 C CNN
@@ -965,10 +951,10 @@ F 3 "~" H 1200 4550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R10
 U 1 1 5FDE999B
 P 1000 4350
-F 0 "R?" V 1050 4200 50  0000 C CNN
+F 0 "R10" V 1050 4200 50  0000 C CNN
 F 1 "1K" V 1000 4350 50  0000 C CNN
 F 2 "SquantorRcl:R_0402_hand" V 930 4350 50  0001 C CNN
 F 3 "~" H 1000 4350 50  0001 C CNN
@@ -986,10 +972,10 @@ VSS
 Wire Wire Line
 	1200 4700 1200 4750
 $Comp
-L Device:C C?
+L Device:C C3
 U 1 1 5FE2E042
 P 1200 5100
-F 0 "C?" H 1100 5200 50  0000 L CNN
+F 0 "C3" H 1100 5200 50  0000 L CNN
 F 1 "100n" H 1200 5000 50  0000 L CNN
 F 2 "SquantorRcl:C_0402" H 1238 4950 50  0001 C CNN
 F 3 "~" H 1200 5100 50  0001 C CNN
@@ -997,10 +983,10 @@ F 3 "~" H 1200 5100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R11
 U 1 1 5FE2E212
 P 1000 4900
-F 0 "R?" V 1050 4750 50  0000 C CNN
+F 0 "R11" V 1050 4750 50  0000 C CNN
 F 1 "1K" V 1000 4900 50  0000 C CNN
 F 2 "SquantorRcl:R_0402_hand" V 930 4900 50  0001 C CNN
 F 3 "~" H 1000 4900 50  0001 C CNN
@@ -1018,10 +1004,10 @@ VSS
 Wire Wire Line
 	1200 5250 1200 5300
 $Comp
-L SquantorSpecial:Solderjumper_2way_noconn JP?
+L SquantorSpecial:Solderjumper_2way_noconn JP2
 U 1 1 5FE39C17
 P 1050 5500
-F 0 "JP?" H 1050 5650 50  0000 C CNN
+F 0 "JP2" H 1050 5650 50  0000 C CNN
 F 1 "LED_VDD" H 1350 5450 50  0000 C CNN
 F 2 "SquantorSpecial:solder_jumper_2way_noconn" H 1050 5500 50  0001 C CNN
 F 3 "" H 1050 5500 50  0001 C CNN
@@ -1029,10 +1015,10 @@ F 3 "" H 1050 5500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L SquantorSpecial:Solderjumper_2way_noconn JP?
+L SquantorSpecial:Solderjumper_2way_noconn JP6
 U 1 1 5FE3B27B
 P 1050 5800
-F 0 "JP?" H 1050 5950 50  0000 C CNN
+F 0 "JP6" H 1050 5950 50  0000 C CNN
 F 1 "LED_VBUS" H 1350 5750 50  0000 C CNN
 F 2 "SquantorSpecial:solder_jumper_2way_noconn" H 1050 5800 50  0001 C CNN
 F 3 "" H 1050 5800 50  0001 C CNN
@@ -1069,4 +1055,7 @@ Text Label 3550 2600 0    50   ~ 0
 LED2_C
 Text Label 2950 2600 2    50   ~ 0
 LED2_A
+NoConn ~ 2050 2950
+NoConn ~ 1050 2750
+NoConn ~ 1050 2950
 $EndSCHEMATC
