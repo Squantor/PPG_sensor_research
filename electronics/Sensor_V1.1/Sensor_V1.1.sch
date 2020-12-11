@@ -149,12 +149,12 @@ Wire Wire Line
 $Comp
 L SquantorOpto:PPG_sensor_PD_flipped U1
 U 1 1 5F30F2AF
-P 3250 2500
-F 0 "U1" H 3250 2750 50  0000 C CNN
-F 1 "PPG_sensor" H 3150 2250 50  0000 C CNN
-F 2 "SquantorOpto:PPG_sensor_reverse_PD_antiparallel" H 3250 2450 50  0001 C CNN
-F 3 "" H 3250 2450 50  0001 C CNN
-	1    3250 2500
+P 5200 3400
+F 0 "U1" H 5200 3650 50  0000 C CNN
+F 1 "PPG_sensor" H 5100 3150 50  0000 C CNN
+F 2 "SquantorOpto:PPG_sensor_reverse_PD_antiparallel" H 5200 3350 50  0001 C CNN
+F 3 "" H 5200 3350 50  0001 C CNN
+	1    5200 3400
 	1    0    0    -1  
 $EndComp
 Wire Notes Line
@@ -198,123 +198,121 @@ Wire Notes Line
 	2350 6000 550  6000
 Wire Notes Line
 	550  6000 550  4200
-Text Label 2950 2500 2    50   ~ 0
+Text Label 4900 3400 2    50   ~ 0
 PD_BIAS
-Text Label 3550 2500 0    50   ~ 0
+Text Label 5500 3400 0    50   ~ 0
 PD_OUT
 Wire Wire Line
-	2950 2400 3000 2400
+	4900 3300 4950 3300
 Wire Wire Line
-	3000 2500 2950 2500
+	4950 3400 4900 3400
 Wire Wire Line
-	2950 2600 3000 2600
+	4900 3500 4950 3500
 Wire Wire Line
-	3500 2600 3550 2600
+	5450 3500 5500 3500
 Wire Wire Line
-	3550 2500 3500 2500
+	5500 3400 5450 3400
 Wire Wire Line
-	3500 2400 3550 2400
-Text Notes 3550 3250 0    50   ~ 0
+	5450 3300 5500 3300
+Text Notes 5450 3700 0    50   ~ 0
 PPG sensor
 Wire Notes Line
-	2600 2200 4050 2200
+	4500 3100 5950 3100
 Wire Notes Line
-	4050 3300 2600 3300
-Text Label 2950 650  2    50   ~ 0
+	5950 3750 4500 3750
+Text Label 2950 1150 2    50   ~ 0
 PD_BIAS
 Wire Wire Line
-	2850 850  3550 850 
+	2850 1350 3550 1350
 Wire Wire Line
-	2950 650  4000 650 
+	4000 1150 4000 1350
 Wire Wire Line
-	4000 650  4000 850 
-Wire Wire Line
-	4000 850  3950 850 
+	4000 1350 3950 1350
 $Comp
 L SquantorGenericAnalog:reference_sot23-3 U2
 U 1 1 5F422666
-P 3100 1500
-F 0 "U2" H 3300 1650 50  0000 C CNN
-F 1 "reference_sot23-3" H 3100 1250 50  0000 C CNN
-F 2 "SquantorIC:SOT23-3" H 3100 1500 50  0001 C CNN
-F 3 "" H 3100 1500 50  0001 C CNN
-	1    3100 1500
+P 3100 2000
+F 0 "U2" H 3300 2150 50  0000 C CNN
+F 1 "reference_sot23-3" H 3100 1750 50  0000 C CNN
+F 2 "SquantorIC:SOT23-3" H 3100 2000 50  0001 C CNN
+F 3 "" H 3100 2000 50  0001 C CNN
+	1    3100 2000
 	-1   0    0    -1  
 $EndComp
-Connection ~ 4000 850 
+Connection ~ 4000 1350
 $Comp
 L SquantorSpecial:Solderjumper_2way_noconn JP3
 U 1 1 5F4B1706
-P 3750 1600
-F 0 "JP3" H 3750 1750 50  0000 C CNN
-F 1 "bias REF" H 3750 1450 50  0000 C CNN
-F 2 "SquantorSpecial:solder_jumper_2way_noconn" H 3750 1600 50  0001 C CNN
-F 3 "" H 3750 1600 50  0001 C CNN
-	1    3750 1600
+P 3750 2100
+F 0 "JP3" H 3750 2250 50  0000 C CNN
+F 1 "bias REF" H 3750 1950 50  0000 C CNN
+F 2 "SquantorSpecial:solder_jumper_2way_noconn" H 3750 2100 50  0001 C CNN
+F 3 "" H 3750 2100 50  0001 C CNN
+	1    3750 2100
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4000 1600 3950 1600
+	4000 2100 3950 2100
 $Comp
 L Device:C C5
 U 1 1 5F4B91DE
-P 3100 1150
-F 0 "C5" V 3050 1200 50  0000 L CNN
-F 1 "1u" V 3150 1000 50  0000 L CNN
-F 2 "SquantorRcl:C_0402" H 3138 1000 50  0001 C CNN
-F 3 "~" H 3100 1150 50  0001 C CNN
-	1    3100 1150
+P 3100 1650
+F 0 "C5" V 3050 1700 50  0000 L CNN
+F 1 "1u" V 3150 1500 50  0000 L CNN
+F 2 "SquantorRcl:C_0402" H 3138 1500 50  0001 C CNN
+F 3 "~" H 3100 1650 50  0001 C CNN
+	1    3100 1650
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C C6
 U 1 1 5F4E3D6E
-P 3200 1900
-F 0 "C6" V 3150 1950 50  0000 L CNN
-F 1 "10u" V 3250 1700 50  0000 L CNN
-F 2 "SquantorRcl:C_0603" H 3238 1750 50  0001 C CNN
-F 3 "~" H 3200 1900 50  0001 C CNN
-	1    3200 1900
+P 3200 2400
+F 0 "C6" V 3150 2450 50  0000 L CNN
+F 1 "10u" V 3250 2200 50  0000 L CNN
+F 2 "SquantorRcl:C_0603" H 3238 2250 50  0001 C CNN
+F 3 "~" H 3200 2400 50  0001 C CNN
+	1    3200 2400
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	2800 1500 2850 1500
+	2800 2000 2850 2000
 Wire Wire Line
-	3350 1400 3400 1400
+	3350 1900 3400 1900
 Wire Wire Line
-	3350 1600 3500 1600
+	3350 2100 3500 2100
 Wire Wire Line
-	3350 1900 3500 1900
+	3350 2400 3500 2400
 Wire Wire Line
-	3500 1900 3500 1600
-Connection ~ 3500 1600
+	3500 2400 3500 2100
+Connection ~ 3500 2100
 Wire Wire Line
-	3500 1600 3550 1600
+	3500 2100 3550 2100
 Wire Wire Line
-	3000 1900 3050 1900
+	3000 2400 3050 2400
 Wire Wire Line
-	2800 1150 2950 1150
+	2800 1650 2950 1650
 Wire Wire Line
-	3250 1150 3400 1150
-Text Notes 3350 2050 0    50   ~ 0
+	3250 1650 3400 1650
+Text Notes 3350 2600 0    50   ~ 0
 PD bias selection
 Wire Notes Line
 	2600 550  4050 550 
 Wire Notes Line
-	4050 550  4050 2100
+	4050 550  4050 2650
 Wire Notes Line
-	4050 2100 2600 2100
+	4050 2650 2600 2650
 Wire Notes Line
-	2600 2100 2600 550 
+	2600 2650 2600 550 
 Wire Notes Line
-	3300 2100 3300 1950
+	3300 2650 3300 2500
 Wire Notes Line
-	3300 1950 4050 1950
-Text Label 3700 1900 0    50   ~ 0
+	3300 2500 4050 2500
+Text Label 3700 2400 0    50   ~ 0
 VREF
 Wire Wire Line
-	3500 1900 3700 1900
-Connection ~ 3500 1900
+	3500 2400 3700 2400
+Connection ~ 3500 2400
 Text Label 4500 700  2    50   ~ 0
 PD_OUT
 $Comp
@@ -348,12 +346,12 @@ I_reset
 $Comp
 L SquantorSpecial:Solderjumper_2way_noconn JP1
 U 1 1 5F40E401
-P 3750 850
-F 0 "JP1" H 3750 1000 50  0000 C CNN
-F 1 "bias VDD" H 3750 700 50  0000 C CNN
-F 2 "SquantorSpecial:solder_jumper_2way_noconn" H 3750 850 50  0001 C CNN
-F 3 "" H 3750 850 50  0001 C CNN
-	1    3750 850 
+P 3750 1350
+F 0 "JP1" H 3750 1500 50  0000 C CNN
+F 1 "bias VDD" H 3750 1200 50  0000 C CNN
+F 2 "SquantorSpecial:solder_jumper_2way_noconn" H 3750 1350 50  0001 C CNN
+F 3 "" H 3750 1350 50  0001 C CNN
+	1    3750 1350
 	1    0    0    -1  
 $EndComp
 Text Notes 5700 1250 0    50   ~ 0
@@ -625,19 +623,19 @@ Wire Wire Line
 Wire Wire Line
 	2100 1650 2050 1650
 Wire Wire Line
-	4000 850  4000 1600
-Text Label 2850 850  2    50   ~ 0
+	4000 1350 4000 2100
+Text Label 2850 1350 2    50   ~ 0
 VDDA
-Text Label 2800 1150 2    50   ~ 0
+Text Label 2800 1650 2    50   ~ 0
 VSS
-Text Label 2800 1500 2    50   ~ 0
+Text Label 2800 2000 2    50   ~ 0
 VSS
-Text Label 3000 1900 2    50   ~ 0
+Text Label 3000 2400 2    50   ~ 0
 VSS
 Wire Notes Line
-	4050 3150 3500 3150
+	5950 3600 5400 3600
 Wire Notes Line
-	3500 3150 3500 3300
+	5400 3600 5400 3750
 $Comp
 L Device:Q_NMOS_GSD Q3
 U 1 1 5F664A5A
@@ -805,26 +803,26 @@ Wire Wire Line
 	8450 650  8500 650 
 Wire Wire Line
 	8800 650  8850 650 
-Text Label 3800 1150 0    50   ~ 0
+Text Label 3800 1650 0    50   ~ 0
 VDDA
 $Comp
 L Device:Ferrite_Bead FB1
 U 1 1 5FA3DB1A
-P 3600 1150
-F 0 "FB1" V 3550 1300 50  0000 C CNN
-F 1 "Ferrite_Bead" V 3750 1150 50  0000 C CNN
-F 2 "SquantorRcl:L_0402" V 3530 1150 50  0001 C CNN
-F 3 "~" H 3600 1150 50  0001 C CNN
-	1    3600 1150
+P 3600 1650
+F 0 "FB1" V 3550 1800 50  0000 C CNN
+F 1 "Ferrite_Bead" V 3750 1650 50  0000 C CNN
+F 2 "SquantorRcl:L_0402" V 3530 1650 50  0001 C CNN
+F 3 "~" H 3600 1650 50  0001 C CNN
+	1    3600 1650
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	3800 1150 3750 1150
+	3800 1650 3750 1650
 Wire Wire Line
-	3450 1150 3400 1150
+	3450 1650 3400 1650
 Wire Wire Line
-	3400 1150 3400 1400
-Connection ~ 3400 1150
+	3400 1650 3400 1900
+Connection ~ 3400 1650
 NoConn ~ 1050 1150
 NoConn ~ 1050 1250
 NoConn ~ 1050 1350
@@ -862,62 +860,46 @@ Connection ~ 8450 950
 $Comp
 L power:PWR_FLAG #FLG0102
 U 1 1 5FAF9C50
-P 3450 1400
-F 0 "#FLG0102" H 3450 1475 50  0001 C CNN
-F 1 "PWR_FLAG" V 3450 1528 50  0000 L CNN
-F 2 "" H 3450 1400 50  0001 C CNN
-F 3 "~" H 3450 1400 50  0001 C CNN
-	1    3450 1400
+P 3450 1900
+F 0 "#FLG0102" H 3450 1975 50  0001 C CNN
+F 1 "PWR_FLAG" V 3450 2028 50  0000 L CNN
+F 2 "" H 3450 1900 50  0001 C CNN
+F 3 "~" H 3450 1900 50  0001 C CNN
+	1    3450 1900
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	3450 1400 3400 1400
-Connection ~ 3400 1400
+	3450 1900 3400 1900
+Connection ~ 3400 1900
 NoConn ~ 1050 950 
 NoConn ~ 1050 850 
 NoConn ~ 2050 2150
 Wire Notes Line
-	2600 2200 2600 3300
+	4500 3100 4500 3750
 Wire Notes Line
-	4050 2200 4050 3300
+	5950 3100 5950 3750
 $Comp
 L Device:Ferrite_Bead FB3
 U 1 1 5FA8F62F
-P 3200 2900
-F 0 "FB3" V 3150 3050 50  0000 C CNN
-F 1 "Ferrite_Bead" V 3350 2900 50  0000 C CNN
-F 2 "SquantorRcl:L_0402" V 3130 2900 50  0001 C CNN
-F 3 "~" H 3200 2900 50  0001 C CNN
-	1    3200 2900
+P 3300 1150
+F 0 "FB3" V 3250 1300 50  0000 C CNN
+F 1 "Ferrite_Bead" V 3450 1150 50  0000 C CNN
+F 2 "SquantorRcl:L_0402" V 3230 1150 50  0001 C CNN
+F 3 "~" H 3300 1150 50  0001 C CNN
+	1    3300 1150
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C C1
 U 1 1 5FA94DA7
-P 3200 3200
-F 0 "C1" V 3150 3250 50  0000 L CNN
-F 1 "1u" V 3250 3050 50  0000 L CNN
-F 2 "SquantorRcl:C_0402" H 3238 3050 50  0001 C CNN
-F 3 "~" H 3200 3200 50  0001 C CNN
-	1    3200 3200
+P 3300 900
+F 0 "C1" V 3250 950 50  0000 L CNN
+F 1 "1u" V 3350 750 50  0000 L CNN
+F 2 "SquantorRcl:C_0402" H 3338 750 50  0001 C CNN
+F 3 "~" H 3300 900 50  0001 C CNN
+	1    3300 900 
 	0    1    1    0   
 $EndComp
-Text Label 3450 3050 0    50   ~ 0
-VSS
-Wire Wire Line
-	3350 3200 3450 3200
-Wire Wire Line
-	3450 3200 3450 2900
-Wire Wire Line
-	3450 2900 3350 2900
-Wire Wire Line
-	3050 2900 2950 2900
-Wire Wire Line
-	2950 2900 2950 3200
-Wire Wire Line
-	2950 3200 3050 3200
-Text Label 2950 3050 2    50   ~ 0
-PD_BIAS
 Wire Wire Line
 	1800 4900 1850 4900
 Wire Wire Line
@@ -1047,15 +1029,30 @@ Wire Wire Line
 Connection ~ 800  5500
 Text Label 800  5250 0    50   ~ 0
 LED_VDD
-Text Label 3550 2400 0    50   ~ 0
+Text Label 5500 3300 0    50   ~ 0
 LED1_C
-Text Label 2950 2400 2    50   ~ 0
+Text Label 4900 3300 2    50   ~ 0
 LED1_A
-Text Label 3550 2600 0    50   ~ 0
+Text Label 5500 3500 0    50   ~ 0
 LED2_C
-Text Label 2950 2600 2    50   ~ 0
+Text Label 4900 3500 2    50   ~ 0
 LED2_A
 NoConn ~ 2050 2950
 NoConn ~ 1050 2750
 NoConn ~ 1050 2950
+Wire Wire Line
+	3450 1150 4000 1150
+Wire Wire Line
+	3150 900  3100 900 
+Wire Wire Line
+	3100 900  3100 1150
+Wire Wire Line
+	3100 1150 2950 1150
+Wire Wire Line
+	3150 1150 3100 1150
+Connection ~ 3100 1150
+Text Label 3600 900  0    50   ~ 0
+VSS
+Wire Wire Line
+	3450 900  3600 900 
 $EndSCHEMATC
