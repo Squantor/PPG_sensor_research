@@ -311,17 +311,6 @@ Wire Wire Line
 Connection ~ 3500 2400
 Text Label 4500 700  2    50   ~ 0
 PD_OUT
-$Comp
-L Device:C C9
-U 1 1 5F38C9B5
-P 4600 950
-F 0 "C9" H 4500 1050 50  0000 L CNN
-F 1 "4n7" H 4600 850 50  0000 L CNN
-F 2 "SquantorRcl:C_0805" H 4638 800 50  0001 C CNN
-F 3 "~" H 4600 950 50  0001 C CNN
-	1    4600 950 
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4600 700  4600 800 
 Wire Wire Line
@@ -610,9 +599,9 @@ Wire Wire Line
 	1050 2150 1000 2150
 Wire Wire Line
 	2100 2050 2050 2050
-Text Label 1000 1650 2    50   ~ 0
-UART_TX
 Text Label 2100 1650 0    50   ~ 0
+UART_TX
+Text Label 1000 1650 2    50   ~ 0
 UART_RX
 Wire Wire Line
 	1000 1650 1050 1650
@@ -1043,4 +1032,15 @@ Wire Wire Line
 	2100 5100 2150 5100
 Wire Wire Line
 	2150 4300 2100 4300
+$Comp
+L Device:C C9
+U 1 1 5F38C9B5
+P 4600 950
+F 0 "C9" H 4500 1050 50  0000 L CNN
+F 1 "4n7" H 4600 850 50  0000 L CNN
+F 2 "SquantorRcl:C_0805+0603" H 4638 800 50  0001 C CNN
+F 3 "~" H 4600 950 50  0001 C CNN
+	1    4600 950 
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
