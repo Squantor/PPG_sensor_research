@@ -10,3 +10,6 @@
 [submodule "electronics/squantorPcbLibrary"]
 	path = electronics/squantorPcbLibrary
 	url = https://github.com/Squantor/squantorPcbLibrary.git
+[submodule "software/libEmbedded"]
+	path = software/libEmbedded
+	url = https://github.com/Squantor/libEmbedded.git
