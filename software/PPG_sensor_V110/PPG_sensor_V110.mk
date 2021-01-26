@@ -13,13 +13,13 @@ include squantorLibEmbeddedC/squantorLibEmbeddedC.mk
 include libEmbedded/libEmbedded.mk
 
 # project settings
-MCU = LPC824M201DH20
+MCU = LPC824M201HI33
 TARGET = MCU
-BOARD = nuclone_LPC824M201DH20
+BOARD = nuclone_LPC824M201HI33
 
 # project sources
 FILES += $(PROJECT)/src/main.cpp \
-$(PROJECT)/src/$(BOARD).cpp
+$(PROJECT)/src/$(BOARD)_PPG_V110.cpp
 
 INCLUDES += -I$(PROJECT)/inc
 
