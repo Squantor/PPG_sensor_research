@@ -1,38 +1,24 @@
-# MIT License
-
-# Copyright (c) 2020 Bart Bilos
-
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2021 Bart Bilos
+# For conditions of distribution and use, see LICENSE file
 
 # Generic project makefile
 # Heavily inspired by: https://github.com/bronson/makefile-death
 #
-# Version: 20200722
+# Version: 2021015
 
 # User definable settings are here
 
 # Define a default project to compile, replace with wanted project
-PROJECT ?= PC
+PROJECT ?= PPG_sensor_V110
 # Verbose output?
 VERBOSE ?= 0
 
+
 # --- nothing user definable below ---
+
+# get the root directory of the build, used below for reproducable builds
+ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 # Project settings like sources and target specifics
 ifndef PROJECT
@@ -70,14 +56,20 @@ LDFLAGS += $(LDSCRIPT)
 CFLAGS += $(DEFINES)
 CXXFLAGS += $(DEFINES)
 ASMFLAGS += $(DEFINES)
+# substitute absolute paths with relative ones
+CFLAGS += -fdebug-prefix-map=$(ROOT_DIR)=.
+CXXFLAGS += -fdebug-prefix-map=$(ROOT_DIR)=.
+ASMFLAGS += -fdebug-prefix-map=$(ROOT_DIR)=.
 
 # for a multi project build pipeline
 ifdef PROJECT
+DOC_PATH := documentation/$(PROJECT)
 BIN_PATH := bin/$(PROJECT)/$(CONFIG)
 OBJ_PATH := build/$(PROJECT)/$(CONFIG)
 EXECUTABLE := $(BIN_PATH)/$(PROJECT).elf
 SIZELOG_PATH := $(PROJECT)/
 else
+DOC_PATH := documentation
 BIN_PATH := bin/$(CONFIG)
 OBJ_PATH := build/$(CONFIG)
 EXECUTABLE := $(BIN_PATH)/$(PROJECT).elf
@@ -99,13 +91,20 @@ endif
 
 all: post-build
 
+.PHONY: all
+
 main-build: pre-build $(EXECUTABLE)
 	
-.PHONY: all
+.PHONY: main-build
+
+main-build: pre-build $(EXECUTABLE)
+
+.PHONY: pre-build
 
 -include $(DEPS)
 
 doc:
+	$(C)$(MKDIR) -p $(DOC_PATH)
 	$(C)( cat doxygen/Doxyfile ; echo "@INCLUDE = $(PROJECT)/$(PROJECT).doxy" ) | doxygen -
 .PHONY: doc
 
@@ -128,22 +127,23 @@ $(EXECUTABLE): $(OBJECTS)
 $(OBJ_PATH)/%.c.o: %.c $(COMMONDEPS)
 	$(U) "C   $(basename $(notdir $@))"
 	$(C)$(MKDIR) -p $(dir $@) 
-	$(C)$(TOOLCHAIN_PREFIX)$(C_COMPILER) $(CFLAGS) $(INCLUDES) -MP -MMD -c $< -o $@
+	$(C)$(TOOLCHAIN_PREFIX)$(C_COMPILER) $(CFLAGS) $(INCLUDES) -MP -MMD -c -o $@ $<
 
 $(OBJ_PATH)/%.cpp.o: %.cpp $(COMMONDEPS)
 	$(U) "C++ $(basename $(notdir $@))"
 	$(C)$(MKDIR) -p $(dir $@) 
-	$(C)$(TOOLCHAIN_PREFIX)$(CXX_COMPILER) $(CXXFLAGS) $(INCLUDES) -MP -MMD -c $< -o $@
+	$(C)$(TOOLCHAIN_PREFIX)$(CXX_COMPILER) $(CXXFLAGS) $(INCLUDES) -MP -MMD -c -o $@ $<
 
 $(OBJ_PATH)/%.s.o: %.s $(COMMONDEPS)
 	$(U) "ASM $(basename $(notdir $@))"
 	$(C)$(MKDIR) -p $(dir $@) 
-	$(C)$(TOOLCHAIN_PREFIX)$(C_COMPILER) $(ASMFLAGS) $(INCLUDES) -MP -MMD -c $< -o $@
+	$(C)$(TOOLCHAIN_PREFIX)$(C_COMPILER) $(ASMFLAGS) $(INCLUDES) -MP -MMD -c -o $@ $<
 
 clean: $(COMMONDEPS)
 	$(U) "Cleaning"
-	$(C)$(RM) -r bin
-	$(C)$(RM) -r build
+	$(C)$(RM) -rf bin
+	$(C)$(RM) -rf build
+	$(C)$(RM) -rf documentation
 .PHONY: clean
 
 # project specific makefile rules
