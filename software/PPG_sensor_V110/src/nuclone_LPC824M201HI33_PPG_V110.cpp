@@ -17,9 +17,12 @@ void boardInit(void)
     SwmFixedPinEnable(SWM_FIXED_XTALOUT, true);
     IoconPinSetMode(LPC_IOCON, IOCON_XTAL_IN, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_XTAL_OUT, PIN_MODE_INACTIVE);
-    IoconPinSetMode(LPC_IOCON, IOCON_LED, PIN_MODE_INACTIVE);
-    GpioSetPinState(LPC_GPIO_PORT, 0, IOCON_LED, false);
-    GpioSetPinDIROutput(LPC_GPIO_PORT, 0, PIN_LED);
+    IoconPinSetMode(LPC_IOCON, IOCON_LED1_CTRL, PIN_MODE_INACTIVE);
+    IoconPinSetMode(LPC_IOCON, IOCON_LED2_CTRL, PIN_MODE_INACTIVE);
+    GpioSetPinState(LPC_GPIO_PORT, 0, PIN_LED1_CTRL, false);
+    GpioSetPinState(LPC_GPIO_PORT, 0, PIN_LED2_CTRL, true);
+    GpioSetPinDIROutput(LPC_GPIO_PORT, 0, PIN_LED1_CTRL);
+    GpioSetPinDIROutput(LPC_GPIO_PORT, 0, PIN_LED2_CTRL);
 
     ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
 

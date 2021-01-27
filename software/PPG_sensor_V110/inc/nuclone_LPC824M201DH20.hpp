@@ -35,8 +35,10 @@ SOFTWARE.
 #define IOCON_XTAL_IN       IOCON_PIO8
 #define IOCON_XTAL_OUT      IOCON_PIO9
 
-#define IOCON_LED           IOCON_PIO23
-#define PIN_LED             (23u)
+#define IOCON_LED1_CTRL      IOCON_PIO13
+#define PIN_LED1_CTRL        (13u)
+#define IOCON_LED2_CTRL      IOCON_PIO12
+#define PIN_LED2_CTRL        (12u)
 
 #define TICKS_PER_S         4
 
