@@ -8,7 +8,7 @@
  * Simple example blink program for the Nuclone LPC824M201DH20.
  * Using 12MHz Crystal + PLL as the clock source with systick.
  */
-#include <nuclone_LPC824M201DH20.hpp>
+#include <nuclone_LPC824M201DH20_PPG_V110.hpp>
 #include <mcu_ll.h>
 
 volatile int var;

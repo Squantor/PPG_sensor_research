@@ -4,7 +4,7 @@
  * Copyright (c) 2021 Bart Bilos
  * For conditions of distribution and use, see LICENSE file
  */
-#include <nuclone_LPC824M201DH20.hpp>
+#include <nuclone_LPC824M201DH20_PPG_V110.hpp>
 #include <mcu_ll.h>
 
 void boardInit(void)
