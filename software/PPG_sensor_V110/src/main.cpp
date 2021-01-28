@@ -16,7 +16,7 @@
 #include <time_interval.hpp>
 
 #define PPG_SENSOR_FREQ     (1000000)
-#define PPG_SENSOR_IRESET   (100)
+#define PPG_SENSOR_IRESET   (10000)
 
 volatile uint32_t captureCount;
 volatile uint32_t captureValue;
@@ -93,10 +93,6 @@ void ppgSensorSetup(void)
     SctSetEventInt(LPC_SCT, SCT_EVENT_2_BIT);
     NVIC_EnableIRQ(SCT_IRQn);
 
-    // setup internal comparator
-    //AcmpInit();
-    //AcmpControl(LPC_CMP, ACMP_HYS_20MV | ACMP_POSIN_ACMP_I1 | ACMP_NEGIN_ACMP_I2);
-
     SctClearControl(LPC_SCT, SCT_CTRL_HALT_U);
 }
 
@@ -104,7 +100,7 @@ int main()
 {
     uint32_t currentCaptureCount = 0;
     boardInit();
-    dsPuts(&streamUart, "PPG sensor V1.1 development program");
+    dsPuts(&streamUart, "PPG sensor V1.1 development program\n");
     ppgSensorSetup();
     while (1) {
         if(currentCaptureCount != captureCount)
