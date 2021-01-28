@@ -18,9 +18,15 @@ TARGET = MCU
 BOARD = nuclone_LPC824M201HI33
 
 # project sources
-FILES += $(PROJECT)/src/main.cpp \
+FILES += \
+common/src/arm_systick.c \
+common/src/delay.cpp \
+common/src/time_delay.cpp \
+common/src/time_interval.cpp \
+common/src/stream_uart.cpp \
+$(PROJECT)/src/main.cpp \
 $(PROJECT)/src/$(BOARD)_PPG_V110.cpp
 
-INCLUDES += -I$(PROJECT)/inc
+INCLUDES += -I$(PROJECT)/inc -Icommon/inc
 
 

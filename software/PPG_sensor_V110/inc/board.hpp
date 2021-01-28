@@ -21,36 +21,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-/*
-Datastream that points to the user facing UART interface
-*/
+#ifndef BOARD_HPP
+#define BOARD_HPP
 
-#include <results.h>
-#include <stream_uart.hpp>
-#include <board.hpp>
-#include <mcu_ll.h>
+#define TICKS_PER_S     100
 
-const static char streamUartName[] = "uartStream";
-result writeUart(const char *c);
-result readUart(char *c);
-const datastreamChar_t streamUart = {writeUart, readUart, streamUartName};
+#include <nuclone_LPC824M201DH20_PPG_V110.hpp>
 
-result writeUart(const char *c)
-{
-    while((UartGetStatus(UART_DEBUG) & UART_STAT_TXRDY) == 0) 
-        ;
-    UartSendByte(UART_DEBUG, *c);
-    return noError;
-}
-
-result readUart(char *c)
-{
-    if((UartGetStatus(UART_DEBUG) & UART_STAT_RXRDY) != 0)
-    {
-        *c = UartReadByte(UART_DEBUG);
-        return noError;
-    }
-    else
-        return streamEmtpy;       
-}
-
+#endif

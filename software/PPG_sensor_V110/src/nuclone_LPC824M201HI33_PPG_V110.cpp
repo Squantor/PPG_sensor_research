@@ -4,7 +4,7 @@
  * Copyright (c) 2021 Bart Bilos
  * For conditions of distribution and use, see LICENSE file
  */
-#include <nuclone_LPC824M201DH20_PPG_V110.hpp>
+#include <board.hpp>
 #include <mcu_ll.h>
 
 void boardInit(void)
@@ -12,19 +12,16 @@ void boardInit(void)
     ClockEnablePeriphClock(SYSCTL_CLOCK_SWM);
     ClockEnablePeriphClock(SYSCTL_CLOCK_IOCON);
     ClockEnablePeriphClock(SYSCTL_CLOCK_GPIO);
+
     // set up all pin related things
     SwmFixedPinEnable(SWM_FIXED_XTALIN, true);
     SwmFixedPinEnable(SWM_FIXED_XTALOUT, true);
-    IoconPinSetMode(LPC_IOCON, IOCON_XTAL_IN, PIN_MODE_INACTIVE);
-    IoconPinSetMode(LPC_IOCON, IOCON_XTAL_OUT, PIN_MODE_INACTIVE);
-    IoconPinSetMode(LPC_IOCON, IOCON_LED1_CTRL, PIN_MODE_INACTIVE);
-    IoconPinSetMode(LPC_IOCON, IOCON_LED2_CTRL, PIN_MODE_INACTIVE);
-    GpioSetPinState(LPC_GPIO_PORT, 0, PIN_LED1_CTRL, false);
-    GpioSetPinState(LPC_GPIO_PORT, 0, PIN_LED2_CTRL, true);
-    GpioSetPinDIROutput(LPC_GPIO_PORT, 0, PIN_LED1_CTRL);
-    GpioSetPinDIROutput(LPC_GPIO_PORT, 0, PIN_LED2_CTRL);
 
-    ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
+    // setup uart pins
+    IoconPinSetMode(LPC_IOCON, IOCON_UART_RX, PIN_MODE_PULLUP);
+    IoconPinSetMode(LPC_IOCON, IOCON_UART_TX, PIN_MODE_INACTIVE);
+    SwmMovablePinAssign(SWM_U0_TXD_O, PIN_UART_TX);
+    SwmMovablePinAssign(SWM_U0_RXD_I, PIN_UART_RX);
 
     // setup system clocks
     ClockSetPLLBypass(false, false);
@@ -38,5 +35,14 @@ void boardInit(void)
     ClockSetSysClockDiv(2);
     ClockSetMainClockSource(SYSCTL_MAINCLKSRC_PLLOUT);
 
+        // setup UART peripheral
+    UartInit(UART_DEBUG);
+    UartConfigData(UART_DEBUG, UART_CFG_DATALEN_8 | UART_CFG_PARITY_NONE | UART_CFG_STOPLEN_1);
+    ClockSetUSARTNBaseClockRate((UART_BAUD_RATE * 16), true);
+    UartSetBaud(UART_DEBUG, UART_BAUD_RATE);
+    UartEnable(UART_DEBUG);
+    UartTXEnable(UART_DEBUG);
+
     SysTick_Config(CLOCK_AHB / TICKS_PER_S);
+
 }
