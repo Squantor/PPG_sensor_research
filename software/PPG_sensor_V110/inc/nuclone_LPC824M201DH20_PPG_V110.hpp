@@ -35,10 +35,25 @@ SOFTWARE.
 #define IOCON_XTAL_IN       IOCON_PIO8
 #define IOCON_XTAL_OUT      IOCON_PIO9
 
-#define IOCON_LED1_CTRL      IOCON_PIO13
-#define PIN_LED1_CTRL        (13u)
-#define IOCON_LED2_CTRL      IOCON_PIO12
-#define PIN_LED2_CTRL        (12u)
+#define IOCON_LED1_CTRL     IOCON_PIO13
+#define PIN_LED1_CTRL       (13u)
+#define IOCON_LED2_CTRL     IOCON_PIO12
+#define PIN_LED2_CTRL       (12u)
+
+#define IOCON_CAP_SENSE     IOCON_PIO18
+#define PIN_CAP_SENSE       (18u)
+#define IOCON_CMP_SENSE     IOCON_PIO17
+#define PIN_CMP_SENSE       (17u)
+#define IOCON_CAP_RESET     IOCON_PIO4
+#define PIN_CAP_RESET       (4u)
+
+#define IOCON_UART_TX       IOCON_PIO24
+#define PIN_UART_TX         (24u)
+#define IOCON_UART_RX       IOCON_PIO25
+#define PIN_UART_RX         (25u)
+
+#define UART_DEBUG          LPC_USART0
+#define UART_BAUD_RATE      (230400u)
 
 #define TICKS_PER_S         4
 
