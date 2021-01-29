@@ -16,7 +16,7 @@
 #include <time_interval.hpp>
 
 #define PPG_SENSOR_FREQ     (1000000)
-#define PPG_SENSOR_IRESET   (10000)
+#define PPG_SENSOR_IRESET   (100000)
 
 volatile uint32_t captureCount;
 volatile uint32_t captureValue;
@@ -39,19 +39,21 @@ void ppgSensorSetup(void)
     ClockEnablePeriphClock(SYSCTL_CLOCK_IOCON);
     IoconPinSetMode(LPC_IOCON, IOCON_LED1_CTRL, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_LED2_CTRL, PIN_MODE_INACTIVE);
+    IoconPinSetMode(LPC_IOCON, IOCON_CMP_SENSE, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_CAP_SENSE, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_CAP_RESET, PIN_MODE_INACTIVE);
     SwmMovablePinAssign(SWM_SCT_OUT0_O, PIN_LED1_CTRL);
     SwmMovablePinAssign(SWM_SCT_OUT1_O, PIN_LED2_CTRL);
     SwmMovablePinAssign(SWM_SCT_OUT2_O, PIN_CAP_RESET);
-    // connect comparator output to SCT 0 input
     SwmMovablePinAssign(SWM_SCT_IN0_I, PIN_CMP_SENSE);
     ClockDisablePeriphClock(SYSCTL_CLOCK_IOCON);
     ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
     
     SctInit(LPC_SCT);
 
-    SctSetConfig(LPC_SCT, SCT_CONFIG_32BIT_COUNTER | SCT_CONFIG_AUTOLIMIT_U);
+    SctSetConfig(LPC_SCT, SCT_CONFIG_32BIT_COUNTER | SCT_CONFIG_AUTOLIMIT_U | SCT_CONFIG_INSYNC_IN0);
+
+    inmuxSetSCTInMux(LPC_INMUX, SCT_INMUX_0, SCT_INP_IN0);
 
     SctMatchU(LPC_SCT, SCT_MATCH_0, PPG_SENSOR_FREQ);
     SctMatchReloadU(LPC_SCT, SCT_MATCH_0, PPG_SENSOR_FREQ);
@@ -83,12 +85,14 @@ void ppgSensorSetup(void)
     // LED 2 control
     SctOutputSet(LPC_SCT, SCT_OUTPUT_1_VALUE, SCT_EVENT_0_BIT);
     SctOutputClear(LPC_SCT, SCT_OUTPUT_1_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT);
+    // integrator reset control
     SctOutputSet(LPC_SCT, SCT_OUTPUT_2_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT);
     SctOutputClear(LPC_SCT, SCT_OUTPUT_2_VALUE, SCT_EVENT_0_BIT);
-
-    SctOutput(LPC_SCT, SCT_OUTPUT_STATE(SCT_OUTPUT_0_VALUE, 1));
-    SctOutput(LPC_SCT, SCT_OUTPUT_STATE(SCT_OUTPUT_1_VALUE, 1));
-    SctOutput(LPC_SCT, SCT_OUTPUT_STATE(SCT_OUTPUT_2_VALUE, 0));
+    // preset outputs
+    SctOutput(LPC_SCT,  
+        SCT_OUTPUT_STATE(SCT_OUTPUT_0_VALUE, 1) |
+        SCT_OUTPUT_STATE(SCT_OUTPUT_1_VALUE, 1) | 
+        SCT_OUTPUT_STATE(SCT_OUTPUT_2_VALUE, 0) );
 
     SctSetEventInt(LPC_SCT, SCT_EVENT_2_BIT);
     NVIC_EnableIRQ(SCT_IRQn);
@@ -102,7 +106,9 @@ int main()
     boardInit();
     dsPuts(&streamUart, "PPG sensor V1.1 development program\n");
     ppgSensorSetup();
-    while (1) {
+    while (1) 
+    {
+        __NOP();
         if(currentCaptureCount != captureCount)
         {
             currentCaptureCount = captureCount;
