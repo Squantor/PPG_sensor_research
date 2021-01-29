@@ -46,12 +46,12 @@ void ppgSensorSetup(void)
     SwmMovablePinAssign(SWM_SCT_OUT1_O, PIN_LED2_CTRL);
     SwmMovablePinAssign(SWM_SCT_OUT2_O, PIN_CAP_RESET);
     SwmMovablePinAssign(SWM_SCT_IN0_I, PIN_CMP_SENSE);
-    ClockDisablePeriphClock(SYSCTL_CLOCK_IOCON);
-    ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
+    //ClockDisablePeriphClock(SYSCTL_CLOCK_IOCON);
+    //ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
     
     SctInit(LPC_SCT);
 
-    SctSetConfig(LPC_SCT, SCT_CONFIG_32BIT_COUNTER | SCT_CONFIG_AUTOLIMIT_U | SCT_CONFIG_INSYNC_IN0);
+    SctSetConfig(LPC_SCT, SCT_CONFIG_32BIT_COUNTER | SCT_CONFIG_AUTOLIMIT_U);
 
     inmuxSetSCTInMux(LPC_INMUX, SCT_INMUX_0, SCT_INP_IN0);
 
@@ -66,7 +66,7 @@ void ppgSensorSetup(void)
     // Event 1 triggers the integrator capacitor reset
     SctSetEventStateMask(LPC_SCT, SCT_EVENT_1_VAL, SCT_STATE_0_BIT | SCT_STATE_1_BIT);
     SctSetEventControl(LPC_SCT, SCT_EVENT_1_VAL, SCT_EV_CTRL_MATCHSEL(SCT_MATCH_1) | SCT_EV_CTRL_COMBMODE(SCT_COMBMODE_MATCH));
-    // Event 2 is triggered by the input (either external or internal comparator) and performs a capture
+    // Event 2 is triggered by the comparator and performs a capture
     SctSetEventStateMask(LPC_SCT, SCT_EVENT_2_VAL, SCT_STATE_0_BIT | SCT_STATE_1_BIT);
     SctSetEventControl(LPC_SCT, SCT_EVENT_2_VAL, 
         SCT_EV_CTRL_INSEL | 
@@ -80,15 +80,15 @@ void ppgSensorSetup(void)
     SctCaptureControlU(LPC_SCT, SCT_CAPTURE_2, SCT_EVENT_2_BIT);
     
     // LED1 control
-    SctOutputSet(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_0_BIT);
-    SctOutputClear(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT);
+    SctOutputSet(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_0_BIT); // enable LED at start
+    SctOutputClear(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT); // disable led at end or capture
     // LED 2 control
-    SctOutputSet(LPC_SCT, SCT_OUTPUT_1_VALUE, SCT_EVENT_0_BIT);
+    SctOutputSet(LPC_SCT, SCT_OUTPUT_1_VALUE, SCT_EVENT_0_BIT); 
     SctOutputClear(LPC_SCT, SCT_OUTPUT_1_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT);
     // integrator reset control
     SctOutputSet(LPC_SCT, SCT_OUTPUT_2_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT);
     SctOutputClear(LPC_SCT, SCT_OUTPUT_2_VALUE, SCT_EVENT_0_BIT);
-    // preset outputs
+    // setup outputs to initial values
     SctOutput(LPC_SCT,  
         SCT_OUTPUT_STATE(SCT_OUTPUT_0_VALUE, 1) |
         SCT_OUTPUT_STATE(SCT_OUTPUT_1_VALUE, 1) | 
