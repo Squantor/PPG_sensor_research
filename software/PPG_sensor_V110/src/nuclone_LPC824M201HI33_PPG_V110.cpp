@@ -12,17 +12,29 @@ void boardInit(void)
     ClockEnablePeriphClock(SYSCTL_CLOCK_SWM);
     ClockEnablePeriphClock(SYSCTL_CLOCK_IOCON);
     ClockEnablePeriphClock(SYSCTL_CLOCK_GPIO);
-
-    // set up all pin related things
+    // Crystal oscillator related IO settings
     SwmFixedPinEnable(SWM_FIXED_XTALIN, true);
     SwmFixedPinEnable(SWM_FIXED_XTALOUT, true);
     IoconPinSetMode(LPC_IOCON, IOCON_XTAL_IN, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_XTAL_OUT, PIN_MODE_INACTIVE);
-    // setup uart pins
+    // uart related IO settings
     IoconPinSetMode(LPC_IOCON, IOCON_UART_RX, PIN_MODE_PULLUP);
     IoconPinSetMode(LPC_IOCON, IOCON_UART_TX, PIN_MODE_INACTIVE);
     SwmMovablePinAssign(SWM_U0_TXD_O, PIN_UART_TX);
     SwmMovablePinAssign(SWM_U0_RXD_I, PIN_UART_RX);
+    // PPG sensor related IO settings
+    IoconPinSetMode(LPC_IOCON, IOCON_LED1_CTRL, PIN_MODE_INACTIVE);
+    IoconPinSetMode(LPC_IOCON, IOCON_LED2_CTRL, PIN_MODE_INACTIVE);
+    IoconPinSetMode(LPC_IOCON, IOCON_CMP_SENSE, PIN_MODE_INACTIVE);
+    IoconPinSetMode(LPC_IOCON, IOCON_CAP_SENSE, PIN_MODE_INACTIVE);
+    IoconPinSetMode(LPC_IOCON, IOCON_CAP_RESET, PIN_MODE_INACTIVE);
+    SwmMovablePinAssign(SWM_SCT_OUT0_O, PIN_LED1_CTRL);
+    SwmMovablePinAssign(SWM_SCT_OUT1_O, PIN_LED2_CTRL);
+    SwmMovablePinAssign(SWM_SCT_OUT2_O, PIN_CAP_RESET);
+    SwmMovablePinAssign(SWM_SCT_IN0_I, PIN_CMP_SENSE);
+
+    ClockDisablePeriphClock(SYSCTL_CLOCK_IOCON);
+    ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
 
     // setup system clocks
     ClockSetPLLBypass(false, false);
@@ -45,5 +57,5 @@ void boardInit(void)
     UartTXEnable(UART_DEBUG);
 
     SysTick_Config(CLOCK_AHB / TICKS_PER_S);
-
 }
+

@@ -25,7 +25,8 @@ common/src/time_delay.cpp \
 common/src/time_interval.cpp \
 common/src/stream_uart.cpp \
 $(PROJECT)/src/main.cpp \
-$(PROJECT)/src/$(BOARD)_PPG_V110.cpp
+$(PROJECT)/src/$(BOARD)_PPG_V110.cpp \
+$(PROJECT)/src/PPG_sensor_cmp.cpp
 
 INCLUDES += -I$(PROJECT)/inc -Icommon/inc
 

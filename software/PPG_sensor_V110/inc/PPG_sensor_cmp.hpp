@@ -7,4 +7,11 @@
 #ifndef PPG_SENSOR_CMP_HPP
 #define PPG_SENSOR_CMP_HPP
 
+#define PPG_SENSOR_FREQ     (1000000)
+#define PPG_SENSOR_IRESET   (100000)
+
+void ppgSensorSetup(void);
+
+bool ppgSensorSamplePresent(uint32_t &sample);
+
 #endif
