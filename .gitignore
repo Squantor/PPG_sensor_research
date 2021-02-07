@@ -23,6 +23,7 @@ bin/
 
 #miscellanious generated files
 *.log
+disassemblies/
 
 # doxygen output
 documentation/
