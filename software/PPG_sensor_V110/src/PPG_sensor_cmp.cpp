@@ -7,17 +7,23 @@
 #include <board.hpp>
 #include <mcu_ll.h>
 #include <PPG_sensor_cmp.hpp>
+#include <ringbuf_macro.h>
+#include <moving_average.h>
 
-volatile uint32_t captureCount;
-volatile uint32_t captureValue;
+RINGBUF_VARS(ppgBuf, uint32_t, 15);
+RINGBUF_PROTO(ppgBuf, uint32_t);
+RINGBUF_FUNCTIONS(ppgBuf, uint32_t, 15);
+
+MOVING_AVERAGE_VARS(filter, uint32_t, 3);
+MOVING_AVERAGE_PROTO(filter, uint32_t);
+MOVING_AVERAGE_FUNCTIONS(filter, uint32_t, 3);
 
 extern "C" {
     void SCT_IRQHandler(void)
     {
         uint32_t captureCurrent;
-        captureCount++;
         SctCaptureU(LPC_SCT, SCT_CAPTURE_2, &captureCurrent);
-        captureValue = captureCurrent;
+        ppgBufPushFront(&captureCurrent);
         SctClearEventFlag(LPC_SCT, SCT_EVENT_2_BIT);
     }
 }
@@ -28,9 +34,10 @@ extern "C" {
  * be setup beforehand.
  */
 void ppgSensorSetup(void)
-{
-    captureCount = 0;
-    
+{  
+    ppgBufReset();
+    filterReset();
+
     SctInit(LPC_SCT);
 
     SctSetConfig(LPC_SCT, SCT_CONFIG_32BIT_COUNTER | SCT_CONFIG_AUTOLIMIT_U);
@@ -90,11 +97,11 @@ void ppgSensorSetup(void)
  */
 bool ppgSensorSamplePresent(uint32_t &sample)
 {
-    static uint32_t currentCaptureCount = 0;
-    if(currentCaptureCount != captureCount)
+    uint32_t temp;
+    if(ppgBufPopBack(&temp))
     {
-        currentCaptureCount = captureCount;
-        sample = captureValue;
+        filterAdd(temp);
+        sample = filterGet();
         return true;
     }
     return false;
