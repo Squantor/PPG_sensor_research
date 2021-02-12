@@ -7,23 +7,18 @@
 #include <board.hpp>
 #include <mcu_ll.h>
 #include <PPG_sensor_cmp.hpp>
-#include <ringbuf_macro.h>
-#include <moving_average.h>
+#include <ringbuf.hpp>
+#include <moving_average.hpp>
 
-RINGBUF_VARS(ppgBuf, uint32_t, 15);
-RINGBUF_PROTO(ppgBuf, uint32_t);
-RINGBUF_FUNCTIONS(ppgBuf, uint32_t, 15);
-
-MOVING_AVERAGE_VARS(filter, uint32_t, 3);
-MOVING_AVERAGE_PROTO(filter, uint32_t);
-MOVING_AVERAGE_FUNCTIONS(filter, uint32_t, 3);
+util::RingBuffer<uint32_t, 15> ppgBuf;
+util::MovingAverage<uint32_t, 3> filter;
 
 extern "C" {
     void SCT_IRQHandler(void)
     {
         uint32_t captureCurrent;
         SctCaptureU(LPC_SCT, SCT_CAPTURE_2, &captureCurrent);
-        ppgBufPushFront(&captureCurrent);
+        ppgBuf.pushFront(captureCurrent);
         SctClearEventFlag(LPC_SCT, SCT_EVENT_2_BIT);
     }
 }
@@ -35,8 +30,8 @@ extern "C" {
  */
 void ppgSensorSetup(void)
 {  
-    ppgBufReset();
-    filterReset();
+    ppgBuf.reset();
+    filter.reset();
 
     SctInit(LPC_SCT);
 
@@ -98,10 +93,10 @@ void ppgSensorSetup(void)
 bool ppgSensorSamplePresent(uint32_t &sample)
 {
     uint32_t temp;
-    if(ppgBufPopBack(&temp))
+    if(ppgBuf.popBack(temp))
     {
-        filterAdd(temp);
-        sample = filterGet();
+        filter.add(temp);
+        sample = filter.get();
         return true;
     }
     return false;
