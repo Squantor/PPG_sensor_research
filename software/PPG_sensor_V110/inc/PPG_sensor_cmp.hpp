@@ -8,7 +8,7 @@
 #define PPG_SENSOR_CMP_HPP
 
 #define PPG_SENSOR_FREQ     (1000000)
-#define PPG_SENSOR_IRESET   (100000)
+#define PPG_SENSOR_IRESET   (1000)
 
 void ppgSensorSetup(void);
 
