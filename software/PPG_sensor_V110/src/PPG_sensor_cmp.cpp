@@ -11,7 +11,7 @@
 #include <moving_average.hpp>
 
 util::RingBuffer<uint32_t, 15> ppgBuf;
-util::MovingAverage<uint32_t, 3> filter;
+util::MovingAverage<uint32_t, 2> filter;
 
 extern "C" {
     void SCT_IRQHandler(void)
