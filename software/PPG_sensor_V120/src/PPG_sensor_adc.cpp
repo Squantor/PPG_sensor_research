@@ -43,8 +43,8 @@ void ppgSensorSetup(void)
     SctMatchReloadU(LPC_SCT, SCT_MATCH_0, PPG_SENSOR_FREQ);
     SctMatchU(LPC_SCT, SCT_MATCH_1, PPG_SENSOR_FREQ-PPG_SENSOR_IRESET);
     SctMatchReloadU(LPC_SCT, SCT_MATCH_1, PPG_SENSOR_FREQ-PPG_SENSOR_IRESET);
-    SctMatchU(LPC_SCT, SCT_MATCH_2, PPG_SENSOR_FREQ-PPG_SENSOR_ON);
-    SctMatchReloadU(LPC_SCT, SCT_MATCH_2, PPG_SENSOR_FREQ-PPG_SENSOR_ON);
+    SctMatchU(LPC_SCT, SCT_MATCH_2, PPG_SENSOR_ON);
+    SctMatchReloadU(LPC_SCT, SCT_MATCH_2, PPG_SENSOR_ON);
 
     // Event 0 determines the sampling frequency
     SctSetEventStateMask(LPC_SCT, SCT_EVENT_0_VAL, SCT_STATE_0_BIT | SCT_STATE_1_BIT);
