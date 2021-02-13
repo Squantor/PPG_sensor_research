@@ -14,7 +14,7 @@
 #include <print.h>
 #include <time_delay.hpp>
 #include <time_interval.hpp>
-#include <PPG_sensor_cmp.hpp>
+#include <PPG_sensor_adc.hpp>
 
 int main()
 {
