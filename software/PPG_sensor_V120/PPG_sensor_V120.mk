@@ -25,7 +25,7 @@ common/src/time_interval.cpp \
 common/src/stream_uart.cpp \
 $(PROJECT)/src/main.cpp \
 $(PROJECT)/src/$(BOARD)_PPG_V120.cpp \
-$(PROJECT)/src/PPG_sensor_cmp.cpp
+$(PROJECT)/src/PPG_sensor_adc.cpp
 
 INCLUDES += -I$(PROJECT)/inc -Icommon/inc
 
