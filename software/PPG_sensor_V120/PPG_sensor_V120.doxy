@@ -1,0 +1,5 @@
+# doxygen settings to override from the default config
+PROJECT_NAME = "PPG sensor Version 1.1"
+OUTPUT_DIRECTORY = documentation/PPG_sensor_V110
+INCLUDE_PATH = PPG_sensor_V110/inc libMcuLL/inc libEmbedded/inc squantorLibC/inc squantorLibEmbeddedC/inc
+INPUT = PPG_sensor_V110/src PPG_sensor_V110/inc libMcuLL/inc libEmbedded/inc squantorLibC/inc squantorLibC/src squantorLibEmbeddedC/inc squantorLibEmbeddedC/src

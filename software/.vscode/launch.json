@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "debug PPG sensor V110",
+            "name": "debug PPG sensor V120",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/PPG_sensor_V110/debug/PPG_sensor_V110.elf",
+            "program": "${workspaceFolder}/bin/PPG_sensor_V120/debug/PPG_sensor_V120.elf",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -23,7 +23,7 @@
                 },
                 {
                     "description": "Load the file",
-                    "text": "file ${workspaceFolder}/bin/PPG_sensor_V110/debug/PPG_sensor_V110.elf"
+                    "text": "file ${workspaceFolder}/bin/PPG_sensor_V120/debug/PPG_sensor_V120.elf"
                 },
                 {
                     "description": "Connect to black magic probe",
@@ -47,7 +47,7 @@
                 },
                 {
                     "description": "program the elf file",
-                    "text": "load ${workspaceFolder}/bin/PPG_sensor_V110/debug/PPG_sensor_V110.elf"
+                    "text": "load ${workspaceFolder}/bin/PPG_sensor_V120/debug/PPG_sensor_V120.elf"
                 },
                 {
                     "description": "remap interrupt vectors to flash, again",
@@ -58,7 +58,7 @@
                     "text": "compare-sections"
                 },
             ],
-            "preLaunchTask": "build PPG sensor V1.1",
+            "preLaunchTask": "build PPG sensor V1.2",
             "miDebuggerPath": "/home/abilos/programs/gcc-arm-none-eabi-10-2020-q4-major/bin/arm-none-eabi-gdb",
         },
     ]

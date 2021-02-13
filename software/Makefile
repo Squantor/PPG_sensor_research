@@ -10,7 +10,7 @@
 # User definable settings are here
 
 # Define a default project to compile, replace with wanted project
-PROJECT ?= PPG_sensor_V110
+PROJECT ?= PPG_sensor_V120
 # Verbose output?
 VERBOSE ?= 0
 
