@@ -10,6 +10,7 @@
 #include <stdint.h>
 
 #define PPG_SENSOR_FREQ     (30000000)
+#define PPG_SENSOR_ON       (10000000)
 #define PPG_SENSOR_IRESET   (1000)
 
 void ppgSensorSetup(void);

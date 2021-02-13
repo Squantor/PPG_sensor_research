@@ -43,6 +43,8 @@ void ppgSensorSetup(void)
     SctMatchReloadU(LPC_SCT, SCT_MATCH_0, PPG_SENSOR_FREQ);
     SctMatchU(LPC_SCT, SCT_MATCH_1, PPG_SENSOR_FREQ-PPG_SENSOR_IRESET);
     SctMatchReloadU(LPC_SCT, SCT_MATCH_1, PPG_SENSOR_FREQ-PPG_SENSOR_IRESET);
+    SctMatchU(LPC_SCT, SCT_MATCH_2, PPG_SENSOR_FREQ-PPG_SENSOR_ON);
+    SctMatchReloadU(LPC_SCT, SCT_MATCH_2, PPG_SENSOR_FREQ-PPG_SENSOR_ON);
 
     // Event 0 determines the sampling frequency
     SctSetEventStateMask(LPC_SCT, SCT_EVENT_0_VAL, SCT_STATE_0_BIT | SCT_STATE_1_BIT);
@@ -50,36 +52,28 @@ void ppgSensorSetup(void)
     // Event 1 triggers the integrator capacitor reset
     SctSetEventStateMask(LPC_SCT, SCT_EVENT_1_VAL, SCT_STATE_0_BIT | SCT_STATE_1_BIT);
     SctSetEventControl(LPC_SCT, SCT_EVENT_1_VAL, SCT_EV_CTRL_MATCHSEL(SCT_MATCH_1) | SCT_EV_CTRL_COMBMODE(SCT_COMBMODE_MATCH));
-    // Event 2 is triggered by the comparator and performs a capture
-    SctSetEventStateMask(LPC_SCT, SCT_EVENT_2_VAL, SCT_STATE_0_BIT | SCT_STATE_1_BIT);
-    SctSetEventControl(LPC_SCT, SCT_EVENT_2_VAL, 
-        SCT_EV_CTRL_INSEL | 
-        SCT_EV_CTRL_IOSEL(SCT_INPUT_0_VALUE) | 
-        SCT_EV_CTRL_IOCOND(SCT_IOCOND_RISE) |
-        SCT_EV_CTRL_COMBMODE(SCT_COMBMODE_IO) );
+    // Event 3 turns the LED off and triggers a ADC sample
+    SctSetEventStateMask(LPC_SCT, SCT_EVENT_3_VAL, SCT_STATE_0_BIT | SCT_STATE_1_BIT);
+    SctSetEventControl(LPC_SCT, SCT_EVENT_3_VAL, SCT_EV_CTRL_MATCHSEL(SCT_MATCH_2) | SCT_EV_CTRL_COMBMODE(SCT_COMBMODE_MATCH));
     SctRegisterModeU(LPC_SCT, 
         SCT_REGMODE_U(SCT_MATCH_0, SCT_REGMODE_MATCH) | 
         SCT_REGMODE_U(SCT_MATCH_1, SCT_REGMODE_MATCH) | 
-        SCT_REGMODE_U(SCT_MATCH_2, SCT_REGMODE_CAPTURE) );
-    SctCaptureControlU(LPC_SCT, SCT_CAPTURE_2, SCT_EVENT_2_BIT);
+        SCT_REGMODE_U(SCT_MATCH_2, SCT_REGMODE_MATCH) );
     
     // LED1 control
-    SctOutputSet(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_0_BIT); // enable LED at start
-    SctOutputClear(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT); // disable led at end or capture
+    SctOutputSet(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_3_BIT); // disable led at end
+    SctOutputClear(LPC_SCT, SCT_OUTPUT_0_VALUE, SCT_EVENT_0_BIT); // enable LED at start
     // LED 2 control
-    SctOutputSet(LPC_SCT, SCT_OUTPUT_1_VALUE, SCT_EVENT_0_BIT); 
-    SctOutputClear(LPC_SCT, SCT_OUTPUT_1_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT);
+    SctOutputSet(LPC_SCT, SCT_OUTPUT_1_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_3_BIT); // disable led at end
+    SctOutputClear(LPC_SCT, SCT_OUTPUT_1_VALUE, SCT_EVENT_0_BIT); // enable LED at start
     // integrator reset control
-    SctOutputSet(LPC_SCT, SCT_OUTPUT_2_VALUE, SCT_EVENT_1_BIT | SCT_EVENT_2_BIT);
+    SctOutputSet(LPC_SCT, SCT_OUTPUT_2_VALUE, SCT_EVENT_1_BIT);
     SctOutputClear(LPC_SCT, SCT_OUTPUT_2_VALUE, SCT_EVENT_0_BIT);
     // setup outputs to initial values
     SctOutput(LPC_SCT,  
-        SCT_OUTPUT_STATE(SCT_OUTPUT_0_VALUE, 1) |
-        SCT_OUTPUT_STATE(SCT_OUTPUT_1_VALUE, 1) | 
+        SCT_OUTPUT_STATE(SCT_OUTPUT_0_VALUE, 0) |
+        SCT_OUTPUT_STATE(SCT_OUTPUT_1_VALUE, 0) | 
         SCT_OUTPUT_STATE(SCT_OUTPUT_2_VALUE, 0) );
-
-    SctSetEventInt(LPC_SCT, SCT_EVENT_2_BIT);
-    NVIC_EnableIRQ(SCT_IRQn);
 
     SctClearControl(LPC_SCT, SCT_CTRL_HALT_U);
 }
