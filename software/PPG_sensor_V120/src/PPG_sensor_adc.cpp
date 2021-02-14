@@ -22,7 +22,7 @@ extern "C" {
             uint16_t sample = ADC_DR_RESULT(adcResult);
             ppgBuf.pushFront(sample);
         }
-        
+        AdcClearFlags(LPC_ADC, AdcGetFlags(LPC_ADC));
     }
 }
 
@@ -36,6 +36,7 @@ void ppgSensorSetup(void)
     ppgBuf.reset();
     filter.reset();
 
+    
     SctInit(LPC_SCT);
     // setup ADC clock division in preparation for ADC calibration
     AdcInit(LPC_ADC, ADC_CR_CLKDIV(CLOCK_AHB / ADC_CAL_CLOCK));
@@ -50,7 +51,11 @@ void ppgSensorSetup(void)
         ADC_SEQ_CTRL_HWTRIG_PINTRIG0 | 
         ADC_SEQ_CTRL_HWTRIG_POLPOS |
         ADC_SEQ_CTRL_MODE_EOS );
-    AdcEnableInt(LPC_ADC, ADC_INTEN_SEQA_ENABLE);
+
+    ClockEnablePeriphClock(SYSCTL_CLOCK_SWM);
+    SwmFixedPinEnable(SWM_CAP_SENSE, true);
+    SwmMovablePinAssign(SWM_ADC_PINTRIG0_I, PIN_LED1_CTRL);
+    ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
 
     SctSetConfig(LPC_SCT, SCT_CONFIG_32BIT_COUNTER | SCT_CONFIG_AUTOLIMIT_U);
 
@@ -92,7 +97,9 @@ void ppgSensorSetup(void)
         SCT_OUTPUT_STATE(SCT_OUTPUT_1_VALUE, 0) | 
         SCT_OUTPUT_STATE(SCT_OUTPUT_2_VALUE, 0) );
 
-    AdcStartSequencer(LPC_ADC, ADC_SEQA_IDX);
+    AdcEnableInt(LPC_ADC, ADC_INTEN_SEQA_ENABLE);
+    NVIC_EnableIRQ(ADC_SEQA_IRQn);
+    AdcEnableSequencer(LPC_ADC, ADC_SEQA_IDX);
     SctClearControl(LPC_SCT, SCT_CTRL_HALT_U);
 }
 

@@ -21,8 +21,8 @@ int main()
     uint16_t currentSample;
     uint32_t captureCount = 0;
     boardInit();
-    dsPuts(&streamUart, "PPG sensor V1.2 development program\n");
     ppgSensorSetup();
+    dsPuts(&streamUart, "PPG sensor V1.2 development program\n");
     while (1) 
     {
         __NOP();

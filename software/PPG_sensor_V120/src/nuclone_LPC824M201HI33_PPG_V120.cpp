@@ -23,8 +23,6 @@ void boardInit(void)
     SwmMovablePinAssign(SWM_U0_TXD_O, PIN_UART_TX);
     SwmMovablePinAssign(SWM_U0_RXD_I, PIN_UART_RX);
     // PPG sensor related IO settings
-    SwmFixedPinEnable(SWM_CAP_SENSE, true);
-    SwmMovablePinAssign(SWM_ADC_PINTRIG0_I, PIN_CAP_SENSE);
     IoconPinSetMode(LPC_IOCON, IOCON_LED1_CTRL, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_LED2_CTRL, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_CAP_SENSE, PIN_MODE_INACTIVE);
@@ -48,7 +46,7 @@ void boardInit(void)
     ClockSetSysClockDiv(2);
     ClockSetMainClockSource(SYSCTL_MAINCLKSRC_PLLOUT);
 
-        // setup UART peripheral
+    // setup UART peripheral
     UartInit(UART_DEBUG);
     UartConfigData(UART_DEBUG, UART_CFG_DATALEN_8 | UART_CFG_PARITY_NONE | UART_CFG_STOPLEN_1);
     ClockSetUSARTNBaseClockRate((UART_BAUD_RATE * 16), true);
