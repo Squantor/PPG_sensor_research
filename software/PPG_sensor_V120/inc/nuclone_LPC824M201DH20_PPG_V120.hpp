@@ -25,8 +25,8 @@
 
 #define IOCON_CAP_SENSE     IOCON_PIO18
 #define PIN_CAP_SENSE       (18u)
-#define IOCON_CMP_SENSE     IOCON_PIO17
-#define PIN_CMP_SENSE       (17u)
+#define SWM_CAP_SENSE       SWM_FIXED_ADC8
+#define ADC_CAP_SENSE       (8u)
 #define IOCON_CAP_RESET     IOCON_PIO4
 #define PIN_CAP_RESET       (4u)
 

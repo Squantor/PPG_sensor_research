@@ -10,16 +10,19 @@
 #include <ringbuf.hpp>
 #include <moving_average.hpp>
 
-util::RingBuffer<uint32_t, 15> ppgBuf;
-util::MovingAverage<uint32_t, 2> filter;
+util::RingBuffer<uint16_t, 15> ppgBuf;
+util::MovingAverage<uint16_t, 2> filter;
 
 extern "C" {
-    void SCT_IRQHandler(void)
+    void ADC_SEQA_IRQHandler(void)
     {
-        uint32_t captureCurrent;
-        SctCaptureU(LPC_SCT, SCT_CAPTURE_2, &captureCurrent);
-        ppgBuf.pushFront(captureCurrent);
-        SctClearEventFlag(LPC_SCT, SCT_EVENT_2_BIT);
+        uint32_t adcResult = AdcGetDataReg(LPC_ADC, ADC_CAP_SENSE);
+        if(adcResult & ADC_DR_DATAVALID)
+        {
+            uint16_t sample = ADC_DR_RESULT(adcResult);
+            ppgBuf.pushFront(sample);
+        }
+        
     }
 }
 
@@ -39,6 +42,15 @@ void ppgSensorSetup(void)
     AdcStartCalibration(LPC_ADC);
     while(AdcIsCalibrationDone(LPC_ADC) == false)
         ;
+    AdcSetDivider(LPC_ADC, CLOCK_AHB / PPG_ADC_RATE);
+
+    // setup ADC
+    AdcSetupSequencer(LPC_ADC, ADC_SEQA_IDX, 
+        ADC_SEQ_CTRL_CHANSEL(ADC_CAP_SENSE) | 
+        ADC_SEQ_CTRL_HWTRIG_PINTRIG0 | 
+        ADC_SEQ_CTRL_HWTRIG_POLPOS |
+        ADC_SEQ_CTRL_MODE_EOS );
+    AdcEnableInt(LPC_ADC, ADC_INTEN_SEQA_ENABLE);
 
     SctSetConfig(LPC_SCT, SCT_CONFIG_32BIT_COUNTER | SCT_CONFIG_AUTOLIMIT_U);
 
@@ -80,6 +92,7 @@ void ppgSensorSetup(void)
         SCT_OUTPUT_STATE(SCT_OUTPUT_1_VALUE, 0) | 
         SCT_OUTPUT_STATE(SCT_OUTPUT_2_VALUE, 0) );
 
+    AdcStartSequencer(LPC_ADC, ADC_SEQA_IDX);
     SctClearControl(LPC_SCT, SCT_CTRL_HALT_U);
 }
 
@@ -89,14 +102,7 @@ void ppgSensorSetup(void)
  * @return  true if a new sample has been returned
  * @note    
  */
-bool ppgSensorSamplePresent(uint32_t &sample)
+bool ppgSensorSamplePresent(uint16_t &sample)
 {
-    uint32_t temp;
-    if(ppgBuf.popBack(temp))
-    {
-        filter.add(temp);
-        sample = filter.get();
-        return true;
-    }
-    return false;
+    return ppgBuf.popBack(sample);
 }

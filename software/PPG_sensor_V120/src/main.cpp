@@ -18,7 +18,7 @@
 
 int main()
 {
-    uint32_t currentSample;
+    uint16_t currentSample;
     uint32_t captureCount = 0;
     boardInit();
     dsPuts(&streamUart, "PPG sensor V1.2 development program\n");
@@ -31,7 +31,7 @@ int main()
             // modulo 100 to limit amount of printing output
             printDecNzU32(&streamUart, captureCount % 100);
             dsPuts(&streamUart, ",");
-            printDecNzU32(&streamUart, currentSample);
+            printDecNzU16(&streamUart, currentSample);
             dsPuts(&streamUart, "\n");
             captureCount++;
         }

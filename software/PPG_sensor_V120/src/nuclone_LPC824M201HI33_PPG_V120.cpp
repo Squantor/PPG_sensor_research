@@ -23,15 +23,15 @@ void boardInit(void)
     SwmMovablePinAssign(SWM_U0_TXD_O, PIN_UART_TX);
     SwmMovablePinAssign(SWM_U0_RXD_I, PIN_UART_RX);
     // PPG sensor related IO settings
+    SwmFixedPinEnable(SWM_CAP_SENSE, true);
+    SwmMovablePinAssign(SWM_ADC_PINTRIG0_I, PIN_CAP_SENSE);
     IoconPinSetMode(LPC_IOCON, IOCON_LED1_CTRL, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_LED2_CTRL, PIN_MODE_INACTIVE);
-    IoconPinSetMode(LPC_IOCON, IOCON_CMP_SENSE, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_CAP_SENSE, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_CAP_RESET, PIN_MODE_INACTIVE);
     SwmMovablePinAssign(SWM_SCT_OUT0_O, PIN_LED1_CTRL);
     SwmMovablePinAssign(SWM_SCT_OUT1_O, PIN_LED2_CTRL);
     SwmMovablePinAssign(SWM_SCT_OUT2_O, PIN_CAP_RESET);
-    SwmMovablePinAssign(SWM_SCT_IN0_I, PIN_CMP_SENSE);
 
     ClockDisablePeriphClock(SYSCTL_CLOCK_IOCON);
     ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
