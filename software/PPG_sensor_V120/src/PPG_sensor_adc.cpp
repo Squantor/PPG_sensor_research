@@ -34,6 +34,11 @@ void ppgSensorSetup(void)
     filter.reset();
 
     SctInit(LPC_SCT);
+    // setup ADC clock division in preparation for ADC calibration
+    AdcInit(LPC_ADC, ADC_CR_CLKDIV(CLOCK_AHB / ADC_CAL_CLOCK));
+    AdcStartCalibration(LPC_ADC);
+    while(AdcIsCalibrationDone(LPC_ADC) == false)
+        ;
 
     SctSetConfig(LPC_SCT, SCT_CONFIG_32BIT_COUNTER | SCT_CONFIG_AUTOLIMIT_U);
 
