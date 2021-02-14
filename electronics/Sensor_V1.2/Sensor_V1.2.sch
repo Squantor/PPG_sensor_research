@@ -333,10 +333,6 @@ Text Label 1550 4350 0    50   ~ 0
 PD_ADC
 Text Label 1000 2250 2    50   ~ 0
 PD_ADC
-Text Label 2100 2250 0    50   ~ 0
-CMP_OUT
-Wire Wire Line
-	2100 2250 2050 2250
 Wire Wire Line
 	1050 2250 1000 2250
 $Comp
@@ -359,17 +355,6 @@ NoConn ~ 2050 1550
 NoConn ~ 2050 1450
 NoConn ~ 2050 1350
 NoConn ~ 2050 1250
-NoConn ~ 1050 2350
-NoConn ~ 1050 2450
-NoConn ~ 1050 2550
-NoConn ~ 1050 2650
-NoConn ~ 1050 2850
-NoConn ~ 2050 2850
-NoConn ~ 2050 2750
-NoConn ~ 2050 2650
-NoConn ~ 2050 2550
-NoConn ~ 2050 2450
-NoConn ~ 2050 2350
 NoConn ~ 1050 950 
 NoConn ~ 1050 850 
 NoConn ~ 2050 2150
@@ -467,9 +452,6 @@ Text Label 3600 2750 0    50   ~ 0
 LED2_C
 Text Label 3000 2750 2    50   ~ 0
 LED2_A
-NoConn ~ 2050 2950
-NoConn ~ 1050 2750
-NoConn ~ 1050 2950
 Wire Wire Line
 	3150 700  3100 700 
 Wire Wire Line
@@ -510,10 +492,10 @@ LED2_C
 Text Label 1000 1050 2    50   ~ 0
 LED1_C
 $Comp
-L Device:R R?
+L Device:R R3
 U 1 1 602D49AD
 P 700 4600
-F 0 "R?" V 650 4450 50  0000 C CNN
+F 0 "R3" V 650 4450 50  0000 C CNN
 F 1 "TBD" V 700 4600 50  0000 C CNN
 F 2 "SquantorRcl:R_0402_hand" V 630 4600 50  0001 C CNN
 F 3 "~" H 700 4600 50  0001 C CNN
@@ -544,4 +526,253 @@ Wire Wire Line
 	2950 1900 2900 1900
 Wire Wire Line
 	2950 1600 2900 1600
+NoConn ~ 1050 2850
+NoConn ~ 2050 2750
+Wire Wire Line
+	1000 2350 1050 2350
+Wire Wire Line
+	1050 2450 1000 2450
+Wire Wire Line
+	1050 2550 1000 2550
+Wire Wire Line
+	1000 2650 1050 2650
+Wire Wire Line
+	1050 2750 1000 2750
+Wire Wire Line
+	1000 2950 1050 2950
+Wire Wire Line
+	2050 2950 2100 2950
+Wire Wire Line
+	2100 2850 2050 2850
+Wire Wire Line
+	2100 2650 2050 2650
+Wire Wire Line
+	2100 2550 2050 2550
+Wire Wire Line
+	2100 2450 2050 2450
+Wire Wire Line
+	2100 2350 2050 2350
+Wire Wire Line
+	2100 2250 2050 2250
+Text Label 2100 2350 0    50   ~ 0
+P0_19
+Text Label 2100 2450 0    50   ~ 0
+P0_21
+Text Label 2100 2550 0    50   ~ 0
+P0_23
+Text Label 2100 2650 0    50   ~ 0
+P0_00
+Text Label 2100 2850 0    50   ~ 0
+P0_01
+Text Label 2100 2950 0    50   ~ 0
+GPIO_14
+Text Label 2100 2250 0    50   ~ 0
+P0_17
+Text Label 1000 2950 2    50   ~ 0
+P0_15
+Text Label 1000 2750 2    50   ~ 0
+P0_07
+Text Label 1000 2650 2    50   ~ 0
+P0_06
+Text Label 1000 2550 2    50   ~ 0
+P0_14
+Text Label 1000 2450 2    50   ~ 0
+P0_22
+Text Label 1000 2350 2    50   ~ 0
+P0_20
+Text Label 5200 2300 0    50   ~ 0
+P0_15
+Text Label 5200 2100 0    50   ~ 0
+P0_07
+Text Label 5200 1900 0    50   ~ 0
+P0_06
+Text Label 5200 1700 0    50   ~ 0
+P0_14
+Text Label 5200 1500 0    50   ~ 0
+P0_22
+Text Label 5200 1300 0    50   ~ 0
+P0_20
+Text Label 5200 1400 0    50   ~ 0
+P0_19
+Text Label 5200 1600 0    50   ~ 0
+P0_21
+Text Label 5200 1800 0    50   ~ 0
+P0_23
+Text Label 5200 2000 0    50   ~ 0
+P0_00
+Text Label 5200 2200 0    50   ~ 0
+P0_01
+Text Label 5200 1200 0    50   ~ 0
+P0_17
+Text Label 5200 2400 0    50   ~ 0
+GPIO_14
+$Comp
+L SquantorProto:testpad TP7
+U 1 1 603C6353
+P 5000 1200
+F 0 "TP7" H 4850 1250 50  0000 C CNN
+F 1 "17" H 4850 1150 50  0000 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 5050 1225 50  0001 C CNN
+F 3 "" H 5050 1225 50  0001 C CNN
+	1    5000 1200
+	-1   0    0    1   
+$EndComp
+$Comp
+L SquantorProto:testpad TP1
+U 1 1 603C7A30
+P 4750 1300
+F 0 "TP1" H 4600 1350 50  0000 C CNN
+F 1 "20" H 4600 1250 50  0000 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4800 1325 50  0001 C CNN
+F 3 "" H 4800 1325 50  0001 C CNN
+	1    4750 1300
+	-1   0    0    1   
+$EndComp
+$Comp
+L SquantorProto:testpad TP8
+U 1 1 603C8080
+P 5000 1400
+F 0 "TP8" H 4850 1450 50  0000 C CNN
+F 1 "19" H 4850 1350 50  0000 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 5050 1425 50  0001 C CNN
+F 3 "" H 5050 1425 50  0001 C CNN
+	1    5000 1400
+	-1   0    0    1   
+$EndComp
+$Comp
+L SquantorProto:testpad TP2
+U 1 1 603C854D
+P 4750 1500
+F 0 "TP2" H 4600 1550 50  0000 C CNN
+F 1 "22" H 4600 1450 50  0000 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4800 1525 50  0001 C CNN
+F 3 "" H 4800 1525 50  0001 C CNN
+	1    4750 1500
+	-1   0    0    1   
+$EndComp
+$Comp
+L SquantorProto:testpad TP9
+U 1 1 603C8A60
+P 5000 1600
+F 0 "TP9" H 4850 1650 50  0000 C CNN
+F 1 "21" H 4850 1550 50  0000 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 5050 1625 50  0001 C CNN
+F 3 "" H 5050 1625 50  0001 C CNN
+	1    5000 1600
+	-1   0    0    1   
+$EndComp
+$Comp
+L SquantorProto:testpad TP3
+U 1 1 603C8E2B
+P 4750 1700
+F 0 "TP3" H 4600 1750 50  0000 C CNN
+F 1 "14" H 4600 1650 50  0000 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4800 1725 50  0001 C CNN
+F 3 "" H 4800 1725 50  0001 C CNN
+	1    4750 1700
+	-1   0    0    1   
+$EndComp
+$Comp
+L SquantorProto:testpad TP10
+U 1 1 603C928C
+P 5000 1800
+F 0 "TP10" H 4850 1850 50  0000 C CNN
+F 1 "23" H 4850 1750 50  0000 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 5050 1825 50  0001 C CNN
+F 3 "" H 5050 1825 50  0001 C CNN
+	1    5000 1800
+	-1   0    0    1   
+$EndComp
+$Comp
+L SquantorProto:testpad TP4
+U 1 1 603C9871
+P 4750 1900
+F 0 "TP4" H 4600 1950 50  0000 C CNN
+F 1 "06" H 4600 1850 50  0000 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4800 1925 50  0001 C CNN
+F 3 "" H 4800 1925 50  0001 C CNN
+	1    4750 1900
+	-1   0    0    1   
+$EndComp
+$Comp
+L SquantorProto:testpad TP11
+U 1 1 603C9E7D
+P 5000 2000
+F 0 "TP11" H 4850 2050 50  0000 C CNN
+F 1 "00" H 4850 1950 50  0000 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 5050 2025 50  0001 C CNN
+F 3 "" H 5050 2025 50  0001 C CNN
+	1    5000 2000
+	-1   0    0    1   
+$EndComp
+$Comp
+L SquantorProto:testpad TP5
+U 1 1 603CA86C
+P 4750 2100
+F 0 "TP5" H 4600 2150 50  0000 C CNN
+F 1 "07" H 4600 2050 50  0000 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4800 2125 50  0001 C CNN
+F 3 "" H 4800 2125 50  0001 C CNN
+	1    4750 2100
+	-1   0    0    1   
+$EndComp
+$Comp
+L SquantorProto:testpad TP12
+U 1 1 603D193C
+P 5000 2200
+F 0 "TP12" H 4850 2250 50  0000 C CNN
+F 1 "01" H 4850 2150 50  0000 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 5050 2225 50  0001 C CNN
+F 3 "" H 5050 2225 50  0001 C CNN
+	1    5000 2200
+	-1   0    0    1   
+$EndComp
+$Comp
+L SquantorProto:testpad TP6
+U 1 1 603D1F0C
+P 4750 2300
+F 0 "TP6" H 4600 2350 50  0000 C CNN
+F 1 "15" H 4600 2250 50  0000 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4800 2325 50  0001 C CNN
+F 3 "" H 4800 2325 50  0001 C CNN
+	1    4750 2300
+	-1   0    0    1   
+$EndComp
+$Comp
+L SquantorProto:testpad TP13
+U 1 1 603D23AB
+P 5000 2400
+F 0 "TP13" H 4850 2450 50  0000 C CNN
+F 1 "p14" H 4850 2350 50  0000 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 5050 2425 50  0001 C CNN
+F 3 "" H 5050 2425 50  0001 C CNN
+	1    5000 2400
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5100 1200 5200 1200
+Wire Wire Line
+	5200 1300 4850 1300
+Wire Wire Line
+	5100 1400 5200 1400
+Wire Wire Line
+	5200 1500 4850 1500
+Wire Wire Line
+	5100 1600 5200 1600
+Wire Wire Line
+	5200 1700 4850 1700
+Wire Wire Line
+	5200 1800 5100 1800
+Wire Wire Line
+	4850 1900 5200 1900
+Wire Wire Line
+	5200 2000 5100 2000
+Wire Wire Line
+	5200 2100 4850 2100
+Wire Wire Line
+	5200 2200 5100 2200
+Wire Wire Line
+	5200 2300 4850 2300
+Wire Wire Line
+	5100 2400 5200 2400
 $EndSCHEMATC
