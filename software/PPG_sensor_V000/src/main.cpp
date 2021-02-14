@@ -125,8 +125,6 @@ int main()
         if(currentCaptureCount != captureCount)
         {
             currentCaptureCount = captureCount;
-            printDecNzU32(&streamUart, currentCaptureCount);
-            dsPuts(&streamUart, ",");
             printDecNzU32(&streamUart, captureValue);
             dsPuts(&streamUart, "\n");
         }

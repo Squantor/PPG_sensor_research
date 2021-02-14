@@ -22,14 +22,14 @@
 
 # project settings
 #
-# Version: 20200625
+# Version: 20210214
 
 # includes of additional libraries
 include squantorLibC/squantorLibC.mk
-include squantorLibEmbeddedC/squantorLibEmbeddedC.mk
+include libEmbedded/libEmbedded.mk
 
 # project settings
-MCU = LPC812M101JDH20
+MCU = LPC812M101DH20
 TARGET = MCU
 BOARD = PPG_sensor_V000
 
