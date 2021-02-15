@@ -808,33 +808,4 @@ Text Label 1650 4750 0    50   ~ 0
 VSS
 Wire Wire Line
 	1650 4700 1650 4750
-$Comp
-L SquantorProto:Proto_1pin J?
-U 1 1 602B2F80
-P 3250 3300
-F 0 "J?" H 2950 3400 60  0000 L CNN
-F 1 "Proto_1pin" H 3000 3100 60  0000 L CNN
-F 2 "SquantorProto:proto-SMD-0127-08X08-P010X020+pin" H 3250 3300 60  0001 C CNN
-F 3 "" H 3250 3300 60  0001 C CNN
-	1    3250 3300
-	1    0    0    -1  
-$EndComp
-Text Label 2950 3300 2    50   ~ 0
-VSS
-Wire Wire Line
-	2950 3300 3000 3300
-Text Notes 2900 3650 0    50   ~ 0
-prototyping area
-Wire Notes Line
-	3550 3550 2850 3550
-Wire Notes Line
-	2850 3550 2850 3700
-Wire Notes Line
-	3550 3700 3550 3100
-Wire Notes Line
-	3550 3100 2700 3100
-Wire Notes Line
-	2700 3100 2700 3700
-Wire Notes Line
-	2700 3700 3550 3700
 $EndSCHEMATC
