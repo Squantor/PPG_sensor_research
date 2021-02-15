@@ -29,7 +29,7 @@ L SquantorLabels:VYYYYMMDD N2
 U 1 1 5D6A68B9
 P 6350 7150
 F 0 "N2" H 6300 7250 60  0000 L CNN
-F 1 "20210214" H 6100 7150 60  0000 L CNN
+F 1 "20210215" H 6100 7150 60  0000 L CNN
 F 2 "SquantorLabels:Label_Generic" H 6350 7150 60  0001 C CNN
 F 3 "" H 6350 7150 60  0001 C CNN
 	1    6350 7150
@@ -62,7 +62,7 @@ U 1 1 5F2AC8A4
 P 1550 1200
 F 0 "J1" H 1550 1800 50  0000 C CNN
 F 1 "nuclone_small_left" H 1550 600 50  0000 C CNN
-F 2 "SquantorConnectors:Header-0254-2X10-H010" H 1700 1150 50  0001 C CNN
+F 2 "SquantorConnectorsNamed:nuclone_small_left" H 1700 1150 50  0001 C CNN
 F 3 "" H 1700 1150 50  0001 C CNN
 	1    1550 1200
 	1    0    0    -1  
@@ -339,7 +339,7 @@ U 1 1 5F2AD81B
 P 1550 2500
 F 0 "J2" H 1550 1900 50  0000 C CNN
 F 1 "nuclone_small_right" H 1550 3100 50  0000 C CNN
-F 2 "SquantorConnectors:Header-0254-2X10-H010" H 1550 2450 50  0001 C CNN
+F 2 "SquantorConnectorsNamed:nuclone_small_right" H 1550 2450 50  0001 C CNN
 F 3 "" H 1550 2450 50  0001 C CNN
 	1    1550 2500
 	-1   0    0    1   
@@ -599,7 +599,7 @@ U 1 1 603C6353
 P 4500 1550
 F 0 "TP7" H 4350 1600 50  0000 C CNN
 F 1 "17" H 4350 1500 50  0000 C CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4550 1575 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H04R07" H 4550 1575 50  0001 C CNN
 F 3 "" H 4550 1575 50  0001 C CNN
 	1    4500 1550
 	-1   0    0    1   
@@ -610,7 +610,7 @@ U 1 1 603C7A30
 P 4250 1650
 F 0 "TP1" H 4100 1700 50  0000 C CNN
 F 1 "20" H 4100 1600 50  0000 C CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4300 1675 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H04R07" H 4300 1675 50  0001 C CNN
 F 3 "" H 4300 1675 50  0001 C CNN
 	1    4250 1650
 	-1   0    0    1   
@@ -621,7 +621,7 @@ U 1 1 603C8080
 P 4500 1750
 F 0 "TP8" H 4350 1800 50  0000 C CNN
 F 1 "19" H 4350 1700 50  0000 C CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4550 1775 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H04R07" H 4550 1775 50  0001 C CNN
 F 3 "" H 4550 1775 50  0001 C CNN
 	1    4500 1750
 	-1   0    0    1   
@@ -632,7 +632,7 @@ U 1 1 603C854D
 P 4250 1850
 F 0 "TP2" H 4100 1900 50  0000 C CNN
 F 1 "22" H 4100 1800 50  0000 C CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4300 1875 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H04R07" H 4300 1875 50  0001 C CNN
 F 3 "" H 4300 1875 50  0001 C CNN
 	1    4250 1850
 	-1   0    0    1   
@@ -643,7 +643,7 @@ U 1 1 603C8A60
 P 4500 1950
 F 0 "TP9" H 4350 2000 50  0000 C CNN
 F 1 "21" H 4350 1900 50  0000 C CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4550 1975 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H04R07" H 4550 1975 50  0001 C CNN
 F 3 "" H 4550 1975 50  0001 C CNN
 	1    4500 1950
 	-1   0    0    1   
@@ -654,7 +654,7 @@ U 1 1 603C8E2B
 P 4250 2050
 F 0 "TP3" H 4100 2100 50  0000 C CNN
 F 1 "14" H 4100 2000 50  0000 C CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4300 2075 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H04R07" H 4300 2075 50  0001 C CNN
 F 3 "" H 4300 2075 50  0001 C CNN
 	1    4250 2050
 	-1   0    0    1   
@@ -665,7 +665,7 @@ U 1 1 603C928C
 P 4500 2150
 F 0 "TP10" H 4350 2200 50  0000 C CNN
 F 1 "23" H 4350 2100 50  0000 C CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4550 2175 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H04R07" H 4550 2175 50  0001 C CNN
 F 3 "" H 4550 2175 50  0001 C CNN
 	1    4500 2150
 	-1   0    0    1   
@@ -676,7 +676,7 @@ U 1 1 603C9871
 P 4250 2250
 F 0 "TP4" H 4100 2300 50  0000 C CNN
 F 1 "06" H 4100 2200 50  0000 C CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4300 2275 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H04R07" H 4300 2275 50  0001 C CNN
 F 3 "" H 4300 2275 50  0001 C CNN
 	1    4250 2250
 	-1   0    0    1   
@@ -687,7 +687,7 @@ U 1 1 603C9E7D
 P 4500 2350
 F 0 "TP11" H 4350 2400 50  0000 C CNN
 F 1 "00" H 4350 2300 50  0000 C CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4550 2375 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H04R07" H 4550 2375 50  0001 C CNN
 F 3 "" H 4550 2375 50  0001 C CNN
 	1    4500 2350
 	-1   0    0    1   
@@ -698,7 +698,7 @@ U 1 1 603CA86C
 P 4250 2450
 F 0 "TP5" H 4100 2500 50  0000 C CNN
 F 1 "07" H 4100 2400 50  0000 C CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4300 2475 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H04R07" H 4300 2475 50  0001 C CNN
 F 3 "" H 4300 2475 50  0001 C CNN
 	1    4250 2450
 	-1   0    0    1   
@@ -709,7 +709,7 @@ U 1 1 603D193C
 P 4500 2550
 F 0 "TP12" H 4350 2600 50  0000 C CNN
 F 1 "01" H 4350 2500 50  0000 C CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4550 2575 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H04R07" H 4550 2575 50  0001 C CNN
 F 3 "" H 4550 2575 50  0001 C CNN
 	1    4500 2550
 	-1   0    0    1   
@@ -720,7 +720,7 @@ U 1 1 603D1F0C
 P 4250 2650
 F 0 "TP6" H 4100 2700 50  0000 C CNN
 F 1 "15" H 4100 2600 50  0000 C CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4300 2675 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H04R07" H 4300 2675 50  0001 C CNN
 F 3 "" H 4300 2675 50  0001 C CNN
 	1    4250 2650
 	-1   0    0    1   
@@ -731,7 +731,7 @@ U 1 1 603D23AB
 P 4500 2750
 F 0 "TP13" H 4350 2800 50  0000 C CNN
 F 1 "p14" H 4350 2700 50  0000 C CNN
-F 2 "SquantorTestPoints:TestPoint_hole_H05R10" H 4550 2775 50  0001 C CNN
+F 2 "SquantorTestPoints:TestPoint_hole_H04R07" H 4550 2775 50  0001 C CNN
 F 3 "" H 4550 2775 50  0001 C CNN
 	1    4500 2750
 	-1   0    0    1   
@@ -808,4 +808,33 @@ Text Label 1650 4750 0    50   ~ 0
 VSS
 Wire Wire Line
 	1650 4700 1650 4750
+$Comp
+L SquantorProto:Proto_1pin J?
+U 1 1 602B2F80
+P 3250 3300
+F 0 "J?" H 2950 3400 60  0000 L CNN
+F 1 "Proto_1pin" H 3000 3100 60  0000 L CNN
+F 2 "SquantorProto:proto-SMD-0127-08X08-P010X020+pin" H 3250 3300 60  0001 C CNN
+F 3 "" H 3250 3300 60  0001 C CNN
+	1    3250 3300
+	1    0    0    -1  
+$EndComp
+Text Label 2950 3300 2    50   ~ 0
+VSS
+Wire Wire Line
+	2950 3300 3000 3300
+Text Notes 2900 3650 0    50   ~ 0
+prototyping area
+Wire Notes Line
+	3550 3550 2850 3550
+Wire Notes Line
+	2850 3550 2850 3700
+Wire Notes Line
+	3550 3700 3550 3100
+Wire Notes Line
+	3550 3100 2700 3100
+Wire Notes Line
+	2700 3100 2700 3700
+Wire Notes Line
+	2700 3700 3550 3700
 $EndSCHEMATC
