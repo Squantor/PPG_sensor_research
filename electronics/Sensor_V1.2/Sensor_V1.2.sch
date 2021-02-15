@@ -152,7 +152,7 @@ U 1 1 5F30F2AF
 P 3300 2650
 F 0 "U1" H 3300 2900 50  0000 C CNN
 F 1 "PPG_sensor" H 3200 2400 50  0000 C CNN
-F 2 "SquantorOpto:PPG_sensor_reverse_PD_antiparallel" H 3300 2600 50  0001 C CNN
+F 2 "SquantorOpto:PPG_sensor_front_universal" H 3300 2600 50  0001 C CNN
 F 3 "" H 3300 2600 50  0001 C CNN
 	1    3300 2650
 	1    0    0    -1  
