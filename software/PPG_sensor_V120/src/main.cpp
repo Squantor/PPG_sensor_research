@@ -29,10 +29,12 @@ int main()
         if(ppgSensorSamplePresent(currentSample))
         {
             // modulo 100 to limit amount of printing output
-            printDecNzU32(&streamUart, captureCount % 100);
-            dsPuts(&streamUart, ",");
+            
+            dsPuts(&streamUart, "/*");
             printDecNzU16(&streamUart, currentSample);
-            dsPuts(&streamUart, "\n");
+            dsPuts(&streamUart, ",");
+            printDecNzU16(&streamUart, ppgSensorGetMovingAverage());
+            dsPuts(&streamUart, "*/\n");
             captureCount++;
         }
     }

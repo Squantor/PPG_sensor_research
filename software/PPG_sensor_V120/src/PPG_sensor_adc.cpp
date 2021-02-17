@@ -11,7 +11,8 @@
 #include <moving_average.hpp>
 
 util::RingBuffer<uint16_t, 15> ppgBuf;
-util::MovingAverage<uint16_t, 2> filter;
+util::MovingAverage<uint16_t, 2> filter(0);
+util::MovingAverage<uint16_t, 16> ledScaleInput(0);
 
 extern "C" {
     void ADC_SEQA_IRQHandler(void)
@@ -34,7 +35,8 @@ extern "C" {
 void ppgSensorSetup(void)
 {  
     ppgBuf.reset();
-    filter.reset();
+    filter.reset(PPG_SENSOR_ADC_MID);
+    ledScaleInput.reset(PPG_SENSOR_ADC_MID);
 
     
     SctInit(LPC_SCT);
@@ -111,5 +113,15 @@ void ppgSensorSetup(void)
  */
 bool ppgSensorSamplePresent(uint16_t &sample)
 {
-    return ppgBuf.popBack(sample);
+    uint16_t currentSample;
+    if(!ppgBuf.popBack(currentSample))
+        return false;
+    ledScaleInput.add(currentSample);
+    sample = currentSample;
+    return true;
+}
+
+uint16_t ppgSensorGetMovingAverage()
+{
+    return ledScaleInput.get();
 }

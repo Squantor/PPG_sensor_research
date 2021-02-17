@@ -36,7 +36,8 @@
 #define PIN_UART_RX         (25u)
 
 #define UART_DEBUG          LPC_USART0
-#define UART_BAUD_RATE      (230400u)
+//#define UART_BAUD_RATE      (230400u)
+#define UART_BAUD_RATE      (500000u)
 
 void boardInit(void);
 
