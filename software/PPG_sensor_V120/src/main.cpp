@@ -15,6 +15,9 @@
 #include <time_delay.hpp>
 #include <time_interval.hpp>
 #include <PPG_sensor_adc.hpp>
+#include <moving_average.hpp>
+
+util::MovingAverage<uint16_t, 10> ledScaleInput(PPG_SENSOR_ADC_MID);
 
 int main()
 {
@@ -28,12 +31,9 @@ int main()
         __NOP();
         if(ppgSensorSamplePresent(currentSample))
         {
-            // modulo 100 to limit amount of printing output
-            
+                       
             dsPuts(&streamUart, "/*");
             printDecNzU16(&streamUart, currentSample);
-            dsPuts(&streamUart, ",");
-            printDecNzU16(&streamUart, ppgSensorGetMovingAverage());
             dsPuts(&streamUart, "*/\n");
             captureCount++;
         }

@@ -21,6 +21,5 @@
 void ppgSensorSetup(void);
 
 bool ppgSensorSamplePresent(uint16_t &sample);
-uint16_t ppgSensorGetMovingAverage();
 
 #endif
