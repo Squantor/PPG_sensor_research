@@ -9,13 +9,13 @@
 
 #include <stdint.h>
 
-#define PPG_SENSOR_FREQ         (3000000)
+#define PPG_SENSOR_FREQ         (1000000)
 
 #define PPG_SENSOR_IRESET       (1000)
 #define PPG_ADC_RATE            (1000000u)
 
-#define PPG_SENSOR_LED_MAX      (1500000)
-#define PPG_SENSOR_LED_DEFAULT  (500000)
+#define PPG_SENSOR_LED_MAX      (500000)
+#define PPG_SENSOR_LED_DEFAULT  (100000)
 #define PPG_SENSOR_LED_MIN      (20000)
 
 #define PPG_SENSOR_LED_STEP     (20000)
