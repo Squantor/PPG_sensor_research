@@ -63,8 +63,8 @@ void ppgSensorSetup(void)
     SctMatchReloadU(LPC_SCT, SCT_MATCH_0, PPG_SENSOR_FREQ);
     SctMatchU(LPC_SCT, SCT_MATCH_1, PPG_SENSOR_FREQ-PPG_SENSOR_IRESET);
     SctMatchReloadU(LPC_SCT, SCT_MATCH_1, PPG_SENSOR_FREQ-PPG_SENSOR_IRESET);
-    SctMatchU(LPC_SCT, SCT_MATCH_2, PPG_SENSOR_LED_ON);
-    SctMatchReloadU(LPC_SCT, SCT_MATCH_2, PPG_SENSOR_LED_ON);
+    SctMatchU(LPC_SCT, SCT_MATCH_2, PPG_SENSOR_LED_DEFAULT);
+    SctMatchReloadU(LPC_SCT, SCT_MATCH_2, PPG_SENSOR_LED_DEFAULT);
 
     // Event 0 determines the sampling frequency
     SctSetEventStateMask(LPC_SCT, SCT_EVENT_0_VAL, SCT_STATE_0_BIT | SCT_STATE_1_BIT);
@@ -112,3 +112,16 @@ bool ppgSensorSamplePresent(uint16_t &sample)
     return ppgBuf.popBack(sample);
 }
 
+/**
+ * @brief   Sets the PPG sensor LED on time
+ * @param   value   : new on time in clock ticks
+ * @return  none
+ * @note    
+ */
+
+void ppgSetLedOnTime(uint32_t value)
+{
+    SctSetControl(LPC_SCT, SCT_CTRL_HALT_U);
+    SctMatchReloadU(LPC_SCT, SCT_MATCH_2, value);
+    SctClearControl(LPC_SCT, SCT_CTRL_HALT_U);
+}

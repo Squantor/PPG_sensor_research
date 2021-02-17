@@ -9,10 +9,16 @@
 
 #include <stdint.h>
 
-#define PPG_SENSOR_FREQ     (500000)
-#define PPG_SENSOR_LED_ON   (50000)
-#define PPG_SENSOR_IRESET   (1000)
-#define PPG_ADC_RATE        (1000000u)
+#define PPG_SENSOR_FREQ         (3000000)
+
+#define PPG_SENSOR_IRESET       (1000)
+#define PPG_ADC_RATE            (1000000u)
+
+#define PPG_SENSOR_LED_MAX      (1500000)
+#define PPG_SENSOR_LED_DEFAULT  (500000)
+#define PPG_SENSOR_LED_MIN      (20000)
+
+#define PPG_SENSOR_LED_STEP     (20000)
 
 #define PPG_SENSOR_ADC_LOW  (1024u)
 #define PPG_SENSOR_ADC_HIGH (3072u)
@@ -21,5 +27,7 @@
 void ppgSensorSetup(void);
 
 bool ppgSensorSamplePresent(uint16_t &sample);
+
+void ppgSetLedOnTime(uint32_t value);
 
 #endif

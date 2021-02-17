@@ -15,8 +15,13 @@
                "v":"%2",
                "g":true,
                "u":"ADC"
+            },
+            {
+               "t":"LED on time",
+               "v":"%3",
+               "g":true,
+               "u":"ticks"
             }
-
          ]
       }
    ]
