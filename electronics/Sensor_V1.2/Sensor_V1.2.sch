@@ -29,7 +29,7 @@ L SquantorLabels:VYYYYMMDD N2
 U 1 1 5D6A68B9
 P 6350 7150
 F 0 "N2" H 6300 7250 60  0000 L CNN
-F 1 "20210215" H 6100 7150 60  0000 L CNN
+F 1 "20210217" H 6100 7150 60  0000 L CNN
 F 2 "SquantorLabels:Label_Generic" H 6350 7150 60  0001 C CNN
 F 3 "" H 6350 7150 60  0001 C CNN
 	1    6350 7150
@@ -38,12 +38,12 @@ $EndComp
 $Comp
 L SquantorLabels:Label N3
 U 1 1 5D8B1B32
-P 6350 7350
-F 0 "N3" H 6300 7400 60  0000 L CNN
-F 1 "JLCJLCJLCJLC" H 6050 7300 60  0000 L CNN
-F 2 "SquantorLabels:Label_Generic" H 6350 7350 60  0001 C CNN
-F 3 "" H 6350 7350 60  0001 C CNN
-	1    6350 7350
+P 6200 7350
+F 0 "N3" H 6150 7400 60  0000 L CNN
+F 1 "JLCJLCJLCJLC" H 5900 7300 60  0000 L CNN
+F 2 "SquantorLabels:Label_Generic" H 6200 7350 60  0001 C CNN
+F 3 "" H 6200 7350 60  0001 C CNN
+	1    6200 7350
 	1    0    0    -1  
 $EndComp
 Wire Notes Line
@@ -851,4 +851,15 @@ Connection ~ 800  4400
 Wire Wire Line
 	800  4900 750  4900
 Connection ~ 800  4900
+$Comp
+L SquantorLabels:Label N4
+U 1 1 602DC1FC
+P 6550 7350
+F 0 "N4" H 6500 7400 60  0000 L CNN
+F 1 "notes:" H 6400 7300 60  0000 L CNN
+F 2 "SquantorLabels:Label_Note_medium" H 6550 7350 60  0001 C CNN
+F 3 "" H 6550 7350 60  0001 C CNN
+	1    6550 7350
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
