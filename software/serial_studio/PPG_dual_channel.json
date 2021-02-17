@@ -1,0 +1,23 @@
+{
+   "t":"PPG sensor",
+   "g":[
+         {
+         "t":"PPG sensor specifics",
+         "d":[
+            {
+               "t":"PD ADC value",
+               "v":"%1",
+               "g":true,
+               "u":"ADC"
+            },
+            {
+               "t":"PD moving average",
+               "v":"%2",
+               "g":true,
+               "u":"ADC"
+            }
+
+         ]
+      }
+   ]
+}
