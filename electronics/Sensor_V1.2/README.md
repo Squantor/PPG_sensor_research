@@ -16,13 +16,14 @@ What microcontroller pins are connected to what hardware and what are the needed
 * PIO0_18 is connected to the Photodiode integrator node via a normally open jumper, should be set as analog input
 ## TODO's
 Still some things need to be done:
-* Schematic
-* layout
+* Sign off to production
 * Assembly
 * Test & characterise, make a separate document in the documentation directory
 * update Readme.md with pictures and BOM
 ## BOM
-This is a list of hardware components. If just mentioned a generic component like a 1K 0402 resistor, just name it as such, free to substitute. If you need some special integrated IC's show some sources like Mouser, Digikey, Farnell, or LCSC
+This design is made so flexible it accepts many different light detecting elements and LED's, some sensors/LED's tried out are are:
 * [SFH2440](https://www.osram.com/ecat/DIL%20SMT%20Ambient%20Light%20Sensor%20SFH%202440/com/en/class_pim_web_catalog_103489/global/prd_pim_device_2219615/) Photodiode
-* Shine through PCB mount LEDs
+* [SFH3710](https://lcsc.com/product-detail/Sensors_OSRAM_SFH3710-Z_SFH-3710-Z_C129152.html) Phototransistor
+* [NCD0805G1](https://lcsc.com/product-detail/Light-Emitting-Diodes-LED_Emerald-SMDLED-Iv-220-270mcd-atIF-5mA_C84260.html) 525nm LED
+* [SIR15-21C/TR8 ](https://lcsc.com/product-detail/Others_Everlight-Elec-SIR15-21C-TR8_C264405.html) 875nm IR LED
 ## Pictures
