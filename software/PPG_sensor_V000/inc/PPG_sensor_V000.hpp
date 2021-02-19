@@ -44,7 +44,7 @@ SOFTWARE.
 #define PIN_UART_RX         (17u)
 
 #define UART_DEBUG          LPC_USART0
-#define UART_BAUD_RATE      (115200u)
+#define UART_BAUD_RATE      (500000u)
 
 #define CLOCK_MAIN_SOURCE   SYSCTL_MAINCLKSRC_PLLOUT
 
