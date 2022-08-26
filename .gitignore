@@ -19,47 +19,35 @@ Release/
 *.lib
 
 # Executables
+*.exe
+*.out
+*.app
 bin/
 
-#miscellanious generated files
+# miscellanious generated files
 *.log
 disassemblies/
 
 # doxygen output
-documentation/
+doxyOutput/
 
-# For PCBs designed using KiCad: http://www.kicad-pcb.org/
+#vscode files that are better ignored
+settings.json
 
-# Temporary files
-*.000
-*.bak
-*.bck
+#kicad temporaries
 *.kicad_pcb-bak
 *.sch-bak
-*~
-_autosave-*
-*.tmp
-
-# Netlist files (exported from Eeschema)
 *.net
-
-# Autorouter files (exported from Pcbnew)
-*.dsn
-*.ses
-
-# Exported BOM files
-*.xml
-*.csv
-
-# additional directories
-rescue-backup/
-
-#various caches
+*.tmp
+*.bak
+_autosave*
 fp-info-cache
 *-cache.lib
 
-#vscode files
-settings.json
+# kicad 6 temporaries and local settings
+*-backups/
+*.kicad_prl
+\#auto_saved_files\#
 
 # kicad outputs
 plots/
@@ -67,3 +55,12 @@ plots-*/
 *_plots_*/
 *_plots/
 *.zip
+
+# freecad backup files
+*.FCStd?
+
+# ignore STL files, you can add them by forcing it
+*.stl
+
+#cortex debug temporaries
+.cortex-debug*
